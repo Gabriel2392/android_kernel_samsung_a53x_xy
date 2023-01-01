@@ -7125,12 +7125,6 @@ CONFIG_SB_VOTE=y
 
 CONFIG_SEC_KQ_MESH=m
 
-#
-# samsung Performace manager
-#
-# CONFIG_KPERFMON is not set
-# end of samsung Performace manager
-
 CONFIG_VIBRATOR_VIB_INFO=m
 CONFIG_INPUT_SEC_INPUT=m
 CONFIG_SEC_DEBUG_TSP_LOG=m
