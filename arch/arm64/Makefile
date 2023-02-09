@@ -160,6 +160,8 @@ KBUILD_IMAGE	:= $(boot)/Image.gz
 # Don't compile Image in mixed build with "all" target
 ifndef KBUILD_MIXED_TREE
 all:	Image.gz
+else
+all:    Image
 endif
 
 
