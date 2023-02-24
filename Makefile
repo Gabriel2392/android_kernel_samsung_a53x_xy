@@ -18,6 +18,22 @@ $(if $(filter __%, $(MAKECMDGOALS)), \
 PHONY := __all
 __all:
 
+# Set variables while building with aosp build system
+ARCH := arm64
+CROSS_COMPILE := aarch64-linux-gnu-
+PLATFORM_VERSION ?= 12
+ANDROID_MAJOR_VERSION ?= s
+LLVM := 1
+LLVM_IAS := 1
+
+# Export them
+export ARCH
+export CROSS_COMPILE
+export PLATFORM_VERSION
+export ANDROID_MAJOR_VERSION
+export LLVM
+export LLVM_IAS
+
 # We are using a recursive build, so we need to do a little thinking
 # to get the ordering right.
 #
