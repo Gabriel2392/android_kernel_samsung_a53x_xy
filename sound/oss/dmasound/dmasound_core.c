@@ -1460,7 +1460,7 @@ void dmasound_deinit(void)
 
 #else /* !MODULE */
 
-static int dmasound_setup(char *str)
+static int __maybe_unused dmasound_setup(char *str)
 {
 	int ints[6], size;
 

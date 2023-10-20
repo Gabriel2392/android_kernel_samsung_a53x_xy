@@ -3341,7 +3341,7 @@
 
 	v1p05-regulator {
 		compatible = "regulator-fixed";
-		reglator-name = "v1p05";
+		regulator-name = "v1p05";
 		regulator-always-on;
 		regulator-boot-on;
 		regulator-min-microvolt = <0x100590>;
@@ -3352,7 +3352,7 @@
 
 	v12-poe-regulator {
 		compatible = "regulator-fixed";
-		reglator-name = "v12_poe";
+		regulator-name = "v12_poe";
 		regulator-always-on;
 		regulator-boot-on;
 		regulator-min-microvolt = <0xb71b00>;

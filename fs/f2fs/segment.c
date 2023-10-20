@@ -587,7 +587,7 @@ do_sync:
 		mutex_lock(&sbi->flush_lock);
 
 		blk_start_plug(&plug);
-		f2fs_sync_dirty_inodes(sbi, FILE_INODE);
+		f2fs_sync_dirty_inodes(sbi, FILE_INODE, NULL);
 		blk_finish_plug(&plug);
 
 		mutex_unlock(&sbi->flush_lock);
@@ -4601,6 +4601,12 @@ static int build_sit_entries(struct f2fs_sb_info *sbi)
 			}
 			seg_info_from_raw_sit(se, &sit);
 
+			if (se->type >= NR_PERSISTENT_LOG) {
+				f2fs_err(sbi, "Invalid segment type: %u, segno: %u",
+							se->type, start);
+				return -EFSCORRUPTED;
+			}
+
 			sit_valid_blocks[SE_PAGETYPE(se)] += se->valid_blocks;
 
 			/* build discard map only one time */
@@ -4649,6 +4655,13 @@ static int build_sit_entries(struct f2fs_sb_info *sbi)
 			break;
 		}
 		seg_info_from_raw_sit(se, &sit);
+
+		if (se->type >= NR_PERSISTENT_LOG) {
+			f2fs_err(sbi, "Invalid segment type: %u, segno: %u",
+							se->type, start);
+			err = -EFSCORRUPTED;
+			break;
+		}
 
 		sit_valid_blocks[SE_PAGETYPE(se)] += se->valid_blocks;
 

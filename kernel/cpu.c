@@ -46,6 +46,7 @@
 #include <trace/hooks/sched.h>
 #include <trace/hooks/cpu.h>
 
+#include "sched/sched.h"
 #include "smpboot.h"
 
 /**
@@ -1162,8 +1163,6 @@ int remove_cpu(unsigned int cpu)
 }
 EXPORT_SYMBOL_GPL(remove_cpu);
 
-extern bool dl_cpu_busy(unsigned int cpu);
-
 int __pause_drain_rq(struct cpumask *cpus)
 {
 	unsigned int cpu;
@@ -1237,7 +1236,7 @@ int pause_cpus(struct cpumask *cpus)
 	cpumask_and(cpus, cpus, cpu_active_mask);
 
 	for_each_cpu(cpu, cpus) {
-		if (!cpu_online(cpu) || dl_cpu_busy(cpu) ||
+		if (!cpu_online(cpu) || dl_bw_check_overflow(cpu) ||
 			get_cpu_device(cpu)->offline_disabled == true) {
 			err = -EBUSY;
 			goto err_cpu_maps_update;
@@ -2558,8 +2557,10 @@ static ssize_t write_cpuhp_target(struct device *dev,
 
 	if (st->state < target)
 		ret = cpu_up(dev->id, target);
-	else
+	else if (st->state > target)
 		ret = cpu_down(dev->id, target);
+	else if (WARN_ON(st->target != target))
+		st->target = target;
 out:
 	unlock_device_hotplug();
 	return ret ? ret : count;

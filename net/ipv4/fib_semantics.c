@@ -277,7 +277,8 @@ void fib_release_info(struct fib_info *fi)
 				hlist_del(&nexthop_nh->nh_hash);
 			} endfor_nexthops(fi)
 		}
-		fi->fib_dead = 1;
+		/* Paired with READ_ONCE() from fib_table_lookup() */
+		WRITE_ONCE(fi->fib_dead, 1);
 		fib_info_put(fi);
 	}
 	spin_unlock_bh(&fib_info_lock);
@@ -423,6 +424,7 @@ static struct fib_info *fib_find_info(struct fib_info *nfi)
 		    nfi->fib_prefsrc == fi->fib_prefsrc &&
 		    nfi->fib_priority == fi->fib_priority &&
 		    nfi->fib_type == fi->fib_type &&
+		    nfi->fib_tb_id == fi->fib_tb_id &&
 		    memcmp(nfi->fib_metrics, fi->fib_metrics,
 			   sizeof(u32) * RTAX_MAX) == 0 &&
 		    !((nfi->fib_flags ^ fi->fib_flags) & ~RTNH_COMPARE_MASK) &&
@@ -887,12 +889,14 @@ int fib_nh_match(struct net *net, struct fib_config *cfg, struct fib_info *fi,
 		return 1;
 	}
 
+	if (fi->nh) {
+		if (cfg->fc_oif || cfg->fc_gw_family || cfg->fc_mp)
+			return 1;
+		return 0;
+	}
+
 	if (cfg->fc_oif || cfg->fc_gw_family) {
 		struct fib_nh *nh;
-
-		/* cannot match on nexthop object attributes */
-		if (fi->nh)
-			return 1;
 
 		nh = fib_info_nh(fi, 0);
 		if (cfg->fc_encap) {
@@ -1594,6 +1598,7 @@ struct fib_info *fib_create_info(struct fib_config *cfg,
 link_it:
 	ofi = fib_find_info(fi);
 	if (ofi) {
+		/* fib_table_lookup() should not see @fi yet. */
 		fi->fib_dead = 1;
 		free_fib_info(fi);
 		ofi->fib_treeref++;
@@ -1632,6 +1637,7 @@ err_inval:
 
 failure:
 	if (fi) {
+		/* fib_table_lookup() should not see @fi yet. */
 		fi->fib_dead = 1;
 		free_fib_info(fi);
 	}

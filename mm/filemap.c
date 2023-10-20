@@ -2228,6 +2228,9 @@ ssize_t generic_file_buffered_read(struct kiocb *iocb,
 
 	if (unlikely(*ppos >= inode->i_sb->s_maxbytes))
 		return 0;
+	if (unlikely(!iov_iter_count(iter)))
+		return 0;
+
 	iov_iter_truncate(iter, inode->i_sb->s_maxbytes);
 
 	index = *ppos >> PAGE_SHIFT;
@@ -3518,7 +3521,7 @@ ssize_t generic_perform_write(struct file *file,
 		unsigned long offset;	/* Offset into pagecache page */
 		unsigned long bytes;	/* Bytes to write to page */
 		size_t copied;		/* Bytes copied from user */
-		void *fsdata;
+		void *fsdata = NULL;
 
 		offset = (pos & (PAGE_SIZE - 1));
 		bytes = min_t(unsigned long, PAGE_SIZE - offset,
