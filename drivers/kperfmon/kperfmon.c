@@ -7,7 +7,7 @@
 #define BUFFER_SIZE 1024
 
 #define PROC_NAME "kperfmon"
-#define MESSAGE "kperfmon_version [1.0.1]   kperfmon_read : 0x39b76d0,  kperfmon_write : 0x39b76b8\njava_version [U14.1.0]\nnativelib_version [U14.1.0]\nperfmond_version [U14.3.0]\n[01-01 00:00:00.000 1  1181     0 (  2)][LOG][LCDV] ON\n"
+#define MESSAGE "kperfmon_version [1.0.1]   kperfmon_read : 0x39b76d0,  kperfmon_write : 0x39b76b8\njava_version [U14.1.0]\nnativelib_version [U14.1.0]\nperfmond_version [U14.3.0]\nExynosUnbound_version [v2.0]\n[01-01 00:00:00.000 1  1181     0 (  2)][LOG][LCDV] ON\n"
 
 static ssize_t proc_read(struct file *file, char *buf, size_t count, loff_t *pos);
 static int proc_open(struct inode *inode, struct file *file);
