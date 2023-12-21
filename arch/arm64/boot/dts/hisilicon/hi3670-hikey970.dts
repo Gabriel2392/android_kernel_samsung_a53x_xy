@@ -1,7 +1,7 @@
 /dts-v1/;
 
 / {
-	compatible = "hisilicon,hi3670-hikey970\0hisilicon,hi3670";
+	compatible = "hisilicon,hi3670-hikey970", "hisilicon,hi3670";
 	interrupt-parent = <0x01>;
 	#address-cells = <0x02>;
 	#size-cells = <0x02>;
@@ -146,67 +146,67 @@
 		ranges;
 
 		crg_ctrl@fff35000 {
-			compatible = "hisilicon,hi3670-crgctrl\0syscon";
+			compatible = "hisilicon,hi3670-crgctrl", "syscon";
 			reg = <0x00 0xfff35000 0x00 0x1000>;
 			#clock-cells = <0x01>;
 			phandle = <0x0a>;
 		};
 
 		crg_rst_controller {
-			compatible = "hisilicon,hi3670-reset\0hisilicon,hi3660-reset";
+			compatible = "hisilicon,hi3670-reset", "hisilicon,hi3660-reset";
 			#reset-cells = <0x02>;
 			hisi,rst-syscon = <0x0a>;
 			phandle = <0x1a>;
 		};
 
 		pctrl@e8a09000 {
-			compatible = "hisilicon,hi3670-pctrl\0syscon";
+			compatible = "hisilicon,hi3670-pctrl", "syscon";
 			reg = <0x00 0xe8a09000 0x00 0x1000>;
 			#clock-cells = <0x01>;
 			phandle = <0x28>;
 		};
 
 		crg_ctrl@fff34000 {
-			compatible = "hisilicon,hi3670-pmuctrl\0syscon";
+			compatible = "hisilicon,hi3670-pmuctrl", "syscon";
 			reg = <0x00 0xfff34000 0x00 0x1000>;
 			#clock-cells = <0x01>;
 			phandle = <0x29>;
 		};
 
 		sctrl@fff0a000 {
-			compatible = "hisilicon,hi3670-sctrl\0syscon";
+			compatible = "hisilicon,hi3670-sctrl", "syscon";
 			reg = <0x00 0xfff0a000 0x00 0x1000>;
 			#clock-cells = <0x01>;
 			phandle = <0x18>;
 		};
 
 		iomcu@ffd7e000 {
-			compatible = "hisilicon,hi3670-iomcu\0syscon";
+			compatible = "hisilicon,hi3670-iomcu", "syscon";
 			reg = <0x00 0xffd7e000 0x00 0x1000>;
 			#clock-cells = <0x01>;
 			phandle = <0x2a>;
 		};
 
 		media1_crgctrl@e87ff000 {
-			compatible = "hisilicon,hi3670-media1-crg\0syscon";
+			compatible = "hisilicon,hi3670-media1-crg", "syscon";
 			reg = <0x00 0xe87ff000 0x00 0x1000>;
 			#clock-cells = <0x01>;
 			phandle = <0x2b>;
 		};
 
 		media2_crgctrl@e8900000 {
-			compatible = "hisilicon,hi3670-media2-crg\0syscon";
+			compatible = "hisilicon,hi3670-media2-crg", "syscon";
 			reg = <0x00 0xe8900000 0x00 0x1000>;
 			#clock-cells = <0x01>;
 			phandle = <0x2c>;
 		};
 
 		serial@fdf02000 {
-			compatible = "arm,pl011\0arm,primecell";
+			compatible = "arm,pl011", "arm,primecell";
 			reg = <0x00 0xfdf02000 0x00 0x1000>;
 			interrupts = <0x00 0x4a 0x04>;
 			clocks = <0x0a 0xb2 0x0a 0x0d>;
-			clock-names = "uartclk\0apb_pclk";
+			clock-names = "uartclk", "apb_pclk";
 			pinctrl-names = "default";
 			pinctrl-0 = <0x0b 0x0c>;
 			status = "okay";
@@ -215,22 +215,22 @@
 		};
 
 		serial@fdf00000 {
-			compatible = "arm,pl011\0arm,primecell";
+			compatible = "arm,pl011", "arm,primecell";
 			reg = <0x00 0xfdf00000 0x00 0x1000>;
 			interrupts = <0x00 0x4b 0x04>;
 			clocks = <0x0a 0xaa 0x0a 0x0d>;
-			clock-names = "uartclk\0apb_pclk";
+			clock-names = "uartclk", "apb_pclk";
 			pinctrl-names = "default";
 			status = "disabled";
 			phandle = <0x2e>;
 		};
 
 		serial@fdf03000 {
-			compatible = "arm,pl011\0arm,primecell";
+			compatible = "arm,pl011", "arm,primecell";
 			reg = <0x00 0xfdf03000 0x00 0x1000>;
 			interrupts = <0x00 0x4c 0x04>;
 			clocks = <0x0a 0xae 0x0a 0x0d>;
-			clock-names = "uartclk\0apb_pclk";
+			clock-names = "uartclk", "apb_pclk";
 			pinctrl-names = "default";
 			pinctrl-0 = <0x0d 0x0e>;
 			status = "okay";
@@ -239,11 +239,11 @@
 		};
 
 		serial@ffd74000 {
-			compatible = "arm,pl011\0arm,primecell";
+			compatible = "arm,pl011", "arm,primecell";
 			reg = <0x00 0xffd74000 0x00 0x1000>;
 			interrupts = <0x00 0x72 0x04>;
 			clocks = <0x0a 0x05 0x0a 0x0d>;
-			clock-names = "uartclk\0apb_pclk";
+			clock-names = "uartclk", "apb_pclk";
 			pinctrl-names = "default";
 			pinctrl-0 = <0x0f 0x10>;
 			status = "disabled";
@@ -251,11 +251,11 @@
 		};
 
 		serial@fdf01000 {
-			compatible = "arm,pl011\0arm,primecell";
+			compatible = "arm,pl011", "arm,primecell";
 			reg = <0x00 0xfdf01000 0x00 0x1000>;
 			interrupts = <0x00 0x4d 0x04>;
 			clocks = <0x0a 0xab 0x0a 0x0d>;
-			clock-names = "uartclk\0apb_pclk";
+			clock-names = "uartclk", "apb_pclk";
 			pinctrl-names = "default";
 			pinctrl-0 = <0x11 0x12>;
 			status = "disabled";
@@ -263,22 +263,22 @@
 		};
 
 		serial@fdf05000 {
-			compatible = "arm,pl011\0arm,primecell";
+			compatible = "arm,pl011", "arm,primecell";
 			reg = <0x00 0xfdf05000 0x00 0x1000>;
 			interrupts = <0x00 0x4e 0x04>;
 			clocks = <0x0a 0xaf 0x0a 0x0d>;
-			clock-names = "uartclk\0apb_pclk";
+			clock-names = "uartclk", "apb_pclk";
 			pinctrl-names = "default";
 			status = "disabled";
 			phandle = <0x32>;
 		};
 
 		serial@fff32000 {
-			compatible = "arm,pl011\0arm,primecell";
+			compatible = "arm,pl011", "arm,primecell";
 			reg = <0x00 0xfff32000 0x00 0x1000>;
 			interrupts = <0x00 0x4f 0x04>;
 			clocks = <0x0a 0x0f 0x0a 0x0d>;
-			clock-names = "uartclk\0apb_pclk";
+			clock-names = "uartclk", "apb_pclk";
 			pinctrl-names = "default";
 			pinctrl-0 = <0x13 0x14>;
 			status = "okay";
@@ -287,7 +287,7 @@
 		};
 
 		gpio@e8a0b000 {
-			compatible = "arm,pl061\0arm,primecell";
+			compatible = "arm,pl061", "arm,primecell";
 			reg = <0x00 0xe8a0b000 0x00 0x1000>;
 			interrupts = <0x00 0x54 0x04>;
 			gpio-controller;
@@ -297,12 +297,12 @@
 			#interrupt-cells = <0x02>;
 			clocks = <0x0a 0x7d>;
 			clock-names = "apb_pclk";
-			gpio-line-names = "\0TP901\0\0GPIO_003_USB_HUB_RESET_N\0NC\0[AP_GPS_REF_CLK]\0[I2C3_SCL]\0[I2C3_SDA]";
+			gpio-line-names = "", "TP901", "", "GPIO_003_USB_HUB_RESET_N", "NC", "[AP_GPS_REF_CLK]", "[I2C3_SCL]", "[I2C3_SDA]";
 			phandle = <0x34>;
 		};
 
 		gpio@e8a0c000 {
-			compatible = "arm,pl061\0arm,primecell";
+			compatible = "arm,pl061", "arm,primecell";
 			reg = <0x00 0xe8a0c000 0x00 0x1000>;
 			interrupts = <0x00 0x55 0x04>;
 			gpio-controller;
@@ -311,12 +311,12 @@
 			#interrupt-cells = <0x02>;
 			clocks = <0x0a 0x7e>;
 			clock-names = "apb_pclk";
-			gpio-line-names = "[UART0_CTS]\0[UART0_RTS]\0[UART0_TXD]\0[UART0_RXD]\0[USER_LED5]\0GPIO-I\0[USER_LED3]\0[USER_LED4]";
+			gpio-line-names = "[UART0_CTS]", "[UART0_RTS]", "[UART0_TXD]", "[UART0_RXD]", "[USER_LED5]", "GPIO-I", "[USER_LED3]", "[USER_LED4]";
 			phandle = <0x35>;
 		};
 
 		gpio@e8a0d000 {
-			compatible = "arm,pl061\0arm,primecell";
+			compatible = "arm,pl061", "arm,primecell";
 			reg = <0x00 0xe8a0d000 0x00 0x1000>;
 			interrupts = <0x00 0x56 0x04>;
 			gpio-controller;
@@ -326,12 +326,12 @@
 			#interrupt-cells = <0x02>;
 			clocks = <0x0a 0x7f>;
 			clock-names = "apb_pclk";
-			gpio-line-names = "GPIO-G\0[CSI0_MCLK]\0[CSI1_MCLK]\0GPIO_019_BT_ACTIVE\0[I2C2_SCL]\0[I2C2_SDA]\0[I2C3_SCL]\0[I2C3_SDA]";
+			gpio-line-names = "GPIO-G", "[CSI0_MCLK]", "[CSI1_MCLK]", "GPIO_019_BT_ACTIVE", "[I2C2_SCL]", "[I2C2_SDA]", "[I2C3_SCL]", "[I2C3_SDA]";
 			phandle = <0x36>;
 		};
 
 		gpio@e8a0e000 {
-			compatible = "arm,pl061\0arm,primecell";
+			compatible = "arm,pl061", "arm,primecell";
 			reg = <0x00 0xe8a0e000 0x00 0x1000>;
 			interrupts = <0x00 0x57 0x04>;
 			gpio-controller;
@@ -341,12 +341,12 @@
 			#interrupt-cells = <0x02>;
 			clocks = <0x0a 0x80>;
 			clock-names = "apb_pclk";
-			gpio-line-names = "GPIO_024_WIFI_ACTIVE\0GPIO_025_PERST_M.2\0[I2C4_SCL]\0[I2C4_SDA]\0NC\0GPIO-H\0[USER_LED1]\0GPIO-L";
+			gpio-line-names = "GPIO_024_WIFI_ACTIVE", "GPIO_025_PERST_M.2", "[I2C4_SCL]", "[I2C4_SDA]", "NC", "GPIO-H", "[USER_LED1]", "GPIO-L";
 			phandle = <0x37>;
 		};
 
 		gpio@e8a0f000 {
-			compatible = "arm,pl061\0arm,primecell";
+			compatible = "arm,pl061", "arm,primecell";
 			reg = <0x00 0xe8a0f000 0x00 0x1000>;
 			interrupts = <0x00 0x58 0x04>;
 			gpio-controller;
@@ -356,12 +356,12 @@
 			#interrupt-cells = <0x02>;
 			clocks = <0x0a 0x81>;
 			clock-names = "apb_pclk";
-			gpio-line-names = "GPIO-K\0GPIO_033_PMU1_EN\0GPIO_034_USBSW_SEL\0[SD_DAT1]\0[SD_DAT2]\0[UART1_RXD]\0[UART1_TXD]\0[SOC_GPS_UART3_CTS_N]";
+			gpio-line-names = "GPIO-K", "GPIO_033_PMU1_EN", "GPIO_034_USBSW_SEL", "[SD_DAT1]", "[SD_DAT2]", "[UART1_RXD]", "[UART1_TXD]", "[SOC_GPS_UART3_CTS_N]";
 			phandle = <0x38>;
 		};
 
 		gpio@e8a10000 {
-			compatible = "arm,pl061\0arm,primecell";
+			compatible = "arm,pl061", "arm,primecell";
 			reg = <0x00 0xe8a10000 0x00 0x1000>;
 			interrupts = <0x00 0x59 0x04>;
 			gpio-controller;
@@ -371,12 +371,12 @@
 			#interrupt-cells = <0x02>;
 			clocks = <0x0a 0x82>;
 			clock-names = "apb_pclk";
-			gpio-line-names = "[SOC_GPS_UART3_RTS_N]\0[SOC_GPS_UART3_RXD]\0[SOC_GPS_UART3_TXD]\0[SOC_BT_UART4_CTS_N]\0[SOC_BT_UART4_RTS_N]\0[SOC_BT_UART4_RXD]\0[SOC_BT_UART4_TXD]\0NC";
+			gpio-line-names = "[SOC_GPS_UART3_RTS_N]", "[SOC_GPS_UART3_RXD]", "[SOC_GPS_UART3_TXD]", "[SOC_BT_UART4_CTS_N]", "[SOC_BT_UART4_RTS_N]", "[SOC_BT_UART4_RXD]", "[SOC_BT_UART4_TXD]", "NC";
 			phandle = <0x39>;
 		};
 
 		gpio@e8a11000 {
-			compatible = "arm,pl061\0arm,primecell";
+			compatible = "arm,pl061", "arm,primecell";
 			reg = <0x00 0xe8a11000 0x00 0x1000>;
 			interrupts = <0x00 0x5a 0x04>;
 			gpio-controller;
@@ -386,12 +386,12 @@
 			#interrupt-cells = <0x02>;
 			clocks = <0x0a 0x83>;
 			clock-names = "apb_pclk";
-			gpio-line-names = "NC\0GPIO_049_USER_LED6\0GPIO_050_CAN_RST\0GPIO_051_WIFI_EN\0GPIO-D\0GPIO-J\0GPIO_054_BT_EN\0[GPIO_055_SEL]";
+			gpio-line-names = "NC", "GPIO_049_USER_LED6", "GPIO_050_CAN_RST", "GPIO_051_WIFI_EN", "GPIO-D", "GPIO-J", "GPIO_054_BT_EN", "[GPIO_055_SEL]";
 			phandle = <0x27>;
 		};
 
 		gpio@e8a12000 {
-			compatible = "arm,pl061\0arm,primecell";
+			compatible = "arm,pl061", "arm,primecell";
 			reg = <0x00 0xe8a12000 0x00 0x1000>;
 			interrupts = <0x00 0x5b 0x04>;
 			gpio-controller;
@@ -401,12 +401,12 @@
 			#interrupt-cells = <0x02>;
 			clocks = <0x0a 0x84>;
 			clock-names = "apb_pclk";
-			gpio-line-names = "[PCIE_PERST_L]\0NC\0NC\0NC\0NC\0NC\0NC\0NC";
+			gpio-line-names = "[PCIE_PERST_L]", "NC", "NC", "NC", "NC", "NC", "NC", "NC";
 			phandle = <0x3a>;
 		};
 
 		gpio@e8a13000 {
-			compatible = "arm,pl061\0arm,primecell";
+			compatible = "arm,pl061", "arm,primecell";
 			reg = <0x00 0xe8a13000 0x00 0x1000>;
 			interrupts = <0x00 0x5c 0x04>;
 			gpio-controller;
@@ -416,12 +416,12 @@
 			#interrupt-cells = <0x02>;
 			clocks = <0x0a 0x85>;
 			clock-names = "apb_pclk";
-			gpio-line-names = "NC\0NC\0NC\0NC\0NC\0NC\0NC\0NC";
+			gpio-line-names = "NC", "NC", "NC", "NC", "NC", "NC", "NC", "NC";
 			phandle = <0x3b>;
 		};
 
 		gpio@e8a14000 {
-			compatible = "arm,pl061\0arm,primecell";
+			compatible = "arm,pl061", "arm,primecell";
 			reg = <0x00 0xe8a14000 0x00 0x1000>;
 			interrupts = <0x00 0x5d 0x04>;
 			gpio-controller;
@@ -431,12 +431,12 @@
 			#interrupt-cells = <0x02>;
 			clocks = <0x0a 0x86>;
 			clock-names = "apb_pclk";
-			gpio-line-names = "NC\0NC\0NC\0NC\0NC\0NC\0NC\0NC";
+			gpio-line-names = "NC", "NC", "NC", "NC", "NC", "NC", "NC", "NC";
 			phandle = <0x3c>;
 		};
 
 		gpio@e8a15000 {
-			compatible = "arm,pl061\0arm,primecell";
+			compatible = "arm,pl061", "arm,primecell";
 			reg = <0x00 0xe8a15000 0x00 0x1000>;
 			interrupts = <0x00 0x5e 0x04>;
 			gpio-controller;
@@ -446,12 +446,12 @@
 			#interrupt-cells = <0x02>;
 			clocks = <0x0a 0x87>;
 			clock-names = "apb_pclk";
-			gpio-line-names = "NC\0NC\0NC\0NC\0NC\0NC\0NC\0NC";
+			gpio-line-names = "NC", "NC", "NC", "NC", "NC", "NC", "NC", "NC";
 			phandle = <0x3d>;
 		};
 
 		gpio@e8a16000 {
-			compatible = "arm,pl061\0arm,primecell";
+			compatible = "arm,pl061", "arm,primecell";
 			reg = <0x00 0xe8a16000 0x00 0x1000>;
 			interrupts = <0x00 0x5f 0x04>;
 			gpio-controller;
@@ -461,12 +461,12 @@
 			#interrupt-cells = <0x02>;
 			clocks = <0x0a 0x88>;
 			clock-names = "apb_pclk";
-			gpio-line-names = "NC\0NC\0NC\0NC\0NC\0NC\0NC\0NC";
+			gpio-line-names = "NC", "NC", "NC", "NC", "NC", "NC", "NC", "NC";
 			phandle = <0x3e>;
 		};
 
 		gpio@e8a17000 {
-			compatible = "arm,pl061\0arm,primecell";
+			compatible = "arm,pl061", "arm,primecell";
 			reg = <0x00 0xe8a17000 0x00 0x1000>;
 			interrupts = <0x00 0x60 0x04>;
 			gpio-controller;
@@ -481,7 +481,7 @@
 		};
 
 		gpio@e8a18000 {
-			compatible = "arm,pl061\0arm,primecell";
+			compatible = "arm,pl061", "arm,primecell";
 			reg = <0x00 0xe8a18000 0x00 0x1000>;
 			interrupts = <0x00 0x61 0x04>;
 			gpio-controller;
@@ -495,7 +495,7 @@
 		};
 
 		gpio@e8a19000 {
-			compatible = "arm,pl061\0arm,primecell";
+			compatible = "arm,pl061", "arm,primecell";
 			reg = <0x00 0xe8a19000 0x00 0x1000>;
 			interrupts = <0x00 0x62 0x04>;
 			gpio-controller;
@@ -509,7 +509,7 @@
 		};
 
 		gpio@e8a1a000 {
-			compatible = "arm,pl061\0arm,primecell";
+			compatible = "arm,pl061", "arm,primecell";
 			reg = <0x00 0xe8a1a000 0x00 0x1000>;
 			interrupts = <0x00 0x63 0x04>;
 			gpio-controller;
@@ -523,7 +523,7 @@
 		};
 
 		gpio@e8a1b000 {
-			compatible = "arm,pl061\0arm,primecell";
+			compatible = "arm,pl061", "arm,primecell";
 			reg = <0x00 0xe8a1b000 0x00 0x1000>;
 			interrupts = <0x00 0x64 0x04>;
 			gpio-controller;
@@ -533,12 +533,12 @@
 			#interrupt-cells = <0x02>;
 			clocks = <0x0a 0x8d>;
 			clock-names = "apb_pclk";
-			gpio-line-names = "[WL_SDIO_CLK]\0[WL_SDIO_CMD]\0[WL_SDIO_DATA0]\0[WL_SDIO_DATA1]\0[WL_SDIO_DATA2]\0[WL_SDIO_DATA3]\0[ETH_ISOLATE]\0NC";
+			gpio-line-names = "[WL_SDIO_CLK]", "[WL_SDIO_CMD]", "[WL_SDIO_DATA0]", "[WL_SDIO_DATA1]", "[WL_SDIO_DATA2]", "[WL_SDIO_DATA3]", "[ETH_ISOLATE]", "NC";
 			phandle = <0x43>;
 		};
 
 		gpio@e8a1c000 {
-			compatible = "arm,pl061\0arm,primecell";
+			compatible = "arm,pl061", "arm,primecell";
 			reg = <0x00 0xe8a1c000 0x00 0x1000>;
 			interrupts = <0x00 0x65 0x04>;
 			gpio-controller;
@@ -548,12 +548,12 @@
 			#interrupt-cells = <0x02>;
 			clocks = <0x0a 0x8e>;
 			clock-names = "apb_pclk";
-			gpio-line-names = "[MINI1CLK_EN]\0NC\0\0\0\0\0\0";
+			gpio-line-names = "[MINI1CLK_EN]", "NC", "", "", "", "", "", "";
 			phandle = <0x44>;
 		};
 
 		gpio@fff28000 {
-			compatible = "arm,pl061\0arm,primecell";
+			compatible = "arm,pl061", "arm,primecell";
 			reg = <0x00 0xfff28000 0x00 0x1000>;
 			interrupts = <0x00 0x66 0x04>;
 			gpio-controller;
@@ -563,12 +563,12 @@
 			#interrupt-cells = <0x02>;
 			clocks = <0x18 0x12>;
 			clock-names = "apb_pclk";
-			gpio-line-names = "[SPI1_SCLK]\0[SPI1_DIN]\0[SPI1_DOUT]\0[SPI1_CS]\0[POWER_INT_N]\0[CDMA_GPS_SYNC]\0GPIO_150_PEX_INTA\0GPIO_151_CAN_INT";
+			gpio-line-names = "[SPI1_SCLK]", "[SPI1_DIN]", "[SPI1_DOUT]", "[SPI1_CS]", "[POWER_INT_N]", "[CDMA_GPS_SYNC]", "GPIO_150_PEX_INTA", "GPIO_151_CAN_INT";
 			phandle = <0x45>;
 		};
 
 		gpio@fff29000 {
-			compatible = "arm,pl061\0arm,primecell";
+			compatible = "arm,pl061", "arm,primecell";
 			reg = <0x00 0xfff29000 0x00 0x1000>;
 			interrupts = <0x00 0x67 0x04>;
 			gpio-controller;
@@ -583,7 +583,7 @@
 		};
 
 		gpio@e8a1f000 {
-			compatible = "arm,pl061\0arm,primecell";
+			compatible = "arm,pl061", "arm,primecell";
 			reg = <0x00 0xe8a1f000 0x00 0x1000>;
 			interrupts = <0x00 0x68 0x04>;
 			gpio-controller;
@@ -593,12 +593,12 @@
 			#interrupt-cells = <0x02>;
 			clocks = <0x0a 0x8f>;
 			clock-names = "apb_pclk";
-			gpio-line-names = "[SD_CLK]\0[SD_CMD]\0[SD_DATA0]\0[SD_DATA1]\0[SD_DATA2]\0[SD_DATA3]\0GPIO_166_ETHCLK_EN\0GPIO_167_USER_LED2";
+			gpio-line-names = "[SD_CLK]", "[SD_CMD]", "[SD_DATA0]", "[SD_DATA1]", "[SD_DATA2]", "[SD_DATA3]", "GPIO_166_ETHCLK_EN", "GPIO_167_USER_LED2";
 			phandle = <0x47>;
 		};
 
 		gpio@e8a20000 {
-			compatible = "arm,pl061\0arm,primecell";
+			compatible = "arm,pl061", "arm,primecell";
 			reg = <0x00 0xe8a20000 0x00 0x1000>;
 			interrupts = <0x00 0x69 0x04>;
 			gpio-controller;
@@ -608,12 +608,12 @@
 			#interrupt-cells = <0x02>;
 			clocks = <0x0a 0x90>;
 			clock-names = "apb_pclk";
-			gpio-line-names = "GPIO_168_GPS_EN\0GPIO-C\0GPIO-E\0GPIO-B\0\0\0\0\0";
+			gpio-line-names = "GPIO_168_GPS_EN", "GPIO-C", "GPIO-E", "GPIO-B", "", "", "", "", "";
 			phandle = <0x48>;
 		};
 
 		gpio@fff0b000 {
-			compatible = "arm,pl061\0arm,primecell";
+			compatible = "arm,pl061", "arm,primecell";
 			reg = <0x00 0xfff0b000 0x00 0x1000>;
 			interrupts = <0x00 0x6a 0x04>;
 			gpio-controller;
@@ -623,12 +623,12 @@
 			#interrupt-cells = <0x02>;
 			clocks = <0x18 0x18>;
 			clock-names = "apb_pclk";
-			gpio-line-names = "[PMU_PWR_HOLD]\0GPIO_177_WL_WAKEUP_AP\0[JTAG_TCK]\0[JTAG_TMS]\0[JTAG_TDI]\0[JTAG_TMS]\0GPIO_182_FATAL_ERR\0NC";
+			gpio-line-names = "[PMU_PWR_HOLD]", "GPIO_177_WL_WAKEUP_AP", "[JTAG_TCK]", "[JTAG_TMS]", "[JTAG_TDI]", "[JTAG_TMS]", "GPIO_182_FATAL_ERR", "NC";
 			phandle = <0x25>;
 		};
 
 		gpio@fff0c000 {
-			compatible = "arm,pl061\0arm,primecell";
+			compatible = "arm,pl061", "arm,primecell";
 			reg = <0x00 0xfff0c000 0x00 0x1000>;
 			interrupts = <0x00 0x6b 0x04>;
 			gpio-controller;
@@ -638,12 +638,12 @@
 			#interrupt-cells = <0x02>;
 			clocks = <0x18 0x19>;
 			clock-names = "apb_pclk";
-			gpio-line-names = "GPIO_184_JTAG_SEL\0GPIO-F\0[I2C0_SCL]\0[I2C0_SDA]\0[GPIO_188_I2C1_SCL]\0[GPIO_189_I2C1_SDA]\0[I2C1_SCL]\0[I2C2_SDA]";
+			gpio-line-names = "GPIO_184_JTAG_SEL", "GPIO-F", "[I2C0_SCL]", "[I2C0_SDA]", "[GPIO_188_I2C1_SCL]", "[GPIO_189_I2C1_SDA]", "[I2C1_SCL]", "[I2C2_SDA]";
 			phandle = <0x49>;
 		};
 
 		gpio@fff0d000 {
-			compatible = "arm,pl061\0arm,primecell";
+			compatible = "arm,pl061", "arm,primecell";
 			reg = <0x00 0xfff0d000 0x00 0x1000>;
 			interrupts = <0x00 0x6c 0x04>;
 			gpio-controller;
@@ -653,12 +653,12 @@
 			#interrupt-cells = <0x02>;
 			clocks = <0x18 0x1a>;
 			clock-names = "apb_pclk";
-			gpio-line-names = "[SD_LED]\0NC\0[PCM_DI]\0[PCM_DO]\0[PCM_CLK]\0[PCM_FS]\0\0[I2S2_DO]";
+			gpio-line-names = "[SD_LED]", "NC", "[PCM_DI]", "[PCM_DO]", "[PCM_CLK]", "[PCM_FS]", "", "[I2S2_DO]";
 			phandle = <0x4a>;
 		};
 
 		gpio@fff0e000 {
-			compatible = "arm,pl061\0arm,primecell";
+			compatible = "arm,pl061", "arm,primecell";
 			reg = <0x00 0xfff0e000 0x00 0x1000>;
 			interrupts = <0x00 0x6d 0x04>;
 			gpio-controller;
@@ -668,12 +668,12 @@
 			#interrupt-cells = <0x02>;
 			clocks = <0x18 0x1b>;
 			clock-names = "apb_pclk";
-			gpio-line-names = "[I2S2_XCLK]\0[I2S2_XFS]\0GPIO_202_PERST_ETH\0GPIO_203_PWRON_DET\0GPIO_204_PMU1_IRQ_N\0GPIO_205_SD_DET\0GPIO_206_GPS_MOTION_INT\0GPIO_207_HDMI_SEL";
+			gpio-line-names = "[I2S2_XCLK]", "[I2S2_XFS]", "GPIO_202_PERST_ETH", "GPIO_203_PWRON_DET", "GPIO_204_PMU1_IRQ_N", "GPIO_205_SD_DET", "GPIO_206_GPS_MOTION_INT", "GPIO_207_HDMI_SEL";
 			phandle = <0x1b>;
 		};
 
 		gpio@fff0f000 {
-			compatible = "arm,pl061\0arm,primecell";
+			compatible = "arm,pl061", "arm,primecell";
 			reg = <0x00 0xfff0f000 0x00 0x1000>;
 			interrupts = <0x00 0x6e 0x04>;
 			gpio-controller;
@@ -683,12 +683,12 @@
 			#interrupt-cells = <0x02>;
 			clocks = <0x18 0x1c>;
 			clock-names = "apb_pclk";
-			gpio-line-names = "GPIO-A\0GPIO_209_VBUS_TYPEC\0NC\0NC\0NC\0[SPI0_SCLK]\0[SPI0_DIN]\0[SPI0_DOUT]";
+			gpio-line-names = "GPIO-A", "GPIO_209_VBUS_TYPEC", "NC", "NC", "NC", "[SPI0_SCLK]", "[SPI0_DIN]", "[SPI0_DOUT]";
 			phandle = <0x4b>;
 		};
 
 		gpio@fff10000 {
-			compatible = "arm,pl061\0arm,primecell";
+			compatible = "arm,pl061", "arm,primecell";
 			reg = <0x00 0xfff10000 0x00 0x1000>;
 			interrupts = <0x00 0x6f 0x04>;
 			gpio-controller;
@@ -698,12 +698,12 @@
 			#interrupt-cells = <0x02>;
 			clocks = <0x18 0x1d>;
 			clock-names = "apb_pclk";
-			gpio-line-names = "[SPI0_CS]\0GPIO_217_HDMI_PD\0GPIO_218_GPS_WAKEUP_AP\0GPIO_219_M.2CLK_EN\0GPIO_220_PERST_MINI\0GPIO_221_CC_INT\0[PCIE_CLKREQ_L]\0NC";
+			gpio-line-names = "[SPI0_CS]", "GPIO_217_HDMI_PD", "GPIO_218_GPS_WAKEUP_AP", "GPIO_219_M.2CLK_EN", "GPIO_220_PERST_MINI", "GPIO_221_CC_INT", "[PCIE_CLKREQ_L]", "NC";
 			phandle = <0x4c>;
 		};
 
 		gpio@fff1d000 {
-			compatible = "arm,pl061\0arm,primecell";
+			compatible = "arm,pl061", "arm,primecell";
 			reg = <0x00 0xfff1d000 0x00 0x1000>;
 			interrupts = <0x00 0x8d 0x04>;
 			gpio-controller;
@@ -713,17 +713,17 @@
 			#interrupt-cells = <0x02>;
 			clocks = <0x18 0x1e>;
 			clock-names = "apb_pclk";
-			gpio-line-names = "[PMU0_INT]\0[SPMI_DATA]\0[SPMI_CLK]\0[CAN_SPI_CLK]\0[CAN_SPI_DI]\0[CAN_SPI_DO]\0[CAN_SPI_CS]\0GPIO_231_HDMI_INT";
+			gpio-line-names = "[PMU0_INT]", "[SPMI_DATA]", "[SPMI_CLK]", "[CAN_SPI_CLK]", "[CAN_SPI_DI]", "[CAN_SPI_DO]", "[CAN_SPI_CS]", "GPIO_231_HDMI_INT";
 			phandle = <0x4d>;
 		};
 
 		ufs@ff3c0000 {
-			compatible = "hisilicon,hi3670-ufs\0jedec,ufs-2.1";
+			compatible = "hisilicon,hi3670-ufs", "jedec,ufs-2.1";
 			reg = <0x00 0xff3c0000 0x00 0x1000 0x00 0xff3e0000 0x00 0x1000>;
 			interrupt-parent = <0x01>;
 			interrupts = <0x00 0x116 0x04>;
 			clocks = <0x0a 0x17 0x0a 0x16>;
-			clock-names = "ref_clk\0phy_clk";
+			clock-names = "ref_clk", "phy_clk";
 			freq-table-hz = <0x00 0x00 0x00 0x00>;
 			resets = <0x1a 0x84 0x0c>;
 			reset-names = "rst";
@@ -731,13 +731,13 @@
 		};
 
 		dwmmc1@ff37f000 {
-			compatible = "hisilicon,hi3670-dw-mshc\0hisilicon,hi3660-dw-mshc";
+			compatible = "hisilicon,hi3670-dw-mshc", "hisilicon,hi3660-dw-mshc";
 			reg = <0x00 0xff37f000 0x00 0x1000>;
 			#address-cells = <0x01>;
 			#size-cells = <0x00>;
 			interrupts = <0x00 0x8b 0x04>;
 			clocks = <0x0a 0x9f 0x0a 0xa0>;
-			clock-names = "ciu\0biu";
+			clock-names = "ciu", "biu";
 			clock-frequency = <0x30d400>;
 			resets = <0x1a 0x94 0x12>;
 			reset-names = "reset";
@@ -761,13 +761,13 @@
 		};
 
 		dwmmc2@fc183000 {
-			compatible = "hisilicon,hi3670-dw-mshc\0hisilicon,hi3660-dw-mshc";
+			compatible = "hisilicon,hi3670-dw-mshc", "hisilicon,hi3660-dw-mshc";
 			reg = <0x00 0xfc183000 0x00 0x1000>;
 			#address-cells = <0x01>;
 			#size-cells = <0x00>;
 			interrupts = <0x00 0x8c 0x04>;
 			clocks = <0x0a 0xa1 0x0a 0x95>;
-			clock-names = "ciu\0biu";
+			clock-names = "ciu", "biu";
 			clock-frequency = <0x30d400>;
 			resets = <0x1a 0x94 0x14>;
 			reset-names = "reset";

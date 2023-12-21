@@ -5,7 +5,7 @@
 	#address-cells = <0x01>;
 	#size-cells = <0x01>;
 	model = "Pinebook";
-	compatible = "pine64,pinebook\0allwinner,sun50i-a64";
+	compatible = "pine64,pinebook", "allwinner,sun50i-a64";
 
 	chosen {
 		#address-cells = <0x01>;
@@ -14,7 +14,7 @@
 		stdout-path = "serial0:115200n8";
 
 		framebuffer-lcd {
-			compatible = "allwinner,simple-framebuffer\0simple-framebuffer";
+			compatible = "allwinner,simple-framebuffer", "simple-framebuffer";
 			allwinner,pipeline = "mixer0-lcd0";
 			clocks = <0x02 0x64 0x03 0x06>;
 			status = "disabled";
@@ -25,7 +25,7 @@
 		};
 
 		framebuffer-hdmi {
-			compatible = "allwinner,simple-framebuffer\0simple-framebuffer";
+			compatible = "allwinner,simple-framebuffer", "simple-framebuffer";
 			allwinner,pipeline = "mixer1-lcd1-hdmi";
 			clocks = <0x03 0x07 0x02 0x65 0x02 0x6e>;
 			status = "disabled";
@@ -143,9 +143,9 @@
 		simple-audio-card,bitclock-master = <0x11>;
 		simple-audio-card,mclk-fs = <0x80>;
 		simple-audio-card,aux-devs = <0x12 0x13>;
-		simple-audio-card,routing = "Left DAC\0DACL\0Right DAC\0DACR\0Speaker Amp INL\0LINEOUT\0Speaker Amp INR\0LINEOUT\0Internal Speaker\0Speaker Amp OUTL\0Internal Speaker\0Speaker Amp OUTR\0Headphone Jack\0HP\0ADCL\0Left ADC\0ADCR\0Right ADC\0Internal Microphone Left\0MBIAS\0MIC1\0Internal Microphone Left\0Internal Microphone Right\0HBIAS\0MIC2\0Internal Microphone Right";
+		simple-audio-card,routing = "Left DAC", "DACL", "Right DAC", "DACR", "Speaker Amp INL", "LINEOUT", "Speaker Amp INR", "LINEOUT", "Internal Speaker", "Speaker Amp OUTL", "Internal Speaker", "Speaker Amp OUTR", "Headphone Jack", "HP", "ADCL", "Left ADC", "ADCR", "Right ADC", "Internal Microphone Left", "MBIAS", "MIC1", "Internal Microphone Left", "Internal Microphone Right", "HBIAS", "MIC2", "Internal Microphone Right";
 		status = "okay";
-		simple-audio-card,widgets = "Microphone\0Internal Microphone Left\0Microphone\0Internal Microphone Right\0Headphone\0Headphone Jack\0Speaker\0Internal Speaker";
+		simple-audio-card,widgets = "Microphone", "Internal Microphone Left", "Microphone", "Internal Microphone Right", "Headphone", "Headphone Jack", "Speaker", "Internal Speaker";
 		phandle = <0x58>;
 
 		simple-audio-card,cpu {
@@ -245,7 +245,7 @@
 				compatible = "allwinner,sun50i-a64-de2-clk";
 				reg = <0x00 0x10000>;
 				clocks = <0x02 0x34 0x02 0x63>;
-				clock-names = "bus\0mod";
+				clock-names = "bus", "mod";
 				resets = <0x02 0x1e>;
 				#clock-cells = <0x01>;
 				#reset-cells = <0x01>;
@@ -253,11 +253,11 @@
 			};
 
 			rotate@20000 {
-				compatible = "allwinner,sun50i-a64-de2-rotate\0allwinner,sun8i-a83t-de2-rotate";
+				compatible = "allwinner,sun50i-a64-de2-rotate", "allwinner,sun8i-a83t-de2-rotate";
 				reg = <0x20000 0x10000>;
 				interrupts = <0x00 0x60 0x04>;
 				clocks = <0x03 0x09 0x03 0x0a>;
-				clock-names = "bus\0mod";
+				clock-names = "bus", "mod";
 				resets = <0x03 0x03>;
 				phandle = <0x5e>;
 			};
@@ -266,7 +266,7 @@
 				compatible = "allwinner,sun50i-a64-de2-mixer-0";
 				reg = <0x100000 0x100000>;
 				clocks = <0x03 0x00 0x03 0x06>;
-				clock-names = "bus\0mod";
+				clock-names = "bus", "mod";
 				resets = <0x03 0x00>;
 				status = "okay";
 				phandle = <0x0b>;
@@ -300,7 +300,7 @@
 				compatible = "allwinner,sun50i-a64-de2-mixer-1";
 				reg = <0x200000 0x100000>;
 				clocks = <0x03 0x01 0x03 0x07>;
-				clock-names = "bus\0mod";
+				clock-names = "bus", "mod";
 				resets = <0x03 0x01>;
 				phandle = <0x0c>;
 
@@ -362,7 +362,7 @@
 				phandle = <0x62>;
 
 				sram-section@0 {
-					compatible = "allwinner,sun50i-a64-sram-c1\0allwinner,sun4i-a10-sram-c1";
+					compatible = "allwinner,sun50i-a64-sram-c1", "allwinner,sun4i-a10-sram-c1";
 					reg = <0x00 0x40000>;
 					phandle = <0x26>;
 				};
@@ -382,15 +382,15 @@
 		};
 
 		lcd-controller@1c0c000 {
-			compatible = "allwinner,sun50i-a64-tcon-lcd\0allwinner,sun8i-a83t-tcon-lcd";
+			compatible = "allwinner,sun50i-a64-tcon-lcd", "allwinner,sun8i-a83t-tcon-lcd";
 			reg = <0x1c0c000 0x1000>;
 			interrupts = <0x00 0x56 0x04>;
 			clocks = <0x02 0x2f 0x02 0x64>;
-			clock-names = "ahb\0tcon-ch0";
+			clock-names = "ahb", "tcon-ch0";
 			clock-output-names = "tcon-pixel-clock";
 			#clock-cells = <0x00>;
 			resets = <0x02 0x18 0x02 0x23>;
-			reset-names = "lcd\0lvds";
+			reset-names = "lcd", "lvds";
 			pinctrl-names = "default";
 			pinctrl-0 = <0x1e>;
 			status = "okay";
@@ -441,11 +441,11 @@
 		};
 
 		lcd-controller@1c0d000 {
-			compatible = "allwinner,sun50i-a64-tcon-tv\0allwinner,sun8i-a83t-tcon-tv";
+			compatible = "allwinner,sun50i-a64-tcon-tv", "allwinner,sun8i-a83t-tcon-tv";
 			reg = <0x1c0d000 0x1000>;
 			interrupts = <0x00 0x57 0x04>;
 			clocks = <0x02 0x30 0x02 0x65>;
-			clock-names = "ahb\0tcon-ch1";
+			clock-names = "ahb", "tcon-ch1";
 			resets = <0x02 0x19>;
 			reset-names = "lcd";
 			phandle = <0x66>;
@@ -492,7 +492,7 @@
 			compatible = "allwinner,sun50i-a64-video-engine";
 			reg = <0x1c0e000 0x1000>;
 			clocks = <0x02 0x2e 0x02 0x6a 0x02 0x5f>;
-			clock-names = "ahb\0mod\0ram";
+			clock-names = "ahb", "mod", "ram";
 			resets = <0x02 0x17>;
 			interrupts = <0x00 0x3a 0x04>;
 			allwinner,sram = <0x26 0x01>;
@@ -502,7 +502,7 @@
 			compatible = "allwinner,sun50i-a64-mmc";
 			reg = <0x1c0f000 0x1000>;
 			clocks = <0x02 0x1f 0x02 0x4b>;
-			clock-names = "ahb\0mmc";
+			clock-names = "ahb", "mmc";
 			resets = <0x02 0x08>;
 			reset-names = "ahb";
 			interrupts = <0x00 0x3c 0x04>;
@@ -523,7 +523,7 @@
 			compatible = "allwinner,sun50i-a64-mmc";
 			reg = <0x1c10000 0x1000>;
 			clocks = <0x02 0x20 0x02 0x4c>;
-			clock-names = "ahb\0mmc";
+			clock-names = "ahb", "mmc";
 			resets = <0x02 0x09>;
 			reset-names = "ahb";
 			interrupts = <0x00 0x3d 0x04>;
@@ -550,7 +550,7 @@
 			compatible = "allwinner,sun50i-a64-emmc";
 			reg = <0x1c11000 0x1000>;
 			clocks = <0x02 0x21 0x02 0x4d>;
-			clock-names = "ahb\0mmc";
+			clock-names = "ahb", "mmc";
 			resets = <0x02 0x0a>;
 			reset-names = "ahb";
 			interrupts = <0x00 0x3e 0x04>;
@@ -587,13 +587,13 @@
 			reg = <0x1c15000 0x1000>;
 			interrupts = <0x00 0x5e 0x04>;
 			clocks = <0x02 0x1d 0x02 0x4f>;
-			clock-names = "bus\0mod";
+			clock-names = "bus", "mod";
 			resets = <0x02 0x06>;
 			phandle = <0x6e>;
 		};
 
 		mailbox@1c17000 {
-			compatible = "allwinner,sun50i-a64-msgbox\0allwinner,sun6i-a31-msgbox";
+			compatible = "allwinner,sun50i-a64-msgbox", "allwinner,sun6i-a31-msgbox";
 			reg = <0x1c17000 0x1000>;
 			clocks = <0x02 0x36>;
 			resets = <0x02 0x20>;
@@ -620,11 +620,11 @@
 		phy@1c19400 {
 			compatible = "allwinner,sun50i-a64-usb-phy";
 			reg = <0x1c19400 0x14 0x1c1a800 0x04 0x1c1b800 0x04>;
-			reg-names = "phy_ctrl\0pmu0\0pmu1";
+			reg-names = "phy_ctrl", "pmu0", "pmu1";
 			clocks = <0x02 0x56 0x02 0x57>;
-			clock-names = "usb0_phy\0usb1_phy";
+			clock-names = "usb0_phy", "usb1_phy";
 			resets = <0x02 0x00 0x02 0x01>;
-			reset-names = "usb0_reset\0usb1_reset";
+			reset-names = "usb0_reset", "usb1_reset";
 			status = "okay";
 			#phy-cells = <0x01>;
 			usb0_vbus-supply = <0x31>;
@@ -633,7 +633,7 @@
 		};
 
 		usb@1c1a000 {
-			compatible = "allwinner,sun50i-a64-ehci\0generic-ehci";
+			compatible = "allwinner,sun50i-a64-ehci", "generic-ehci";
 			reg = <0x1c1a000 0x100>;
 			interrupts = <0x00 0x48 0x04>;
 			clocks = <0x02 0x2c 0x02 0x2a 0x02 0x5b>;
@@ -645,7 +645,7 @@
 		};
 
 		usb@1c1a400 {
-			compatible = "allwinner,sun50i-a64-ohci\0generic-ohci";
+			compatible = "allwinner,sun50i-a64-ohci", "generic-ohci";
 			reg = <0x1c1a400 0x100>;
 			interrupts = <0x00 0x49 0x04>;
 			clocks = <0x02 0x2c 0x02 0x5b>;
@@ -657,7 +657,7 @@
 		};
 
 		usb@1c1b000 {
-			compatible = "allwinner,sun50i-a64-ehci\0generic-ehci";
+			compatible = "allwinner,sun50i-a64-ehci", "generic-ehci";
 			reg = <0x1c1b000 0x100>;
 			interrupts = <0x00 0x4a 0x04>;
 			clocks = <0x02 0x2d 0x02 0x2b 0x02 0x5d>;
@@ -669,7 +669,7 @@
 		};
 
 		usb@1c1b400 {
-			compatible = "allwinner,sun50i-a64-ohci\0generic-ohci";
+			compatible = "allwinner,sun50i-a64-ohci", "generic-ohci";
 			reg = <0x1c1b400 0x100>;
 			interrupts = <0x00 0x4b 0x04>;
 			clocks = <0x02 0x2d 0x02 0x5d>;
@@ -684,7 +684,7 @@
 			compatible = "allwinner,sun50i-a64-ccu";
 			reg = <0x1c20000 0x400>;
 			clocks = <0x32 0x33 0x00>;
-			clock-names = "hosc\0losc";
+			clock-names = "hosc", "losc";
 			#clock-cells = <0x01>;
 			#reset-cells = <0x01>;
 			phandle = <0x02>;
@@ -695,7 +695,7 @@
 			reg = <0x1c20800 0x400>;
 			interrupts = <0x00 0x0b 0x04 0x00 0x11 0x04 0x00 0x15 0x04>;
 			clocks = <0x02 0x3a 0x32 0x33 0x00>;
-			clock-names = "apb\0hosc\0losc";
+			clock-names = "apb", "hosc", "losc";
 			gpio-controller;
 			#gpio-cells = <0x03>;
 			interrupt-controller;
@@ -707,7 +707,7 @@
 			phandle = <0x29>;
 
 			csi-pins {
-				pins = "PE0\0PE2\0PE3\0PE4\0PE5\0PE6\0PE7\0PE8\0PE9\0PE10\0PE11";
+				pins = "PE0", "PE2", "PE3", "PE4", "PE5", "PE6", "PE7", "PE8", "PE9", "PE10", "PE11";
 				function = "csi";
 				phandle = <0x40>;
 			};
@@ -719,31 +719,31 @@
 			};
 
 			i2c0-pins {
-				pins = "PH0\0PH1";
+				pins = "PH0", "PH1";
 				function = "i2c0";
 				phandle = <0x39>;
 			};
 
 			i2c1-pins {
-				pins = "PH2\0PH3";
+				pins = "PH2", "PH3";
 				function = "i2c1";
 				phandle = <0x3a>;
 			};
 
 			i2c2-pins {
-				pins = "PE14\0PE15";
+				pins = "PE14", "PE15";
 				function = "i2c2";
 				phandle = <0x3b>;
 			};
 
 			lcd-rgb666-pins {
-				pins = "PD0\0PD1\0PD2\0PD3\0PD4\0PD5\0PD6\0PD7\0PD8\0PD9\0PD10\0PD11\0PD12\0PD13\0PD14\0PD15\0PD16\0PD17\0PD18\0PD19\0PD20\0PD21";
+				pins = "PD0", "PD1", "PD2", "PD3", "PD4", "PD5", "PD6", "PD7", "PD8", "PD9", "PD10", "PD11", "PD12", "PD13", "PD14", "PD15", "PD16", "PD17", "PD18", "PD19", "PD20", "PD21";
 				function = "lcd0";
 				phandle = <0x1e>;
 			};
 
 			mmc0-pins {
-				pins = "PF0\0PF1\0PF2\0PF3\0PF4\0PF5";
+				pins = "PF0", "PF1", "PF2", "PF3", "PF4", "PF5";
 				function = "mmc0";
 				drive-strength = <0x1e>;
 				bias-pull-up;
@@ -751,7 +751,7 @@
 			};
 
 			mmc1-pins {
-				pins = "PG0\0PG1\0PG2\0PG3\0PG4\0PG5";
+				pins = "PG0", "PG1", "PG2", "PG3", "PG4", "PG5";
 				function = "mmc1";
 				drive-strength = <0x1e>;
 				bias-pull-up;
@@ -759,7 +759,7 @@
 			};
 
 			mmc2-pins {
-				pins = "PC5\0PC6\0PC8\0PC9\0PC10\0PC11\0PC12\0PC13\0PC14\0PC15\0PC16";
+				pins = "PC5", "PC6", "PC8", "PC9", "PC10", "PC11", "PC12", "PC13", "PC14", "PC15", "PC16";
 				function = "mmc2";
 				drive-strength = <0x1e>;
 				bias-pull-up;
@@ -781,14 +781,14 @@
 			};
 
 			rmii-pins {
-				pins = "PD10\0PD11\0PD13\0PD14\0PD17\0PD18\0PD19\0PD20\0PD22\0PD23";
+				pins = "PD10", "PD11", "PD13", "PD14", "PD17", "PD18", "PD19", "PD20", "PD22", "PD23";
 				function = "emac";
 				drive-strength = <0x28>;
 				phandle = <0x76>;
 			};
 
 			rgmii-pins {
-				pins = "PD8\0PD9\0PD10\0PD11\0PD12\0PD13\0PD15\0PD16\0PD17\0PD18\0PD19\0PD20\0PD21\0PD22\0PD23";
+				pins = "PD8", "PD9", "PD10", "PD11", "PD12", "PD13", "PD15", "PD16", "PD17", "PD18", "PD19", "PD20", "PD21", "PD22", "PD23";
 				function = "emac";
 				drive-strength = <0x28>;
 				phandle = <0x77>;
@@ -801,55 +801,55 @@
 			};
 
 			spi0-pins {
-				pins = "PC0\0PC1\0PC2\0PC3";
+				pins = "PC0", "PC1", "PC2", "PC3";
 				function = "spi0";
 				phandle = <0x3c>;
 			};
 
 			spi1-pins {
-				pins = "PD0\0PD1\0PD2\0PD3";
+				pins = "PD0", "PD1", "PD2", "PD3";
 				function = "spi1";
 				phandle = <0x3d>;
 			};
 
 			uart0-pb-pins {
-				pins = "PB8\0PB9";
+				pins = "PB8", "PB9";
 				function = "uart0";
 				phandle = <0x38>;
 			};
 
 			uart1-pins {
-				pins = "PG6\0PG7";
+				pins = "PG6", "PG7";
 				function = "uart1";
 				phandle = <0x78>;
 			};
 
 			uart1-rts-cts-pins {
-				pins = "PG8\0PG9";
+				pins = "PG8", "PG9";
 				function = "uart1";
 				phandle = <0x79>;
 			};
 
 			uart2-pins {
-				pins = "PB0\0PB1";
+				pins = "PB0", "PB1";
 				function = "uart2";
 				phandle = <0x7a>;
 			};
 
 			uart3-pins {
-				pins = "PD0\0PD1";
+				pins = "PD0", "PD1";
 				function = "uart3";
 				phandle = <0x7b>;
 			};
 
 			uart4-pins {
-				pins = "PD2\0PD3";
+				pins = "PD2", "PD3";
 				function = "uart4";
 				phandle = <0x7c>;
 			};
 
 			uart4-rts-cts-pins {
-				pins = "PD4\0PD5";
+				pins = "PD4", "PD5";
 				function = "uart4";
 				phandle = <0x7d>;
 			};
@@ -857,12 +857,12 @@
 
 		spdif@1c21000 {
 			#sound-dai-cells = <0x00>;
-			compatible = "allwinner,sun50i-a64-spdif\0allwinner,sun8i-h3-spdif";
+			compatible = "allwinner,sun50i-a64-spdif", "allwinner,sun8i-h3-spdif";
 			reg = <0x1c21000 0x400>;
 			interrupts = <0x00 0x0c 0x04>;
 			clocks = <0x02 0x39 0x02 0x55>;
 			resets = <0x02 0x25>;
-			clock-names = "apb\0spdif";
+			clock-names = "apb", "spdif";
 			dmas = <0x35 0x02>;
 			dma-names = "tx";
 			pinctrl-names = "default";
@@ -872,7 +872,7 @@
 		};
 
 		lradc@1c21800 {
-			compatible = "allwinner,sun50i-a64-lradc\0allwinner,sun8i-a83t-r-lradc";
+			compatible = "allwinner,sun50i-a64-lradc", "allwinner,sun8i-a83t-r-lradc";
 			reg = <0x1c21800 0x400>;
 			interrupts = <0x00 0x1e 0x04>;
 			status = "disabled";
@@ -881,13 +881,13 @@
 
 		i2s@1c22000 {
 			#sound-dai-cells = <0x00>;
-			compatible = "allwinner,sun50i-a64-i2s\0allwinner,sun8i-h3-i2s";
+			compatible = "allwinner,sun50i-a64-i2s", "allwinner,sun8i-h3-i2s";
 			reg = <0x1c22000 0x400>;
 			interrupts = <0x00 0x0d 0x04>;
 			clocks = <0x02 0x3c 0x02 0x52>;
-			clock-names = "apb\0mod";
+			clock-names = "apb", "mod";
 			resets = <0x02 0x27>;
-			dma-names = "rx\0tx";
+			dma-names = "rx", "tx";
 			dmas = <0x35 0x03 0x35 0x03>;
 			status = "disabled";
 			phandle = <0x80>;
@@ -895,13 +895,13 @@
 
 		i2s@1c22400 {
 			#sound-dai-cells = <0x00>;
-			compatible = "allwinner,sun50i-a64-i2s\0allwinner,sun8i-h3-i2s";
+			compatible = "allwinner,sun50i-a64-i2s", "allwinner,sun8i-h3-i2s";
 			reg = <0x1c22400 0x400>;
 			interrupts = <0x00 0x0e 0x04>;
 			clocks = <0x02 0x3d 0x02 0x53>;
-			clock-names = "apb\0mod";
+			clock-names = "apb", "mod";
 			resets = <0x02 0x28>;
-			dma-names = "rx\0tx";
+			dma-names = "rx", "tx";
 			dmas = <0x35 0x04 0x35 0x04>;
 			status = "disabled";
 			phandle = <0x81>;
@@ -913,21 +913,21 @@
 			reg = <0x1c22c00 0x200>;
 			interrupts = <0x00 0x1d 0x04>;
 			clocks = <0x02 0x38 0x02 0x6b>;
-			clock-names = "apb\0mod";
+			clock-names = "apb", "mod";
 			resets = <0x02 0x24>;
 			dmas = <0x35 0x0f 0x35 0x0f>;
-			dma-names = "rx\0tx";
+			dma-names = "rx", "tx";
 			status = "okay";
 			phandle = <0x14>;
 		};
 
 		codec@1c22e00 {
 			#sound-dai-cells = <0x00>;
-			compatible = "allwinner,sun50i-a64-codec\0allwinner,sun8i-a33-codec";
+			compatible = "allwinner,sun50i-a64-codec", "allwinner,sun8i-a33-codec";
 			reg = <0x1c22e00 0x600>;
 			interrupts = <0x00 0x1c 0x04>;
 			clocks = <0x02 0x38 0x02 0x6b>;
-			clock-names = "bus\0mod";
+			clock-names = "bus", "mod";
 			status = "okay";
 			phandle = <0x15>;
 		};
@@ -936,7 +936,7 @@
 			compatible = "allwinner,sun50i-a64-ths";
 			reg = <0x1c25000 0x100>;
 			clocks = <0x02 0x3b 0x02 0x49>;
-			clock-names = "bus\0mod";
+			clock-names = "bus", "mod";
 			interrupts = <0x00 0x1f 0x04>;
 			resets = <0x02 0x26>;
 			nvmem-cells = <0x37>;
@@ -1054,9 +1054,9 @@
 			reg = <0x1c68000 0x1000>;
 			interrupts = <0x00 0x41 0x04>;
 			clocks = <0x02 0x27 0x02 0x50>;
-			clock-names = "ahb\0mod";
+			clock-names = "ahb", "mod";
 			dmas = <0x35 0x17 0x35 0x17>;
-			dma-names = "rx\0tx";
+			dma-names = "rx", "tx";
 			pinctrl-names = "default";
 			pinctrl-0 = <0x3c>;
 			resets = <0x02 0x10>;
@@ -1072,9 +1072,9 @@
 			reg = <0x1c69000 0x1000>;
 			interrupts = <0x00 0x42 0x04>;
 			clocks = <0x02 0x28 0x02 0x51>;
-			clock-names = "ahb\0mod";
+			clock-names = "ahb", "mod";
 			dmas = <0x35 0x18 0x35 0x18>;
-			dma-names = "rx\0tx";
+			dma-names = "rx", "tx";
 			pinctrl-names = "default";
 			pinctrl-0 = <0x3d>;
 			resets = <0x02 0x11>;
@@ -1107,12 +1107,12 @@
 		};
 
 		gpu@1c40000 {
-			compatible = "allwinner,sun50i-a64-mali\0arm,mali-400";
+			compatible = "allwinner,sun50i-a64-mali", "arm,mali-400";
 			reg = <0x1c40000 0x10000>;
 			interrupts = <0x00 0x61 0x04 0x00 0x62 0x04 0x00 0x63 0x04 0x00 0x64 0x04 0x00 0x66 0x04 0x00 0x67 0x04 0x00 0x65 0x04>;
-			interrupt-names = "gp\0gpmmu\0pp0\0ppmmu0\0pp1\0ppmmu1\0pmu";
+			interrupt-names = "gp", "gpmmu", "pp0", "ppmmu0", "pp1", "ppmmu1", "pmu";
 			clocks = <0x02 0x35 0x02 0x72>;
-			clock-names = "bus\0core";
+			clock-names = "bus", "core";
 			resets = <0x02 0x1f>;
 			phandle = <0x8e>;
 		};
@@ -1127,7 +1127,7 @@
 		};
 
 		pwm@1c21400 {
-			compatible = "allwinner,sun50i-a64-pwm\0allwinner,sun5i-a13-pwm";
+			compatible = "allwinner,sun50i-a64-pwm", "allwinner,sun5i-a13-pwm";
 			reg = <0x1c21400 0x400>;
 			clocks = <0x32>;
 			pinctrl-names = "default";
@@ -1153,7 +1153,7 @@
 			reg = <0x1cb0000 0x1000>;
 			interrupts = <0x00 0x54 0x04>;
 			clocks = <0x02 0x32 0x02 0x68 0x02 0x60>;
-			clock-names = "bus\0mod\0ram";
+			clock-names = "bus", "mod", "ram";
 			resets = <0x02 0x1b>;
 			pinctrl-names = "default";
 			pinctrl-0 = <0x40>;
@@ -1184,10 +1184,10 @@
 		};
 
 		d-phy@1ca1000 {
-			compatible = "allwinner,sun50i-a64-mipi-dphy\0allwinner,sun6i-a31-mipi-dphy";
+			compatible = "allwinner,sun50i-a64-mipi-dphy", "allwinner,sun6i-a31-mipi-dphy";
 			reg = <0x1ca1000 0x1000>;
 			clocks = <0x02 0x1c 0x02 0x71>;
-			clock-names = "bus\0mod";
+			clock-names = "bus", "mod";
 			resets = <0x02 0x05>;
 			status = "disabled";
 			#phy-cells = <0x00>;
@@ -1195,10 +1195,10 @@
 		};
 
 		deinterlace@1e00000 {
-			compatible = "allwinner,sun50i-a64-deinterlace\0allwinner,sun8i-h3-deinterlace";
+			compatible = "allwinner,sun50i-a64-deinterlace", "allwinner,sun8i-h3-deinterlace";
 			reg = <0x1e00000 0x20000>;
 			clocks = <0x02 0x31 0x02 0x66 0x02 0x61>;
-			clock-names = "bus\0mod\0ram";
+			clock-names = "bus", "mod", "ram";
 			resets = <0x02 0x1a>;
 			interrupts = <0x00 0x5d 0x04>;
 			interconnects = <0x43 0x09>;
@@ -1207,12 +1207,12 @@
 		};
 
 		hdmi@1ee0000 {
-			compatible = "allwinner,sun50i-a64-dw-hdmi\0allwinner,sun8i-a83t-dw-hdmi";
+			compatible = "allwinner,sun50i-a64-dw-hdmi", "allwinner,sun8i-a83t-dw-hdmi";
 			reg = <0x1ee0000 0x10000>;
 			reg-io-width = <0x01>;
 			interrupts = <0x00 0x58 0x04>;
 			clocks = <0x02 0x33 0x02 0x6f 0x02 0x6e>;
-			clock-names = "iahb\0isfr\0tmds";
+			clock-names = "iahb", "isfr", "tmds";
 			resets = <0x02 0x1d>;
 			reset-names = "ctrl";
 			phys = <0x44>;
@@ -1245,7 +1245,7 @@
 			compatible = "allwinner,sun50i-a64-hdmi-phy";
 			reg = <0x1ef0000 0x10000>;
 			clocks = <0x02 0x33 0x02 0x6f 0x02 0x07>;
-			clock-names = "bus\0mod\0pll-0";
+			clock-names = "bus", "mod", "pll-0";
 			resets = <0x02 0x1c>;
 			reset-names = "phy";
 			#phy-cells = <0x00>;
@@ -1253,17 +1253,17 @@
 		};
 
 		rtc@1f00000 {
-			compatible = "allwinner,sun50i-a64-rtc\0allwinner,sun8i-h3-rtc";
+			compatible = "allwinner,sun50i-a64-rtc", "allwinner,sun8i-h3-rtc";
 			reg = <0x1f00000 0x400>;
 			interrupts = <0x00 0x28 0x04 0x00 0x29 0x04>;
-			clock-output-names = "osc32k\0osc32k-out\0iosc";
+			clock-output-names = "osc32k", "osc32k-out", "iosc";
 			clocks = <0x46>;
 			#clock-cells = <0x01>;
 			phandle = <0x33>;
 		};
 
 		interrupt-controller@1f00c00 {
-			compatible = "allwinner,sun50i-a64-r-intc\0allwinner,sun6i-a31-r-intc";
+			compatible = "allwinner,sun50i-a64-r-intc", "allwinner,sun6i-a31-r-intc";
 			interrupt-controller;
 			#interrupt-cells = <0x02>;
 			reg = <0x1f00c00 0x400>;
@@ -1275,7 +1275,7 @@
 			compatible = "allwinner,sun50i-a64-r-ccu";
 			reg = <0x1f01400 0x100>;
 			clocks = <0x32 0x33 0x00 0x33 0x02 0x02 0x0b>;
-			clock-names = "hosc\0losc\0iosc\0pll-periph";
+			clock-names = "hosc", "losc", "iosc", "pll-periph";
 			#clock-cells = <0x01>;
 			#reset-cells = <0x01>;
 			phandle = <0x47>;
@@ -1290,7 +1290,7 @@
 		};
 
 		i2c@1f02400 {
-			compatible = "allwinner,sun50i-a64-i2c\0allwinner,sun6i-a31-i2c";
+			compatible = "allwinner,sun50i-a64-i2c", "allwinner,sun6i-a31-i2c";
 			reg = <0x1f02400 0x400>;
 			interrupts = <0x00 0x2c 0x04>;
 			clocks = <0x47 0x09>;
@@ -1339,10 +1339,10 @@
 		};
 
 		ir@1f02000 {
-			compatible = "allwinner,sun50i-a64-ir\0allwinner,sun6i-a31-ir";
+			compatible = "allwinner,sun50i-a64-ir", "allwinner,sun6i-a31-ir";
 			reg = <0x1f02000 0x400>;
 			clocks = <0x47 0x04 0x47 0x0b>;
-			clock-names = "apb\0ir";
+			clock-names = "apb", "ir";
 			resets = <0x47 0x00>;
 			interrupts = <0x00 0x25 0x04>;
 			pinctrl-names = "default";
@@ -1352,7 +1352,7 @@
 		};
 
 		pwm@1f03800 {
-			compatible = "allwinner,sun50i-a64-pwm\0allwinner,sun5i-a13-pwm";
+			compatible = "allwinner,sun50i-a64-pwm", "allwinner,sun5i-a13-pwm";
 			reg = <0x1f03800 0x400>;
 			clocks = <0x32>;
 			pinctrl-names = "default";
@@ -1367,7 +1367,7 @@
 			reg = <0x1f02c00 0x400>;
 			interrupts = <0x00 0x2d 0x04>;
 			clocks = <0x47 0x03 0x32 0x46>;
-			clock-names = "apb\0hosc\0losc";
+			clock-names = "apb", "hosc", "losc";
 			gpio-controller;
 			#gpio-cells = <0x03>;
 			interrupt-controller;
@@ -1375,7 +1375,7 @@
 			phandle = <0x51>;
 
 			r-i2c-pl89-pins {
-				pins = "PL8\0PL9";
+				pins = "PL8", "PL9";
 				function = "s_i2c";
 				phandle = <0x48>;
 			};
@@ -1393,7 +1393,7 @@
 			};
 
 			r-rsb-pins {
-				pins = "PL0\0PL1";
+				pins = "PL0", "PL1";
 				function = "s_rsb";
 				phandle = <0x4d>;
 			};
@@ -1423,19 +1423,19 @@
 				phandle = <0x9c>;
 
 				ac-power-supply {
-					compatible = "x-powers,axp803-ac-power-supply\0x-powers,axp813-ac-power-supply";
+					compatible = "x-powers,axp803-ac-power-supply", "x-powers,axp813-ac-power-supply";
 					status = "okay";
 					phandle = <0x9d>;
 				};
 
 				adc {
-					compatible = "x-powers,axp803-adc\0x-powers,axp813-adc";
+					compatible = "x-powers,axp803-adc", "x-powers,axp813-adc";
 					#io-channel-cells = <0x01>;
 					phandle = <0x9e>;
 				};
 
 				gpio {
-					compatible = "x-powers,axp803-gpio\0x-powers,axp813-gpio";
+					compatible = "x-powers,axp803-gpio", "x-powers,axp813-gpio";
 					gpio-controller;
 					#gpio-cells = <0x02>;
 					phandle = <0x54>;
@@ -1454,7 +1454,7 @@
 				};
 
 				battery-power-supply {
-					compatible = "x-powers,axp803-battery-power-supply\0x-powers,axp813-battery-power-supply";
+					compatible = "x-powers,axp803-battery-power-supply", "x-powers,axp813-battery-power-supply";
 					status = "okay";
 					phandle = <0xa1>;
 				};
@@ -1617,7 +1617,7 @@
 				};
 
 				usb-power-supply {
-					compatible = "x-powers,axp803-usb-power-supply\0x-powers,axp813-usb-power-supply";
+					compatible = "x-powers,axp803-usb-power-supply", "x-powers,axp813-usb-power-supply";
 					status = "disabled";
 					phandle = <0xb0>;
 				};
@@ -1625,7 +1625,7 @@
 		};
 
 		watchdog@1c20ca0 {
-			compatible = "allwinner,sun50i-a64-wdt\0allwinner,sun6i-a31-wdt";
+			compatible = "allwinner,sun50i-a64-wdt", "allwinner,sun6i-a31-wdt";
 			reg = <0x1c20ca0 0x20>;
 			interrupts = <0x00 0x19 0x04>;
 			clocks = <0x32>;

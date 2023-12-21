@@ -354,7 +354,7 @@
 		};
 
 		localbus@80380000 {
-			compatible = "hisilicon,hisi-localbus\0simple-bus";
+			compatible = "hisilicon,hisi-localbus", "simple-bus";
 			reg = <0x00 0x80380000 0x00 0x10000>;
 			status = "okay";
 			#address-cells = <0x02>;
@@ -365,7 +365,7 @@
 			nor-flash@0,0 {
 				#address-cells = <0x01>;
 				#size-cells = <0x01>;
-				compatible = "numonyx,js28f00a\0cfi-flash";
+				compatible = "numonyx,js28f00a", "cfi-flash";
 				reg = <0x00 0x00 0x8000000>;
 				bank-width = <0x02>;
 

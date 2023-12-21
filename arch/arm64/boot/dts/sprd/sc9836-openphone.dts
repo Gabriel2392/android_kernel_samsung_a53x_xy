@@ -4,7 +4,7 @@
 	interrupt-parent = <0x01>;
 	#address-cells = <0x02>;
 	#size-cells = <0x02>;
-	compatible = "sprd,sc9836-openphone\0sprd,sc9836";
+	compatible = "sprd,sc9836-openphone", "sprd,sc9836";
 	model = "Spreadtrum SC9836 Openphone Board";
 
 	soc {
@@ -102,7 +102,7 @@
 	};
 
 	etf@10003000 {
-		compatible = "arm,coresight-tmc\0arm,primecell";
+		compatible = "arm,coresight-tmc", "arm,primecell";
 		reg = <0x00 0x10003000 0x00 0x1000>;
 		clocks = <0x02>;
 		clock-names = "apb_pclk";
@@ -120,7 +120,7 @@
 	};
 
 	funnel@10001000 {
-		compatible = "arm,coresight-dynamic-funnel\0arm,primecell";
+		compatible = "arm,coresight-dynamic-funnel", "arm,primecell";
 		reg = <0x00 0x10001000 0x00 0x1000>;
 		clocks = <0x02>;
 		clock-names = "apb_pclk";
@@ -188,7 +188,7 @@
 	};
 
 	etm@10440000 {
-		compatible = "arm,coresight-etm4x\0arm,primecell";
+		compatible = "arm,coresight-etm4x", "arm,primecell";
 		reg = <0x00 0x10440000 0x00 0x1000>;
 		cpu = <0x0a>;
 		clocks = <0x02>;
@@ -207,7 +207,7 @@
 	};
 
 	etm@10540000 {
-		compatible = "arm,coresight-etm4x\0arm,primecell";
+		compatible = "arm,coresight-etm4x", "arm,primecell";
 		reg = <0x00 0x10540000 0x00 0x1000>;
 		cpu = <0x0c>;
 		clocks = <0x02>;
@@ -226,7 +226,7 @@
 	};
 
 	etm@10640000 {
-		compatible = "arm,coresight-etm4x\0arm,primecell";
+		compatible = "arm,coresight-etm4x", "arm,primecell";
 		reg = <0x00 0x10640000 0x00 0x1000>;
 		cpu = <0x0e>;
 		clocks = <0x02>;
@@ -245,7 +245,7 @@
 	};
 
 	etm@10740000 {
-		compatible = "arm,coresight-etm4x\0arm,primecell";
+		compatible = "arm,coresight-etm4x", "arm,primecell";
 		reg = <0x00 0x10740000 0x00 0x1000>;
 		cpu = <0x10>;
 		clocks = <0x02>;
@@ -264,9 +264,9 @@
 	};
 
 	stm@10006000 {
-		compatible = "arm,coresight-stm\0arm,primecell";
+		compatible = "arm,coresight-stm", "arm,primecell";
 		reg = <0x00 0x10006000 0x00 0x1000 0x00 0x1000000 0x00 0x180000>;
-		reg-names = "stm-base\0stm-stimulus-base";
+		reg-names = "stm-base", "stm-stimulus-base";
 		clocks = <0x02>;
 		clock-names = "apb_pclk";
 

@@ -5,7 +5,7 @@
 	#address-cells = <0x01>;
 	#size-cells = <0x01>;
 	model = "Beelink GS1";
-	compatible = "azw,beelink-gs1\0allwinner,sun50i-h6";
+	compatible = "azw,beelink-gs1", "allwinner,sun50i-h6";
 
 	cpus {
 		#address-cells = <0x01>;
@@ -100,7 +100,7 @@
 		ranges;
 
 		bus@1000000 {
-			compatible = "allwinner,sun50i-h6-de3\0allwinner,sun50i-a64-de2";
+			compatible = "allwinner,sun50i-h6-de3", "allwinner,sun50i-a64-de2";
 			reg = <0x1000000 0x400000>;
 			allwinner,sram = <0x0a 0x01>;
 			#address-cells = <0x01>;
@@ -111,7 +111,7 @@
 				compatible = "allwinner,sun50i-h6-de3-clk";
 				reg = <0x00 0x10000>;
 				clocks = <0x02 0x1d 0x02 0x1e>;
-				clock-names = "mod\0bus";
+				clock-names = "mod", "bus";
 				resets = <0x02 0x01>;
 				#clock-cells = <0x01>;
 				#reset-cells = <0x01>;
@@ -122,7 +122,7 @@
 				compatible = "allwinner,sun50i-h6-de3-mixer-0";
 				reg = <0x100000 0x100000>;
 				clocks = <0x0b 0x00 0x0b 0x06>;
-				clock-names = "bus\0mod";
+				clock-names = "bus", "mod";
 				resets = <0x0b 0x00>;
 				iommus = <0x0c 0x00>;
 				phandle = <0x05>;
@@ -148,7 +148,7 @@
 			compatible = "allwinner,sun50i-h6-video-engine";
 			reg = <0x1c0e000 0x2000>;
 			clocks = <0x02 0x26 0x02 0x25 0x02 0x36>;
-			clock-names = "ahb\0mod\0ram";
+			clock-names = "ahb", "mod", "ram";
 			resets = <0x02 0x05>;
 			interrupts = <0x00 0x59 0x04>;
 			allwinner,sram = <0x0e 0x01>;
@@ -156,12 +156,12 @@
 		};
 
 		gpu@1800000 {
-			compatible = "allwinner,sun50i-h6-mali\0arm,mali-t720";
+			compatible = "allwinner,sun50i-h6-mali", "arm,mali-t720";
 			reg = <0x1800000 0x4000>;
 			interrupts = <0x00 0x54 0x04 0x00 0x55 0x04 0x00 0x53 0x04>;
-			interrupt-names = "job\0mmu\0gpu";
+			interrupt-names = "job", "mmu", "gpu";
 			clocks = <0x02 0x21 0x02 0x22>;
-			clock-names = "core\0bus";
+			clock-names = "core", "bus";
 			resets = <0x02 0x03>;
 			status = "okay";
 			mali-supply = <0x0f>;
@@ -173,13 +173,13 @@
 			reg = <0x1904000 0x1000>;
 			interrupts = <0x00 0x57 0x04>;
 			clocks = <0x02 0x24 0x02 0x23 0x02 0x37>;
-			clock-names = "bus\0mod\0ram";
+			clock-names = "bus", "mod", "ram";
 			resets = <0x02 0x04>;
 			phandle = <0x40>;
 		};
 
 		syscon@3000000 {
-			compatible = "allwinner,sun50i-h6-system-control\0allwinner,sun50i-a64-system-control";
+			compatible = "allwinner,sun50i-h6-system-control", "allwinner,sun50i-a64-system-control";
 			reg = <0x3000000 0x1000>;
 			#address-cells = <0x01>;
 			#size-cells = <0x01>;
@@ -195,7 +195,7 @@
 				phandle = <0x41>;
 
 				sram-section@0 {
-					compatible = "allwinner,sun50i-h6-sram-c\0allwinner,sun50i-a64-sram-c";
+					compatible = "allwinner,sun50i-h6-sram-c", "allwinner,sun50i-a64-sram-c";
 					reg = <0x00 0x1e000>;
 					phandle = <0x0a>;
 				};
@@ -210,7 +210,7 @@
 				phandle = <0x42>;
 
 				sram-section@0 {
-					compatible = "allwinner,sun50i-h6-sram-c1\0allwinner,sun4i-a10-sram-c1";
+					compatible = "allwinner,sun50i-h6-sram-c1", "allwinner,sun4i-a10-sram-c1";
 					reg = <0x00 0x200000>;
 					phandle = <0x0e>;
 				};
@@ -221,7 +221,7 @@
 			compatible = "allwinner,sun50i-h6-ccu";
 			reg = <0x3001000 0x1000>;
 			clocks = <0x10 0x11 0x00 0x11 0x02>;
-			clock-names = "hosc\0losc\0iosc";
+			clock-names = "hosc", "losc", "iosc";
 			#clock-cells = <0x01>;
 			#reset-cells = <0x01>;
 			phandle = <0x02>;
@@ -232,7 +232,7 @@
 			reg = <0x3002000 0x1000>;
 			interrupts = <0x00 0x2b 0x04>;
 			clocks = <0x02 0x2b 0x02 0x35>;
-			clock-names = "bus\0mbus";
+			clock-names = "bus", "mbus";
 			dma-channels = <0x10>;
 			dma-requests = <0x2e>;
 			resets = <0x02 0x08>;
@@ -241,7 +241,7 @@
 		};
 
 		mailbox@3003000 {
-			compatible = "allwinner,sun50i-h6-msgbox\0allwinner,sun6i-a31-msgbox";
+			compatible = "allwinner,sun50i-h6-msgbox", "allwinner,sun6i-a31-msgbox";
 			reg = <0x3003000 0x1000>;
 			clocks = <0x02 0x2c>;
 			resets = <0x02 0x09>;
@@ -269,7 +269,7 @@
 		};
 
 		watchdog@30090a0 {
-			compatible = "allwinner,sun50i-h6-wdt\0allwinner,sun6i-a31-wdt";
+			compatible = "allwinner,sun50i-h6-wdt", "allwinner,sun6i-a31-wdt";
 			reg = <0x30090a0 0x20>;
 			interrupts = <0x00 0x32 0x04>;
 			clocks = <0x10>;
@@ -281,7 +281,7 @@
 			compatible = "allwinner,sun50i-h6-pwm";
 			reg = <0x300a000 0x400>;
 			clocks = <0x10 0x02 0x32>;
-			clock-names = "mod\0bus";
+			clock-names = "mod", "bus";
 			resets = <0x02 0x0e>;
 			#pwm-cells = <0x03>;
 			status = "disabled";
@@ -293,7 +293,7 @@
 			reg = <0x300b000 0x400>;
 			interrupts = <0x00 0x33 0x04 0x00 0x35 0x04 0x00 0x36 0x04 0x00 0x3b 0x04>;
 			clocks = <0x02 0x1a 0x10 0x11 0x00>;
-			clock-names = "apb\0hosc\0losc";
+			clock-names = "apb", "hosc", "losc";
 			gpio-controller;
 			#gpio-cells = <0x03>;
 			interrupt-controller;
@@ -303,38 +303,38 @@
 			phandle = <0x15>;
 
 			rgmii-pins {
-				pins = "PD0\0PD1\0PD2\0PD3\0PD4\0PD5\0PD7\0PD8\0PD9\0PD10\0PD11\0PD12\0PD13\0PD19\0PD20";
+				pins = "PD0", "PD1", "PD2", "PD3", "PD4", "PD5", "PD7", "PD8", "PD9", "PD10", "PD11", "PD12", "PD13", "PD19", "PD20";
 				function = "emac";
 				drive-strength = <0x28>;
 				phandle = <0x1f>;
 			};
 
 			hdmi-pins {
-				pins = "PH8\0PH9\0PH10";
+				pins = "PH8", "PH9", "PH10";
 				function = "hdmi";
 				phandle = <0x27>;
 			};
 
 			i2c0-pins {
-				pins = "PD25\0PD26";
+				pins = "PD25", "PD26";
 				function = "i2c0";
 				phandle = <0x1a>;
 			};
 
 			i2c1-pins {
-				pins = "PH5\0PH6";
+				pins = "PH5", "PH6";
 				function = "i2c1";
 				phandle = <0x1b>;
 			};
 
 			i2c2-pins {
-				pins = "PD23\0PD24";
+				pins = "PD23", "PD24";
 				function = "i2c2";
 				phandle = <0x1c>;
 			};
 
 			mmc0-pins {
-				pins = "PF0\0PF1\0PF2\0PF3\0PF4\0PF5";
+				pins = "PF0", "PF1", "PF2", "PF3", "PF4", "PF5";
 				function = "mmc0";
 				drive-strength = <0x1e>;
 				bias-pull-up;
@@ -342,7 +342,7 @@
 			};
 
 			mmc1-pins {
-				pins = "PG0\0PG1\0PG2\0PG3\0PG4\0PG5";
+				pins = "PG0", "PG1", "PG2", "PG3", "PG4", "PG5";
 				function = "mmc1";
 				drive-strength = <0x1e>;
 				bias-pull-up;
@@ -350,7 +350,7 @@
 			};
 
 			mmc2-pins {
-				pins = "PC1\0PC4\0PC5\0PC6\0PC7\0PC8\0PC9\0PC10\0PC11\0PC12\0PC13\0PC14";
+				pins = "PC1", "PC4", "PC5", "PC6", "PC7", "PC8", "PC9", "PC10", "PC11", "PC12", "PC13", "PC14";
 				function = "mmc2";
 				drive-strength = <0x1e>;
 				bias-pull-up;
@@ -358,7 +358,7 @@
 			};
 
 			spi0-pins {
-				pins = "PC0\0PC2\0PC3";
+				pins = "PC0", "PC2", "PC3";
 				function = "spi0";
 				phandle = <0x47>;
 			};
@@ -370,7 +370,7 @@
 			};
 
 			spi1-pins {
-				pins = "PH4\0PH5\0PH6";
+				pins = "PH4", "PH5", "PH6";
 				function = "spi1";
 				phandle = <0x49>;
 			};
@@ -388,19 +388,19 @@
 			};
 
 			uart0-ph-pins {
-				pins = "PH0\0PH1";
+				pins = "PH0", "PH1";
 				function = "uart0";
 				phandle = <0x19>;
 			};
 
 			uart1-pins {
-				pins = "PG6\0PG7";
+				pins = "PG6", "PG7";
 				function = "uart1";
 				phandle = <0x4b>;
 			};
 
 			uart1-rts-cts-pins {
-				pins = "PG8\0PG9";
+				pins = "PG8", "PG9";
 				function = "uart1";
 				phandle = <0x4c>;
 			};
@@ -426,10 +426,10 @@
 		};
 
 		mmc@4020000 {
-			compatible = "allwinner,sun50i-h6-mmc\0allwinner,sun50i-a64-mmc";
+			compatible = "allwinner,sun50i-h6-mmc", "allwinner,sun50i-a64-mmc";
 			reg = <0x4020000 0x1000>;
 			clocks = <0x02 0x43 0x02 0x40>;
-			clock-names = "ahb\0mmc";
+			clock-names = "ahb", "mmc";
 			resets = <0x02 0x12>;
 			reset-names = "ahb";
 			interrupts = <0x00 0x23 0x04>;
@@ -446,10 +446,10 @@
 		};
 
 		mmc@4021000 {
-			compatible = "allwinner,sun50i-h6-mmc\0allwinner,sun50i-a64-mmc";
+			compatible = "allwinner,sun50i-h6-mmc", "allwinner,sun50i-a64-mmc";
 			reg = <0x4021000 0x1000>;
 			clocks = <0x02 0x44 0x02 0x41>;
-			clock-names = "ahb\0mmc";
+			clock-names = "ahb", "mmc";
 			resets = <0x02 0x13>;
 			reset-names = "ahb";
 			interrupts = <0x00 0x24 0x04>;
@@ -463,10 +463,10 @@
 		};
 
 		mmc@4022000 {
-			compatible = "allwinner,sun50i-h6-emmc\0allwinner,sun50i-a64-emmc";
+			compatible = "allwinner,sun50i-h6-emmc", "allwinner,sun50i-a64-emmc";
 			reg = <0x4022000 0x1000>;
 			clocks = <0x02 0x45 0x02 0x42>;
-			clock-names = "ahb\0mmc";
+			clock-names = "ahb", "mmc";
 			resets = <0x02 0x14>;
 			reset-names = "ahb";
 			interrupts = <0x00 0x25 0x04>;
@@ -535,7 +535,7 @@
 		};
 
 		i2c@5002000 {
-			compatible = "allwinner,sun50i-h6-i2c\0allwinner,sun6i-a31-i2c";
+			compatible = "allwinner,sun50i-h6-i2c", "allwinner,sun6i-a31-i2c";
 			reg = <0x5002000 0x400>;
 			interrupts = <0x00 0x04 0x04>;
 			clocks = <0x02 0x4a>;
@@ -549,7 +549,7 @@
 		};
 
 		i2c@5002400 {
-			compatible = "allwinner,sun50i-h6-i2c\0allwinner,sun6i-a31-i2c";
+			compatible = "allwinner,sun50i-h6-i2c", "allwinner,sun6i-a31-i2c";
 			reg = <0x5002400 0x400>;
 			interrupts = <0x00 0x05 0x04>;
 			clocks = <0x02 0x4b>;
@@ -563,7 +563,7 @@
 		};
 
 		i2c@5002800 {
-			compatible = "allwinner,sun50i-h6-i2c\0allwinner,sun6i-a31-i2c";
+			compatible = "allwinner,sun50i-h6-i2c", "allwinner,sun6i-a31-i2c";
 			reg = <0x5002800 0x400>;
 			interrupts = <0x00 0x06 0x04>;
 			clocks = <0x02 0x4c>;
@@ -577,13 +577,13 @@
 		};
 
 		spi@5010000 {
-			compatible = "allwinner,sun50i-h6-spi\0allwinner,sun8i-h3-spi";
+			compatible = "allwinner,sun50i-h6-spi", "allwinner,sun8i-h3-spi";
 			reg = <0x5010000 0x1000>;
 			interrupts = <0x00 0x0a 0x04>;
 			clocks = <0x02 0x52 0x02 0x50>;
-			clock-names = "ahb\0mod";
+			clock-names = "ahb", "mod";
 			dmas = <0x1d 0x16 0x1d 0x16>;
-			dma-names = "rx\0tx";
+			dma-names = "rx", "tx";
 			resets = <0x02 0x1f>;
 			status = "disabled";
 			#address-cells = <0x01>;
@@ -592,13 +592,13 @@
 		};
 
 		spi@5011000 {
-			compatible = "allwinner,sun50i-h6-spi\0allwinner,sun8i-h3-spi";
+			compatible = "allwinner,sun50i-h6-spi", "allwinner,sun8i-h3-spi";
 			reg = <0x5011000 0x1000>;
 			interrupts = <0x00 0x0b 0x04>;
 			clocks = <0x02 0x53 0x02 0x51>;
-			clock-names = "ahb\0mod";
+			clock-names = "ahb", "mod";
 			dmas = <0x1d 0x17 0x1d 0x17>;
-			dma-names = "rx\0tx";
+			dma-names = "rx", "tx";
 			resets = <0x02 0x20>;
 			status = "disabled";
 			#address-cells = <0x01>;
@@ -607,7 +607,7 @@
 		};
 
 		ethernet@5020000 {
-			compatible = "allwinner,sun50i-h6-emac\0allwinner,sun50i-a64-emac";
+			compatible = "allwinner,sun50i-h6-emac", "allwinner,sun50i-a64-emac";
 			syscon = <0x1e>;
 			reg = <0x5020000 0x10000>;
 			interrupts = <0x00 0x0c 0x04>;
@@ -644,7 +644,7 @@
 			reg = <0x5093000 0x400>;
 			interrupts = <0x00 0x15 0x04>;
 			clocks = <0x02 0x63 0x02 0x62>;
-			clock-names = "apb\0spdif";
+			clock-names = "apb", "spdif";
 			resets = <0x02 0x29>;
 			dmas = <0x1d 0x02>;
 			dma-names = "tx";
@@ -655,7 +655,7 @@
 		};
 
 		usb@5100000 {
-			compatible = "allwinner,sun50i-h6-musb\0allwinner,sun8i-a33-musb";
+			compatible = "allwinner,sun50i-h6-musb", "allwinner,sun8i-a33-musb";
 			reg = <0x5100000 0x400>;
 			clocks = <0x02 0x74>;
 			resets = <0x02 0x35>;
@@ -672,11 +672,11 @@
 		phy@5100400 {
 			compatible = "allwinner,sun50i-h6-usb-phy";
 			reg = <0x5100400 0x24 0x5101800 0x04 0x5311800 0x04>;
-			reg-names = "phy_ctrl\0pmu0\0pmu3";
+			reg-names = "phy_ctrl", "pmu0", "pmu3";
 			clocks = <0x02 0x69 0x02 0x6c>;
-			clock-names = "usb0_phy\0usb3_phy";
+			clock-names = "usb0_phy", "usb3_phy";
 			resets = <0x02 0x2c 0x02 0x2e>;
-			reset-names = "usb0_reset\0usb3_reset";
+			reset-names = "usb0_reset", "usb3_reset";
 			status = "okay";
 			#phy-cells = <0x01>;
 			usb0_vbus-supply = <0x24>;
@@ -684,7 +684,7 @@
 		};
 
 		usb@5101000 {
-			compatible = "allwinner,sun50i-h6-ehci\0generic-ehci";
+			compatible = "allwinner,sun50i-h6-ehci", "generic-ehci";
 			reg = <0x5101000 0x100>;
 			interrupts = <0x00 0x18 0x04>;
 			clocks = <0x02 0x6f 0x02 0x71 0x02 0x68>;
@@ -696,7 +696,7 @@
 		};
 
 		usb@5101400 {
-			compatible = "allwinner,sun50i-h6-ohci\0generic-ohci";
+			compatible = "allwinner,sun50i-h6-ohci", "generic-ohci";
 			reg = <0x5101400 0x100>;
 			interrupts = <0x00 0x19 0x04>;
 			clocks = <0x02 0x6f 0x02 0x68>;
@@ -712,7 +712,7 @@
 			reg = <0x5200000 0x10000>;
 			interrupts = <0x00 0x1a 0x04>;
 			clocks = <0x02 0x72 0x02 0x72 0x11 0x00>;
-			clock-names = "ref\0bus_early\0suspend";
+			clock-names = "ref", "bus_early", "suspend";
 			resets = <0x02 0x33>;
 			dr_mode = "host";
 			phys = <0x25>;
@@ -732,7 +732,7 @@
 		};
 
 		usb@5311000 {
-			compatible = "allwinner,sun50i-h6-ehci\0generic-ehci";
+			compatible = "allwinner,sun50i-h6-ehci", "generic-ehci";
 			reg = <0x5311000 0x100>;
 			interrupts = <0x00 0x1c 0x04>;
 			clocks = <0x02 0x70 0x02 0x73 0x02 0x6b>;
@@ -744,7 +744,7 @@
 		};
 
 		usb@5311400 {
-			compatible = "allwinner,sun50i-h6-ohci\0generic-ohci";
+			compatible = "allwinner,sun50i-h6-ohci", "generic-ohci";
 			reg = <0x5311400 0x100>;
 			interrupts = <0x00 0x1d 0x04>;
 			clocks = <0x02 0x70 0x02 0x6b>;
@@ -761,9 +761,9 @@
 			reg-io-width = <0x01>;
 			interrupts = <0x00 0x40 0x04>;
 			clocks = <0x02 0x7e 0x02 0x7c 0x02 0x7b 0x02 0x7d 0x02 0x88 0x02 0x89>;
-			clock-names = "iahb\0isfr\0tmds\0cec\0hdcp\0hdcp-bus";
+			clock-names = "iahb", "isfr", "tmds", "cec", "hdcp", "hdcp-bus";
 			resets = <0x02 0x39 0x02 0x3e>;
-			reset-names = "ctrl\0hdcp";
+			reset-names = "ctrl", "hdcp";
 			phys = <0x26>;
 			phy-names = "phy";
 			pinctrl-names = "default";
@@ -801,7 +801,7 @@
 			compatible = "allwinner,sun50i-h6-hdmi-phy";
 			reg = <0x6010000 0x10000>;
 			clocks = <0x02 0x7e 0x02 0x7c>;
-			clock-names = "bus\0mod";
+			clock-names = "bus", "mod";
 			resets = <0x02 0x38>;
 			reset-names = "phy";
 			#phy-cells = <0x00>;
@@ -812,7 +812,7 @@
 			compatible = "allwinner,sun50i-h6-tcon-top";
 			reg = <0x6510000 0x1000>;
 			clocks = <0x02 0x7f 0x02 0x82>;
-			clock-names = "bus\0tcon-tv0";
+			clock-names = "bus", "tcon-tv0";
 			clock-output-names = "tcon-top-tv0";
 			resets = <0x02 0x3a>;
 			#clock-cells = <0x01>;
@@ -874,11 +874,11 @@
 		};
 
 		lcd-controller@6515000 {
-			compatible = "allwinner,sun50i-h6-tcon-tv\0allwinner,sun8i-r40-tcon-tv";
+			compatible = "allwinner,sun50i-h6-tcon-tv", "allwinner,sun8i-r40-tcon-tv";
 			reg = <0x6515000 0x1000>;
 			interrupts = <0x00 0x42 0x04>;
 			clocks = <0x02 0x83 0x2e 0x00>;
-			clock-names = "ahb\0tcon-ch1";
+			clock-names = "ahb", "tcon-ch1";
 			resets = <0x02 0x3c>;
 			reset-names = "lcd";
 			phandle = <0x68>;
@@ -916,7 +916,7 @@
 			compatible = "allwinner,sun50i-h6-rtc";
 			reg = <0x7000000 0x400>;
 			interrupts = <0x00 0x65 0x04 0x00 0x66 0x04>;
-			clock-output-names = "osc32k\0osc32k-out\0iosc";
+			clock-output-names = "osc32k", "osc32k-out", "iosc";
 			#clock-cells = <0x01>;
 			phandle = <0x11>;
 		};
@@ -925,14 +925,14 @@
 			compatible = "allwinner,sun50i-h6-r-ccu";
 			reg = <0x7010000 0x400>;
 			clocks = <0x10 0x11 0x00 0x11 0x02 0x02 0x03>;
-			clock-names = "hosc\0losc\0iosc\0pll-periph";
+			clock-names = "hosc", "losc", "iosc", "pll-periph";
 			#clock-cells = <0x01>;
 			#reset-cells = <0x01>;
 			phandle = <0x31>;
 		};
 
 		watchdog@7020400 {
-			compatible = "allwinner,sun50i-h6-wdt\0allwinner,sun6i-a31-wdt";
+			compatible = "allwinner,sun50i-h6-wdt", "allwinner,sun6i-a31-wdt";
 			reg = <0x7020400 0x20>;
 			interrupts = <0x00 0x67 0x04>;
 			clocks = <0x10>;
@@ -940,7 +940,7 @@
 		};
 
 		interrupt-controller@7021000 {
-			compatible = "allwinner,sun50i-h6-r-intc\0allwinner,sun6i-a31-r-intc";
+			compatible = "allwinner,sun50i-h6-r-intc", "allwinner,sun6i-a31-r-intc";
 			interrupt-controller;
 			#interrupt-cells = <0x02>;
 			reg = <0x7021000 0x400>;
@@ -953,7 +953,7 @@
 			reg = <0x7022000 0x400>;
 			interrupts = <0x00 0x69 0x04 0x00 0x6f 0x04>;
 			clocks = <0x31 0x02 0x10 0x11 0x00>;
-			clock-names = "apb\0hosc\0losc";
+			clock-names = "apb", "hosc", "losc";
 			gpio-controller;
 			#gpio-cells = <0x03>;
 			interrupt-controller;
@@ -962,7 +962,7 @@
 			phandle = <0x3a>;
 
 			r-i2c-pins {
-				pins = "PL0\0PL1";
+				pins = "PL0", "PL1";
 				function = "s_i2c";
 				phandle = <0x33>;
 			};
@@ -975,11 +975,11 @@
 		};
 
 		ir@7040000 {
-			compatible = "allwinner,sun50i-h6-ir\0allwinner,sun6i-a31-ir";
+			compatible = "allwinner,sun50i-h6-ir", "allwinner,sun6i-a31-ir";
 			reg = <0x7040000 0x400>;
 			interrupts = <0x00 0x6d 0x04>;
 			clocks = <0x31 0x09 0x31 0x0b>;
-			clock-names = "apb\0ir";
+			clock-names = "apb", "ir";
 			resets = <0x31 0x05>;
 			pinctrl-names = "default";
 			pinctrl-0 = <0x32>;
@@ -989,7 +989,7 @@
 		};
 
 		i2c@7081400 {
-			compatible = "allwinner,sun50i-h6-i2c\0allwinner,sun6i-a31-i2c";
+			compatible = "allwinner,sun50i-h6-i2c", "allwinner,sun6i-a31-i2c";
 			reg = <0x7081400 0x400>;
 			interrupts = <0x00 0x6b 0x04>;
 			clocks = <0x31 0x08>;
@@ -1002,7 +1002,7 @@
 			phandle = <0x6d>;
 
 			pmic@36 {
-				compatible = "x-powers,axp805\0x-powers,axp806";
+				compatible = "x-powers,axp805", "x-powers,axp806";
 				reg = <0x36>;
 				interrupt-parent = <0x34>;
 				interrupts = <0x00 0x08>;

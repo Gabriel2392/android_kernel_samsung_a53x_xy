@@ -1334,7 +1334,7 @@
 		reg = <0x00 0xd0040000 0x00 0x20000>;
 		interrupt-parent = <0x57>;
 		interrupts = <0x2dd 0x01 0x2de 0x01 0x2df 0x01>;
-		interrupt-names = "eventq\0gerror\0priq";
+		interrupt-names = "eventq", "gerror", "priq";
 		#iommu-cells = <0x01>;
 		dma-coherent;
 		hisilicon,broken-prefetch-cmd;
@@ -1346,7 +1346,7 @@
 		reg = <0x08 0xd0040000 0x00 0x20000>;
 		interrupt-parent = <0x58>;
 		interrupts = <0x2dd 0x01 0x2de 0x01 0x2df 0x01>;
-		interrupt-names = "eventq\0gerror\0priq";
+		interrupt-names = "eventq", "gerror", "priq";
 		#iommu-cells = <0x01>;
 		dma-coherent;
 		hisilicon,broken-prefetch-cmd;
@@ -1358,7 +1358,7 @@
 		reg = <0x400 0xd0040000 0x00 0x20000>;
 		interrupt-parent = <0x59>;
 		interrupts = <0x2dd 0x01 0x2de 0x01 0x2df 0x01>;
-		interrupt-names = "eventq\0gerror\0priq";
+		interrupt-names = "eventq", "gerror", "priq";
 		#iommu-cells = <0x01>;
 		dma-coherent;
 		hisilicon,broken-prefetch-cmd;
@@ -1370,7 +1370,7 @@
 		reg = <0x408 0xd0040000 0x00 0x20000>;
 		interrupt-parent = <0x5a>;
 		interrupts = <0x2dd 0x01 0x2de 0x01 0x2df 0x01>;
-		interrupt-names = "eventq\0gerror\0priq";
+		interrupt-names = "eventq", "gerror", "priq";
 		#iommu-cells = <0x01>;
 		dma-coherent;
 		hisilicon,broken-prefetch-cmd;
@@ -1430,13 +1430,13 @@
 		};
 
 		sub_ctrl_c@60000000 {
-			compatible = "hisilicon,peri-subctrl\0syscon";
+			compatible = "hisilicon,peri-subctrl", "syscon";
 			reg = <0x00 0x60000000 0x00 0x10000>;
 			phandle = <0x5d>;
 		};
 
 		dsa_subctrl@c0000000 {
-			compatible = "hisilicon,dsa-subctrl\0syscon";
+			compatible = "hisilicon,dsa-subctrl", "syscon";
 			reg = <0x00 0xc0000000 0x00 0x10000>;
 			phandle = <0x5f>;
 		};
@@ -1449,7 +1449,7 @@
 		};
 
 		pcie_subctl@a0000000 {
-			compatible = "hisilicon,pcie-sas-subctrl\0syscon";
+			compatible = "hisilicon,pcie-sas-subctrl", "syscon";
 			reg = <0x00 0xa0000000 0x00 0x10000>;
 			phandle = <0x6b>;
 		};
@@ -1486,7 +1486,7 @@
 			compatible = "hisilicon,hns-dsaf-v2";
 			mode = "6port-16rss";
 			reg = <0x00 0xc5000000 0x00 0x890000 0x00 0xc7000000 0x00 0x600000>;
-			reg-names = "ppe-base\0dsaf-base";
+			reg-names = "ppe-base", "dsaf-base";
 			interrupt-parent = <0x5e>;
 			subctrl-syscon = <0x5f>;
 			reset-field-offset = <0x00>;
@@ -1588,7 +1588,7 @@
 			#size-cells = <0x02>;
 			interrupt-parent = <0x69>;
 			interrupts = <0x2d2 0x01 0x2d3 0x01 0x2d4 0x01 0x2d5 0x01 0x2d6 0x01 0x2d7 0x01 0x2d8 0x01 0x2d9 0x01 0x2da 0x01 0x2db 0x01 0x2dc 0x01 0x2dd 0x01 0x2de 0x01 0x2df 0x01 0x2e0 0x01 0x2e1 0x01 0x2e2 0x01 0x2e3 0x01 0x2e4 0x01 0x2e5 0x01 0x2e6 0x01 0x2e7 0x01 0x2e8 0x01 0x2e9 0x01 0x2ea 0x01 0x2eb 0x01 0x2ec 0x01 0x2ed 0x01 0x2ee 0x01 0x2ef 0x01 0x2f0 0x01 0x2f1 0x01 0x311 0x01 0x2f2 0x04>;
-			interrupt-names = "hns-roce-comp-0\0hns-roce-comp-1\0hns-roce-comp-2\0hns-roce-comp-3\0hns-roce-comp-4\0hns-roce-comp-5\0hns-roce-comp-6\0hns-roce-comp-7\0hns-roce-comp-8\0hns-roce-comp-9\0hns-roce-comp-10\0hns-roce-comp-11\0hns-roce-comp-12\0hns-roce-comp-13\0hns-roce-comp-14\0hns-roce-comp-15\0hns-roce-comp-16\0hns-roce-comp-17\0hns-roce-comp-18\0hns-roce-comp-19\0hns-roce-comp-20\0hns-roce-comp-21\0hns-roce-comp-22\0hns-roce-comp-23\0hns-roce-comp-24\0hns-roce-comp-25\0hns-roce-comp-26\0hns-roce-comp-27\0hns-roce-comp-28\0hns-roce-comp-29\0hns-roce-comp-30\0hns-roce-comp-31\0hns-roce-async\0hns-roce-common";
+			interrupt-names = "hns-roce-comp-0", "hns-roce-comp-1", "hns-roce-comp-2", "hns-roce-comp-3", "hns-roce-comp-4", "hns-roce-comp-5", "hns-roce-comp-6", "hns-roce-comp-7", "hns-roce-comp-8", "hns-roce-comp-9", "hns-roce-comp-10", "hns-roce-comp-11", "hns-roce-comp-12", "hns-roce-comp-13", "hns-roce-comp-14", "hns-roce-comp-15", "hns-roce-comp-16", "hns-roce-comp-17", "hns-roce-comp-18", "hns-roce-comp-19", "hns-roce-comp-20", "hns-roce-comp-21", "hns-roce-comp-22", "hns-roce-comp-23", "hns-roce-comp-24", "hns-roce-comp-25", "hns-roce-comp-26", "hns-roce-comp-27", "hns-roce-comp-28", "hns-roce-comp-29", "hns-roce-comp-30", "hns-roce-comp-31", "hns-roce-async", "hns-roce-common";
 		};
 
 		sas@c3000000 {

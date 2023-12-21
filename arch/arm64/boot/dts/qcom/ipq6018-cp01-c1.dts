@@ -5,7 +5,7 @@
 	#size-cells = <0x02>;
 	interrupt-parent = <0x01>;
 	model = "Qualcomm Technologies, Inc. IPQ6018/AP-CP01-C1";
-	compatible = "qcom,ipq6018-cp01\0qcom,ipq6018";
+	compatible = "qcom,ipq6018-cp01", "qcom,ipq6018";
 
 	clocks {
 
@@ -225,9 +225,9 @@
 			compatible = "qcom,crypto-v5.1";
 			reg = <0x00 0x73a000 0x00 0x6000>;
 			clocks = <0x09 0x56 0x09 0x57 0x09 0x58>;
-			clock-names = "iface\0bus\0core";
+			clock-names = "iface", "bus", "core";
 			dmas = <0x0a 0x02 0x0a 0x03>;
-			dma-names = "rx\0tx";
+			dma-names = "rx", "tx";
 			phandle = <0x22>;
 		};
 
@@ -243,7 +243,7 @@
 			phandle = <0x0b>;
 
 			serial3-pinmux {
-				pins = "gpio44\0gpio45";
+				pins = "gpio44", "gpio45";
 				function = "blsp2_uart";
 				drive-strength = <0x08>;
 				bias-pull-down;
@@ -251,14 +251,14 @@
 			};
 
 			i2c-1-pins {
-				pins = "gpio42\0gpio43";
+				pins = "gpio42", "gpio43";
 				function = "blsp2_i2c";
 				drive-strength = <0x08>;
 				phandle = <0x11>;
 			};
 
 			spi-0-pins {
-				pins = "gpio38\0gpio39\0gpio40\0gpio41";
+				pins = "gpio38", "gpio39", "gpio40", "gpio41";
 				function = "blsp0_spi";
 				drive-strength = <0x08>;
 				bias-pull-down;
@@ -270,7 +270,7 @@
 			compatible = "qcom,gcc-ipq6018";
 			reg = <0x00 0x1800000 0x00 0x80000>;
 			clocks = <0x0c 0x0d>;
-			clock-names = "xo\0sleep_clk";
+			clock-names = "xo", "sleep_clk";
 			#clock-cells = <0x01>;
 			#reset-cells = <0x01>;
 			phandle = <0x09>;
@@ -300,11 +300,11 @@
 		};
 
 		serial@78b1000 {
-			compatible = "qcom,msm-uartdm-v1.4\0qcom,msm-uartdm";
+			compatible = "qcom,msm-uartdm-v1.4", "qcom,msm-uartdm";
 			reg = <0x00 0x78b1000 0x00 0x200>;
 			interrupts = <0x00 0x132 0x04>;
 			clocks = <0x09 0x52 0x09 0x43>;
-			clock-names = "core\0iface";
+			clock-names = "core", "iface";
 			status = "okay";
 			pinctrl-0 = <0x0e>;
 			pinctrl-names = "default";
@@ -319,9 +319,9 @@
 			interrupts = <0x00 0x5f 0x04>;
 			spi-max-frequency = <0x2faf080>;
 			clocks = <0x09 0x45 0x09 0x43>;
-			clock-names = "core\0iface";
+			clock-names = "core", "iface";
 			dmas = <0x0f 0x0c 0x0f 0x0d>;
-			dma-names = "tx\0rx";
+			dma-names = "tx", "rx";
 			status = "okay";
 			cs-select = <0x00>;
 			pinctrl-0 = <0x10>;
@@ -345,9 +345,9 @@
 			interrupts = <0x00 0x60 0x04>;
 			spi-max-frequency = <0x2faf080>;
 			clocks = <0x09 0x47 0x09 0x43>;
-			clock-names = "core\0iface";
+			clock-names = "core", "iface";
 			dmas = <0x0f 0x0e 0x0f 0x0f>;
-			dma-names = "tx\0rx";
+			dma-names = "tx", "rx";
 			status = "disabled";
 			phandle = <0x25>;
 		};
@@ -359,10 +359,10 @@
 			reg = <0x00 0x78b6000 0x00 0x600>;
 			interrupts = <0x00 0x60 0x04>;
 			clocks = <0x09 0x43 0x09 0x46>;
-			clock-names = "iface\0core";
+			clock-names = "iface", "core";
 			clock-frequency = <0x61a80>;
 			dmas = <0x0f 0x0f 0x0f 0x0e>;
-			dma-names = "rx\0tx";
+			dma-names = "rx", "tx";
 			status = "disabled";
 			phandle = <0x26>;
 		};
@@ -374,10 +374,10 @@
 			reg = <0x00 0x78b7000 0x00 0x600>;
 			interrupts = <0x00 0x61 0x04>;
 			clocks = <0x09 0x43 0x09 0x48>;
-			clock-names = "iface\0core";
+			clock-names = "iface", "core";
 			clock-frequency = <0x61a80>;
 			dmas = <0x0f 0x11 0x0f 0x10>;
-			dma-names = "rx\0tx";
+			dma-names = "rx", "tx";
 			status = "okay";
 			pinctrl-0 = <0x11>;
 			pinctrl-names = "default";
@@ -406,7 +406,7 @@
 			reg = <0x00 0xb111000 0x00 0x1000>;
 			#clock-cells = <0x01>;
 			clocks = <0x12 0x0c>;
-			clock-names = "pll\0xo";
+			clock-names = "pll", "xo";
 			#mbox-cells = <0x01>;
 			phandle = <0x03>;
 		};
@@ -485,16 +485,16 @@
 		remoteproc@cd00000 {
 			compatible = "qcom,ipq8074-wcss-pil";
 			reg = <0x00 0xcd00000 0x00 0x4040 0x00 0x4ab000 0x00 0x20>;
-			reg-names = "qdsp6\0rmb";
+			reg-names = "qdsp6", "rmb";
 			interrupts-extended = <0x01 0x00 0x145 0x01 0x13 0x00 0x00 0x13 0x01 0x00 0x13 0x02 0x00 0x13 0x03 0x00>;
-			interrupt-names = "wdog\0fatal\0ready\0handover\0stop-ack";
+			interrupt-names = "wdog", "fatal", "ready", "handover", "stop-ack";
 			resets = <0x09 0x7f 0x09 0x16 0x09 0x17>;
-			reset-names = "wcss_aon_reset\0wcss_reset\0wcss_q6_reset";
+			reset-names = "wcss_aon_reset", "wcss_reset", "wcss_q6_reset";
 			clocks = <0x09 0x88>;
 			clock-names = "prng";
 			qcom,halt-regs = <0x14 0xa000 0xd000 0x00>;
 			qcom,smem-states = <0x15 0x00 0x15 0x01>;
-			qcom,smem-state-names = "shutdown\0stop";
+			qcom,smem-state-names = "shutdown", "stop";
 			memory-region = <0x16>;
 			phandle = <0x28>;
 
