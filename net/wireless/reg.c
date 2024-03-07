@@ -220,7 +220,7 @@ static DECLARE_WORK(reg_work, reg_todo);
 
 /* We keep a static world regulatory domain in case of the absence of CRDA */
 static const struct ieee80211_regdomain world_regdom = {
-	.n_reg_rules = 8,
+	.n_reg_rules = 9,
 	.alpha2 =  "00",
 	.reg_rules = {
 		/* IEEE 802.11b/g, channels 1..11 */
@@ -249,9 +249,13 @@ static const struct ieee80211_regdomain world_regdom = {
 			NL80211_RRF_NO_IR |
 			NL80211_RRF_DFS),
 
-		/* IEEE 802.11a, channel 149..165 */
-		REG_RULE(5745-10, 5825+10, 80, 6, 20,
+		/* IEEE 802.11a, channel 149..177 */
+		REG_RULE(5745-10, 5885+10, 80, 6, 20,
 			NL80211_RRF_NO_IR),
+
+                /* IEEE 802.11a, channel 1..233 */
+                REG_RULE(5955-10, 7115+10, 160, 6, 20,
+                        NL80211_RRF_NO_IR),
 
 		/* IEEE 802.11ad (60GHz), channels 1..3 */
 		REG_RULE(56160+2160*1-1080, 56160+2160*3+1080, 2160, 0, 0, 0),
