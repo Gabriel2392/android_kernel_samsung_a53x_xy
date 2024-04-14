@@ -1,0 +1,28 @@
+name: KBuild
+
+on:
+  workflow_dispatch:
+
+jobs:
+  kb:
+    runs-on: ubuntu-22.04
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+    - name: Clean
+      uses: rokibhasansagar/slimhub_actions@main
+    - name: Install tools
+      run: |
+        sudo apt-get update -y &>/dev/null || sudo apt-get update -y &>/dev/null || true
+        sudo apt-get upgrade -y &>/dev/null || sudo apt-get upgrade -y &>/dev/null || true
+        sudo apt-get install zip zstd tar lz4 cpio -y || sudo apt-get install zip zstd tar lz4 cpio -y
+    - name: Build
+      run: |
+        curl -LSs "https://raw.githubusercontent.com/tiann/KernelSU/main/kernel/setup.sh" | bash -
+        bash build.sh
+    - name: Upload
+      uses: actions/upload-artifact@v4
+      with:
+        name: Kernels
+        path: kernel_build/Kernel.*

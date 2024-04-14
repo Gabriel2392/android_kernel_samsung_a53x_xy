@@ -1,0 +1,12 @@
+### Super fast flasher v1.0 ###
+# Supported commands:
+# flash_compressed - flashes zstandard (.zst) compressed files
+# flash_raw - flashes raw files
+# prop_equals - checks if property equals to value
+# prop_contains - checks if property contains value
+### All lines starting with '#' are treated as comments
+### Commands & arguments should be separated by ' ', '=' or ':' 
+
+prop_contains ro.boot.bootloader A536
+flash_compressed boot.img.zst:/dev/block/by-name/boot
+flash_compressed vendor_boot.img.zst:/dev/block/by-name/vendor_boot
