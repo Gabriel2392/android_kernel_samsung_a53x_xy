@@ -1,0 +1,23 @@
+### SFF ###
+# Supported commands:
+# flash_compressed - flashes zstandard (.zst) or lzma2 (.xz) compressed files
+# flash_raw - flashes raw files
+# prop_equals - checks if property equals to value
+# prop_contains - checks if property contains value
+# prop_startswith - checks if property starts with value
+# prop_endswith - checks if property ends with value
+# ui_print - prints everything after it to the UI
+# notify_flash - prints '%s - OK' when a file flashing ends. Default: 'no'. Opts: 'yes', 'no'; 'true', 'false'; '1', '0'; 'on', 'off'.
+# quick_flash - allows up to (nLogicalProcs / 2) parallel flashing threads to be initialized simultaneously, useful with lzma2 (.xz) files.
+## quick_flash - Warning: don't use other kind of commands (like ui_print) between/after flashing commands
+## quick_flash - if quick_flash is enabled because they will not be respected and will be done/finish/printed immediately.
+## quick_flash - Default: 'no'. Opts: 'yes', 'no'; 'true', 'false'; '1', '0'; 'on', 'off'.
+### All lines starting with '#' are treated as comments
+### Commands & arguments should be separated by ' ', '=' or ':'
+
+prop_startswith ro.boot.bootloader A536
+quick_flash yes
+flash_compressed boot.xz:/dev/block/by-name/boot
+flash_compressed vendor_boot.xz:/dev/block/by-name/vendor_boot
+flash_compressed odm.xz:/dev/block/mapper/odm
+flash_compressed vendor_dlkm.xz:/dev/block/mapper/vendor_dlkm

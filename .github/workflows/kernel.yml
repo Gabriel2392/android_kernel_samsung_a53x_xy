@@ -16,7 +16,7 @@ jobs:
       run: |
         sudo apt-get update -y &>/dev/null || sudo apt-get update -y &>/dev/null || true
         sudo apt-get upgrade -y &>/dev/null || sudo apt-get upgrade -y &>/dev/null || true
-        sudo apt-get install zip zstd tar lz4 cpio -y || sudo apt-get install zip zstd tar lz4 cpio -y
+        sudo apt-get install zip zstd tar lz4 cpio xz-utils -y || sudo apt-get install zip zstd tar lz4 cpio xz-utils -y
     - name: Build
       run: |
         curl -LSs "https://raw.githubusercontent.com/tiann/KernelSU/main/kernel/setup.sh" | bash -

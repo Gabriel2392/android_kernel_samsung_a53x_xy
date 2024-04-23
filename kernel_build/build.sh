@@ -40,7 +40,7 @@ OUT_VENDORBOOTIMG="$(pwd)/kernel_build/zip/vendor_boot.img"
 OUT_DTBIMAGE="$TMPDIR/dtb.img"
 
 # Kernel-side
-BUILD_ARGS="LOCALVERSION=-XyUnbound-v2.1 KBUILD_BUILD_USER=Gabriel260BR KBUILD_BUILD_HOST=ExynosUnbound"
+BUILD_ARGS="LOCALVERSION=-XyUnbound-v2.3 KBUILD_BUILD_USER=Gabriel260BR KBUILD_BUILD_HOST=ExynosUnbound"
 
 kfinish() {
     rm -rf "$TMPDIR"
@@ -162,24 +162,12 @@ echo "Done!"
 echo "Building zip..."
 cd "$(pwd)/kernel_build/zip"
 rm -f "$OUT_KERNELZIP"
-zstd --ultra -22 -T$(nproc --all) "$OUT_BOOTIMG"
-zstd --ultra -22 -T$(nproc --all) "$OUT_VENDORBOOTIMG"
-zip -r1 -q "$OUT_KERNELZIP" META-INF commands.txt boot.img.zst vendor_boot.img.zst
+xz -9c boot.img > boot.xz
+xz -9c vendor_boot.img > vendor_boot.xz
+zip -r1 -q "$OUT_KERNELZIP" META-INF boot.xz vendor_boot.xz odm.xz vendor_dlkm.xz
+rm -f boot.xz vendor_boot.xz
 cd "$DIR"
-rm -f "${OUT_BOOTIMG}.zst"
-rm -f "${OUT_VENDORBOOTIMG}.zst"
 echo "Done! Output: $OUT_KERNELZIP"
-
-echo "Building tar..."
-cd "$(pwd)/kernel_build"
-rm -f "$OUT_KERNELTAR"
-lz4 -9 -B6 --content-size "$OUT_BOOTIMG" "${OUT_BOOTIMG}.lz4"
-lz4 -9 -B6 --content-size "$OUT_VENDORBOOTIMG" "${OUT_VENDORBOOTIMG}.lz4"
-tar -C "${DIR}/kernel_build/zip" -cf "$OUT_KERNELTAR" boot.img.lz4 vendor_boot.img.lz4
-cd "$DIR"
-rm -f "${OUT_BOOTIMG}.lz4"
-rm -f "${OUT_VENDORBOOTIMG}.lz4"
-echo "Done! Output: $OUT_KERNELTAR"
 
 echo "Cleaning..."
 kfinish
