@@ -1,6 +1,6 @@
 ### SFF ###
 # Supported commands:
-# flash_compressed - flashes zstandard (.zst) or lzma2 (.xz) compressed files
+# flash_compressed - flashes lz4 (.lz4), zstandard (.zst) or lzma2 (.xz) compressed files
 # flash_raw - flashes raw files
 # prop_equals - checks if property equals to value
 # prop_contains - checks if property contains value
