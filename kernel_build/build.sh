@@ -162,10 +162,10 @@ echo "Done!"
 echo "Building zip..."
 cd "$(pwd)/kernel_build/zip"
 rm -f "$OUT_KERNELZIP"
-xz -9c boot.img > boot.xz
-xz -9c vendor_boot.img > vendor_boot.xz
-zip -r1 -q "$OUT_KERNELZIP" META-INF boot.xz vendor_boot.xz odm.xz vendor_dlkm.xz
-rm -f boot.xz vendor_boot.xz
+brotli --quality=11 -c boot.img > boot.br
+brotli --quality=11 -c vendor_boot.img > vendor_boot.br
+zip -r9 -q "$OUT_KERNELZIP" META-INF boot.br vendor_boot.br
+rm -f boot.br vendor_boot.br
 cd "$DIR"
 echo "Done! Output: $OUT_KERNELZIP"
 
