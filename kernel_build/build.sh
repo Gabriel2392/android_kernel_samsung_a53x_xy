@@ -1,5 +1,7 @@
 #!/bin/bash
 
+XY_VERSION="R2.5"
+
 set -e
 
 if [ -z "$1" ]; then
@@ -32,15 +34,15 @@ MODULES_DIR="$DLKM_RAMDISK_DIR/lib/modules"
 MKBOOTIMG="$(pwd)/kernel_build/mkbootimg/mkbootimg.py"
 MKDTBOIMG="$(pwd)/kernel_build/dtb/mkdtboimg.py"
 
-OUT_KERNELZIP="$(pwd)/kernel_build/Kernel.zip"
-OUT_KERNELTAR="$(pwd)/kernel_build/Kernel.tar"
+OUT_KERNELZIP="$(pwd)/kernel_build/ExynosUnbound-${XY_VERSION}_a53x.zip"
+OUT_KERNELTAR="$(pwd)/kernel_build/ExynosUnbound-${XY_VERSION}_a53x.tar"
 OUT_KERNEL="$OUTDIR/arch/arm64/boot/Image"
 OUT_BOOTIMG="$(pwd)/kernel_build/zip/boot.img"
 OUT_VENDORBOOTIMG="$(pwd)/kernel_build/zip/vendor_boot.img"
 OUT_DTBIMAGE="$TMPDIR/dtb.img"
 
 # Kernel-side
-BUILD_ARGS="LOCALVERSION=-XyUnbound-v2.5 KBUILD_BUILD_USER=Gabriel260BR KBUILD_BUILD_HOST=ExynosUnbound"
+BUILD_ARGS="LOCALVERSION=-XyUnbound-${XY_VERSION} KBUILD_BUILD_USER=Gabriel260BR KBUILD_BUILD_HOST=ExynosUnbound"
 
 kfinish() {
     rm -rf "$TMPDIR"
@@ -169,5 +171,16 @@ rm -f boot.br vendor_boot.br
 cd "$DIR"
 echo "Done! Output: $OUT_KERNELZIP"
 
+echo "Building tar..."
+cd "$(pwd)/kernel_build"
+rm -f "$OUT_KERNELTAR"
+lz4 -c -12 -B6 --content-size "$OUT_BOOTIMG" > boot.img.lz4
+lz4 -c -12 -B6 --content-size "$OUT_VENDORBOOTIMG" > vendor_boot.img.lz4
+tar -cf "$OUT_KERNELTAR" boot.img.lz4 vendor_boot.img.lz4
+cd "$DIR"
+rm -f boot.img.lz4 vendor_boot.img.lz4
+echo "Done! Output: $OUT_KERNELTAR"
+
 echo "Cleaning..."
+rm -f "${OUT_VENDORBOOTIMG}" "${OUT_BOOTIMG}"
 kfinish

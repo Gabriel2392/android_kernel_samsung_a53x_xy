@@ -24,5 +24,5 @@ jobs:
     - name: Upload
       uses: actions/upload-artifact@v4
       with:
-        name: Kernels
-        path: kernel_build/Kernel.*
+        name: Kernels_a53x
+        path: kernel_build/ExynosUnbound*
