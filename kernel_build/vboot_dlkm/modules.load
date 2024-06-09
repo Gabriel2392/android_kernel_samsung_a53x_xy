@@ -295,4 +295,6 @@ mt76-connac-lib.ko
 mt76-usb.ko
 mt7921-common.ko
 mt7921u.ko
+spl.ko
+zfs.ko
 input_booster_lkm.ko
