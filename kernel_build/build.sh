@@ -58,7 +58,7 @@ bring_zfs() {
   echo 'MODULE_IMPORT_NS(VFS_internal_I_am_really_a_filesystem_and_am_NOT_a_driver);' >> fs/zfs/os/linux/zfs/zfs_ioctl_os.c
   echo 'MODULE_IMPORT_NS(VFS_internal_I_am_really_a_filesystem_and_am_NOT_a_driver);' >> fs/zfs/os/linux/spl/spl-generic.c
   grep -r CDDL include/zfs/|grep -v '\*'|grep -v bsd|cut -d':' -f1|while read FL ; do sed -i 's|ZFS_META_LICENSE = CDDL|ZFS_META_LICENSE = GPL|; s|#define ZFS_META_LICENSE "CDDL"|#define ZFS_META_LICENSE "GPL"|' $FL; done
-  echo "$(grep CONFIG_ZFS arch/arm64/configs/a33x_defconfig)" >> "$CDIR/out/.config" "$CDIR/out/.config.old"
+  echo "$(grep CONFIG_ZFS arch/arm64/configs/a53x_defconfig)" >> "$CDIR/out/.config" "$CDIR/out/.config.old"
   echo ' - OK'
 }
 
