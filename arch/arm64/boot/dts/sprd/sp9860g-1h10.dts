@@ -5,7 +5,7 @@
 	#address-cells = <0x02>;
 	#size-cells = <0x02>;
 	model = "Spreadtrum SP9860G 3GFHD Board";
-	compatible = "sprd,sp9860g-1h10\0sprd,sc9860";
+	compatible = "sprd,sp9860g-1h10", "sprd,sc9860";
 
 	soc {
 		compatible = "simple-bus";
@@ -75,40 +75,40 @@
 			ranges = <0x00 0x00 0x70000000 0x10000000>;
 
 			serial@0 {
-				compatible = "sprd,sc9860-uart\0sprd,sc9836-uart";
+				compatible = "sprd,sc9860-uart", "sprd,sc9836-uart";
 				reg = <0x00 0x100>;
 				interrupts = <0x00 0x02 0x04>;
-				clock-names = "enable\0uart\0source";
+				clock-names = "enable", "uart", "source";
 				clocks = <0x02 0x0e 0x03 0x02 0x04>;
 				status = "okay";
 				phandle = <0x4c>;
 			};
 
 			serial@100000 {
-				compatible = "sprd,sc9860-uart\0sprd,sc9836-uart";
+				compatible = "sprd,sc9860-uart", "sprd,sc9836-uart";
 				reg = <0x100000 0x100>;
 				interrupts = <0x00 0x03 0x04>;
-				clock-names = "enable\0uart\0source";
+				clock-names = "enable", "uart", "source";
 				clocks = <0x02 0x0f 0x03 0x03 0x04>;
 				status = "okay";
 				phandle = <0x4d>;
 			};
 
 			serial@200000 {
-				compatible = "sprd,sc9860-uart\0sprd,sc9836-uart";
+				compatible = "sprd,sc9860-uart", "sprd,sc9836-uart";
 				reg = <0x200000 0x100>;
 				interrupts = <0x00 0x04 0x04>;
-				clock-names = "enable\0uart\0source";
+				clock-names = "enable", "uart", "source";
 				clocks = <0x02 0x10 0x03 0x04 0x04>;
 				status = "okay";
 				phandle = <0x4e>;
 			};
 
 			serial@300000 {
-				compatible = "sprd,sc9860-uart\0sprd,sc9836-uart";
+				compatible = "sprd,sc9860-uart", "sprd,sc9836-uart";
 				reg = <0x300000 0x100>;
 				interrupts = <0x00 0x05 0x04>;
-				clock-names = "enable\0uart\0source";
+				clock-names = "enable", "uart", "source";
 				clocks = <0x02 0x11 0x03 0x05 0x04>;
 				status = "okay";
 				phandle = <0x4f>;
@@ -136,7 +136,7 @@
 				compatible = "sprd,sdhci-r11";
 				reg = <0x00 0x50430000 0x00 0x1000>;
 				interrupts = <0x00 0x29 0x04>;
-				clock-names = "sdio\0enable\02x_enable";
+				clock-names = "sdio", "enable", "2x_enable";
 				clocks = <0x06 0x0c 0x05 0x07 0x07 0x43>;
 				assigned-clocks = <0x06 0x0c>;
 				assigned-clock-parents = <0x08>;
@@ -262,7 +262,7 @@
 						interrupts = <0x00>;
 						#io-channel-cells = <0x01>;
 						hwlocks = <0x0a 0x04>;
-						nvmem-cell-names = "big_scale_calib\0small_scale_calib";
+						nvmem-cell-names = "big_scale_calib", "small_scale_calib";
 						nvmem-cells = <0x0d 0x0e>;
 						phandle = <0x10>;
 					};
@@ -272,7 +272,7 @@
 						reg = <0xa00>;
 						bat-detect-gpio = <0x0f 0x09 0x00>;
 						io-channels = <0x10 0x03 0x10 0x06>;
-						io-channel-names = "bat-temp\0charge-vol";
+						io-channel-names = "bat-temp", "charge-vol";
 						monitored-battery = <0x0b>;
 						nvmem-cell-names = "fgu_calib";
 						nvmem-cells = <0x11>;
@@ -534,7 +534,7 @@
 				reg = <0x00 0x40310000 0x00 0x1000>;
 				interrupts = <0x00 0x3d 0x04>;
 				timeout-sec = <0x0c>;
-				clock-names = "enable\0rtc_enable";
+				clock-names = "enable", "rtc_enable";
 				clocks = <0x07 0x28 0x07 0x4c>;
 			};
 		};
@@ -550,7 +550,7 @@
 				reg = <0x00 0x41580000 0x00 0x4000>;
 				#dma-cells = <0x01>;
 				#dma-channels = <0x20>;
-				clock-names = "enable\0ashb_eb";
+				clock-names = "enable", "ashb_eb";
 				clocks = <0x13 0x06 0x13 0x0e>;
 				phandle = <0x68>;
 			};
@@ -685,7 +685,7 @@
 		};
 
 		funnel@10001000 {
-			compatible = "arm,coresight-dynamic-funnel\0arm,primecell";
+			compatible = "arm,coresight-dynamic-funnel", "arm,primecell";
 			reg = <0x00 0x10001000 0x00 0x1000>;
 			clocks = <0x04>;
 			clock-names = "apb_pclk";
@@ -726,7 +726,7 @@
 		};
 
 		etb@10003000 {
-			compatible = "arm,coresight-tmc\0arm,primecell";
+			compatible = "arm,coresight-tmc", "arm,primecell";
 			reg = <0x00 0x10003000 0x00 0x1000>;
 			clocks = <0x04>;
 			clock-names = "apb_pclk";
@@ -744,9 +744,9 @@
 		};
 
 		stm@10006000 {
-			compatible = "arm,coresight-stm\0arm,primecell";
+			compatible = "arm,coresight-stm", "arm,primecell";
 			reg = <0x00 0x10006000 0x00 0x1000 0x00 0x1000000 0x00 0x180000>;
-			reg-names = "stm-base\0stm-stimulus-base";
+			reg-names = "stm-base", "stm-stimulus-base";
 			clocks = <0x04>;
 			clock-names = "apb_pclk";
 
@@ -763,7 +763,7 @@
 		};
 
 		funnel@11001000 {
-			compatible = "arm,coresight-dynamic-funnel\0arm,primecell";
+			compatible = "arm,coresight-dynamic-funnel", "arm,primecell";
 			reg = <0x00 0x11001000 0x00 0x1000>;
 			clocks = <0x04>;
 			clock-names = "apb_pclk";
@@ -822,7 +822,7 @@
 		};
 
 		funnel@11002000 {
-			compatible = "arm,coresight-dynamic-funnel\0arm,primecell";
+			compatible = "arm,coresight-dynamic-funnel", "arm,primecell";
 			reg = <0x00 0x11002000 0x00 0x1000>;
 			clocks = <0x04>;
 			clock-names = "apb_pclk";
@@ -881,7 +881,7 @@
 		};
 
 		etf@11003000 {
-			compatible = "arm,coresight-tmc\0arm,primecell";
+			compatible = "arm,coresight-tmc", "arm,primecell";
 			reg = <0x00 0x11003000 0x00 0x1000>;
 			clocks = <0x04>;
 			clock-names = "apb_pclk";
@@ -910,7 +910,7 @@
 		};
 
 		etf@11004000 {
-			compatible = "arm,coresight-tmc\0arm,primecell";
+			compatible = "arm,coresight-tmc", "arm,primecell";
 			reg = <0x00 0x11004000 0x00 0x1000>;
 			clocks = <0x04>;
 			clock-names = "apb_pclk";
@@ -939,7 +939,7 @@
 		};
 
 		funnel@11005000 {
-			compatible = "arm,coresight-dynamic-funnel\0arm,primecell";
+			compatible = "arm,coresight-dynamic-funnel", "arm,primecell";
 			reg = <0x00 0x11005000 0x00 0x1000>;
 			clocks = <0x04>;
 			clock-names = "apb_pclk";
@@ -980,7 +980,7 @@
 		};
 
 		etm@11440000 {
-			compatible = "arm,coresight-etm4x\0arm,primecell";
+			compatible = "arm,coresight-etm4x", "arm,primecell";
 			reg = <0x00 0x11440000 0x00 0x1000>;
 			cpu = <0x38>;
 			clocks = <0x04>;
@@ -999,7 +999,7 @@
 		};
 
 		etm@11540000 {
-			compatible = "arm,coresight-etm4x\0arm,primecell";
+			compatible = "arm,coresight-etm4x", "arm,primecell";
 			reg = <0x00 0x11540000 0x00 0x1000>;
 			cpu = <0x3a>;
 			clocks = <0x04>;
@@ -1018,7 +1018,7 @@
 		};
 
 		etm@11640000 {
-			compatible = "arm,coresight-etm4x\0arm,primecell";
+			compatible = "arm,coresight-etm4x", "arm,primecell";
 			reg = <0x00 0x11640000 0x00 0x1000>;
 			cpu = <0x3c>;
 			clocks = <0x04>;
@@ -1037,7 +1037,7 @@
 		};
 
 		etm@11740000 {
-			compatible = "arm,coresight-etm4x\0arm,primecell";
+			compatible = "arm,coresight-etm4x", "arm,primecell";
 			reg = <0x00 0x11740000 0x00 0x1000>;
 			cpu = <0x3e>;
 			clocks = <0x04>;
@@ -1056,7 +1056,7 @@
 		};
 
 		etm@11840000 {
-			compatible = "arm,coresight-etm4x\0arm,primecell";
+			compatible = "arm,coresight-etm4x", "arm,primecell";
 			reg = <0x00 0x11840000 0x00 0x1000>;
 			cpu = <0x40>;
 			clocks = <0x04>;
@@ -1075,7 +1075,7 @@
 		};
 
 		etm@11940000 {
-			compatible = "arm,coresight-etm4x\0arm,primecell";
+			compatible = "arm,coresight-etm4x", "arm,primecell";
 			reg = <0x00 0x11940000 0x00 0x1000>;
 			cpu = <0x42>;
 			clocks = <0x04>;
@@ -1094,7 +1094,7 @@
 		};
 
 		etm@11a40000 {
-			compatible = "arm,coresight-etm4x\0arm,primecell";
+			compatible = "arm,coresight-etm4x", "arm,primecell";
 			reg = <0x00 0x11a40000 0x00 0x1000>;
 			cpu = <0x44>;
 			clocks = <0x04>;
@@ -1113,7 +1113,7 @@
 		};
 
 		etm@11b40000 {
-			compatible = "arm,coresight-etm4x\0arm,primecell";
+			compatible = "arm,coresight-etm4x", "arm,primecell";
 			reg = <0x00 0x11b40000 0x00 0x1000>;
 			cpu = <0x46>;
 			clocks = <0x04>;
@@ -1354,7 +1354,7 @@
 	};
 
 	pmu {
-		compatible = "arm,cortex-a53-pmu\0arm,armv8-pmuv3";
+		compatible = "arm,cortex-a53-pmu", "arm,armv8-pmuv3";
 		interrupts = <0x00 0x7a 0x04 0x00 0x7b 0x04 0x00 0x7c 0x04 0x00 0x7d 0x04 0x00 0x9a 0x04 0x00 0x9b 0x04 0x00 0x9c 0x04 0x00 0x9d 0x04>;
 		interrupt-affinity = <0x38 0x3a 0x3c 0x3e 0x40 0x42 0x44 0x46>;
 	};

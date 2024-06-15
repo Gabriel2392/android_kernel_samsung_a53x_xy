@@ -6,7 +6,7 @@
 	#address-cells = <0x02>;
 	#size-cells = <0x02>;
 	model = "HP Envy x2";
-	compatible = "hp,envy-x2\0qcom,msm8998";
+	compatible = "hp,envy-x2", "qcom,msm8998";
 
 	chosen {
 	};
@@ -399,7 +399,7 @@
 	firmware {
 
 		scm {
-			compatible = "qcom,scm-msm8998\0qcom,scm";
+			compatible = "qcom,scm-msm8998", "qcom,scm";
 		};
 	};
 
@@ -427,7 +427,7 @@
 			phandle = <0x88>;
 
 			clock-controller {
-				compatible = "qcom,rpmcc-msm8998\0qcom,rpmcc";
+				compatible = "qcom,rpmcc-msm8998", "qcom,rpmcc";
 				#clock-cells = <0x01>;
 				phandle = <0x23>;
 			};
@@ -570,8 +570,8 @@
 				};
 
 				l5 {
-					regulator-min-microvolt = "\0\f5";
-					regulator-max-microvolt = "\0\f5";
+					regulator-min-microvolt = "", "\f5";
+					regulator-max-microvolt = "", "\f5";
 					phandle = <0x6c>;
 				};
 
@@ -672,7 +672,7 @@
 					regulator-min-microvolt = <0x2d2a80>;
 					regulator-max-microvolt = <0x2d2a80>;
 					regulator-allow-set-load;
-					regulator-system-load = "\0\f5";
+					regulator-system-load = "", "\f5";
 					phandle = <0x57>;
 				};
 
@@ -695,7 +695,7 @@
 				};
 
 				l25 {
-					regulator-min-microvolt = "\0/]";
+					regulator-min-microvolt = "", "/]";
 					regulator-max-microvolt = <0x328980>;
 					regulator-allow-set-load;
 					phandle = <0x65>;
@@ -1228,27 +1228,27 @@
 		};
 
 		thermal@10ab000 {
-			compatible = "qcom,msm8998-tsens\0qcom,tsens-v2";
+			compatible = "qcom,msm8998-tsens", "qcom,tsens-v2";
 			reg = <0x10ab000 0x1000 0x10aa000 0x1000>;
 			#qcom,sensors = <0x0e>;
 			interrupts = <0x00 0x1ca 0x04 0x00 0x1bd 0x04>;
-			interrupt-names = "uplow\0critical";
+			interrupt-names = "uplow", "critical";
 			#thermal-sensor-cells = <0x01>;
 			phandle = <0x19>;
 		};
 
 		thermal@10ae000 {
-			compatible = "qcom,msm8998-tsens\0qcom,tsens-v2";
+			compatible = "qcom,msm8998-tsens", "qcom,tsens-v2";
 			reg = <0x10ae000 0x1000 0x10ad000 0x1000>;
 			#qcom,sensors = <0x08>;
 			interrupts = <0x00 0xb8 0x04 0x00 0x1ae 0x04>;
-			interrupt-names = "uplow\0critical";
+			interrupt-names = "uplow", "critical";
 			#thermal-sensor-cells = <0x01>;
 			phandle = <0x1a>;
 		};
 
 		iommu@1680000 {
-			compatible = "qcom,msm8998-smmu-v2\0qcom,smmu-v2";
+			compatible = "qcom,msm8998-smmu-v2", "qcom,smmu-v2";
 			reg = <0x1680000 0x10000>;
 			#iommu-cells = <0x01>;
 			#global-interrupts = <0x00>;
@@ -1257,7 +1257,7 @@
 		};
 
 		iommu@16c0000 {
-			compatible = "qcom,msm8998-smmu-v2\0qcom,smmu-v2";
+			compatible = "qcom,msm8998-smmu-v2", "qcom,smmu-v2";
 			reg = <0x16c0000 0x40000>;
 			#iommu-cells = <0x01>;
 			#global-interrupts = <0x00>;
@@ -1268,7 +1268,7 @@
 		pci@1c00000 {
 			compatible = "qcom,pcie-msm8996";
 			reg = <0x1c00000 0x2000 0x1b000000 0xf1d 0x1b000f20 0xa8 0x1b100000 0x100000>;
-			reg-names = "parf\0dbi\0elbi\0config";
+			reg-names = "parf", "dbi", "elbi", "config";
 			device_type = "pci";
 			linux,pci-domain = <0x00>;
 			bus-range = <0x00 0xff>;
@@ -1284,7 +1284,7 @@
 			interrupt-map-mask = <0x00 0x00 0x00 0x07>;
 			interrupt-map = <0x00 0x00 0x00 0x01 0x01 0x00 0x87 0x04 0x00 0x00 0x00 0x02 0x01 0x00 0x88 0x04 0x00 0x00 0x00 0x03 0x01 0x00 0x8a 0x04 0x00 0x00 0x00 0x04 0x01 0x00 0x8b 0x04>;
 			clocks = <0x1d 0x5e 0x1d 0x5d 0x1d 0x5f 0x1d 0x5c 0x1d 0x5b>;
-			clock-names = "pipe\0bus_master\0bus_slave\0cfg\0aux";
+			clock-names = "pipe", "bus_master", "bus_slave", "cfg", "aux";
 			power-domains = <0x1d 0x00>;
 			iommu-map = <0x100 0x1e 0x1480 0x01>;
 			perst-gpios = <0x1f 0x23 0x01>;
@@ -1298,9 +1298,9 @@
 			#size-cells = <0x01>;
 			ranges;
 			clocks = <0x1d 0x60 0x1d 0x5c 0x1d 0xa9>;
-			clock-names = "aux\0cfg_ahb\0ref";
+			clock-names = "aux", "cfg_ahb", "ref";
 			resets = <0x1d 0x4c 0x1d 0x4e>;
-			reset-names = "phy\0common";
+			reset-names = "phy", "common";
 			vdda-phy-supply = <0x20>;
 			vdda-pll-supply = <0x21>;
 
@@ -1316,7 +1316,7 @@
 		};
 
 		ufshc@1da4000 {
-			compatible = "qcom,msm8998-ufshc\0qcom,ufshc\0jedec,ufs-2.0";
+			compatible = "qcom,msm8998-ufshc", "qcom,ufshc", "jedec,ufs-2.0";
 			reg = <0x1da4000 0x2500>;
 			interrupts = <0x00 0x109 0x04>;
 			phys = <0x22>;
@@ -1324,7 +1324,7 @@
 			lanes-per-direction = <0x02>;
 			power-domains = <0x1d 0x01>;
 			#reset-cells = <0x01>;
-			clock-names = "core_clk\0bus_aggr_clk\0iface_clk\0core_clk_unipro\0ref_clk\0tx_lane0_sync_clk\0rx_lane0_sync_clk\0rx_lane1_sync_clk";
+			clock-names = "core_clk", "bus_aggr_clk", "iface_clk", "core_clk_unipro", "ref_clk", "tx_lane0_sync_clk", "rx_lane0_sync_clk", "rx_lane1_sync_clk";
 			clocks = <0x1d 0x6d 0x1d 0x1f 0x1d 0x6c 0x1d 0x73 0x23 0x50 0x1d 0x72 0x1d 0x70 0x1d 0x71>;
 			freq-table-hz = <0x2faf080 0xbebc200 0x00 0x00 0x00 0x00 0x23c3460 0x8f0d180 0x00 0x00 0x00 0x00 0x00 0x00 0x00 0x00>;
 			resets = <0x1d 0x11>;
@@ -1338,7 +1338,7 @@
 			#address-cells = <0x01>;
 			#size-cells = <0x01>;
 			ranges;
-			clock-names = "ref\0ref_aux";
+			clock-names = "ref", "ref_aux";
 			clocks = <0x1d 0xa8 0x1d 0x6f>;
 			reset-names = "ufsphy";
 			resets = <0x24 0x00>;
@@ -1503,18 +1503,18 @@
 		remoteproc@4080000 {
 			compatible = "qcom,msm8998-mss-pil";
 			reg = <0x4080000 0x100 0x4180000 0x20>;
-			reg-names = "qdsp6\0rmb";
+			reg-names = "qdsp6", "rmb";
 			interrupts-extended = <0x01 0x00 0x1c0 0x01 0x25 0x00 0x01 0x25 0x01 0x01 0x25 0x02 0x01 0x25 0x03 0x01 0x25 0x07 0x01>;
-			interrupt-names = "wdog\0fatal\0ready\0handover\0stop-ack\0shutdown-ack";
+			interrupt-names = "wdog", "fatal", "ready", "handover", "stop-ack", "shutdown-ack";
 			clocks = <0x1d 0xab 0x1d 0x24 0x1d 0xac 0x1d 0xad 0x1d 0xae 0x1d 0xaf 0x23 0x08 0x23 0x00>;
-			clock-names = "iface\0bus\0mem\0gpll0_mss\0snoc_axi\0mnoc_axi\0qdss\0xo";
+			clock-names = "iface", "bus", "mem", "gpll0_mss", "snoc_axi", "mnoc_axi", "qdss", "xo";
 			qcom,smem-states = <0x26 0x00>;
 			qcom,smem-state-names = "stop";
 			resets = <0x1d 0x6c>;
 			reset-names = "mss_restart";
 			qcom,halt-regs = <0x0e 0x23000 0x25000 0x24000>;
 			power-domains = <0x27 0x00 0x27 0x03>;
-			power-domain-names = "cx\0mx";
+			power-domain-names = "cx", "mx";
 			phandle = <0xc5>;
 
 			mba {
@@ -1540,7 +1540,7 @@
 			#power-domain-cells = <0x01>;
 			reg = <0x5065000 0x9000>;
 			clocks = <0x23 0x00 0x1d 0x7f>;
-			clock-names = "xo\0gpll0";
+			clock-names = "xo", "gpll0";
 			phandle = <0xc6>;
 		};
 
@@ -1548,10 +1548,10 @@
 			compatible = "qcom,msm8998-slpi-pas";
 			reg = <0x5800000 0x4040>;
 			interrupts-extended = <0x01 0x00 0x186 0x01 0x2a 0x00 0x01 0x2a 0x01 0x01 0x2a 0x02 0x01 0x2a 0x03 0x01>;
-			interrupt-names = "wdog\0fatal\0ready\0handover\0stop-ack";
+			interrupt-names = "wdog", "fatal", "ready", "handover", "stop-ack";
 			px-supply = <0x2b>;
 			clocks = <0x23 0x00 0x23 0x40>;
-			clock-names = "xo\0aggre2";
+			clock-names = "xo", "aggre2";
 			memory-region = <0x2c>;
 			qcom,smem-states = <0x2d 0x00>;
 			qcom,smem-state-names = "stop";
@@ -1569,12 +1569,12 @@
 		};
 
 		stm@6002000 {
-			compatible = "arm,coresight-stm\0arm,primecell";
+			compatible = "arm,coresight-stm", "arm,primecell";
 			reg = <0x6002000 0x1000 0x16280000 0x180000>;
-			reg-names = "stm-base\0stm-stimulus-base";
+			reg-names = "stm-base", "stm-stimulus-base";
 			status = "disabled";
 			clocks = <0x23 0x08 0x23 0x09>;
-			clock-names = "apb_pclk\0atclk";
+			clock-names = "apb_pclk", "atclk";
 			phandle = <0xc8>;
 
 			out-ports {
@@ -1590,11 +1590,11 @@
 		};
 
 		funnel@6041000 {
-			compatible = "arm,coresight-dynamic-funnel\0arm,primecell";
+			compatible = "arm,coresight-dynamic-funnel", "arm,primecell";
 			reg = <0x6041000 0x1000>;
 			status = "disabled";
 			clocks = <0x23 0x08 0x23 0x09>;
-			clock-names = "apb_pclk\0atclk";
+			clock-names = "apb_pclk", "atclk";
 			phandle = <0xc9>;
 
 			out-ports {
@@ -1624,11 +1624,11 @@
 		};
 
 		funnel@6042000 {
-			compatible = "arm,coresight-dynamic-funnel\0arm,primecell";
+			compatible = "arm,coresight-dynamic-funnel", "arm,primecell";
 			reg = <0x6042000 0x1000>;
 			status = "disabled";
 			clocks = <0x23 0x08 0x23 0x09>;
-			clock-names = "apb_pclk\0atclk";
+			clock-names = "apb_pclk", "atclk";
 			phandle = <0xca>;
 
 			out-ports {
@@ -1658,11 +1658,11 @@
 		};
 
 		funnel@6045000 {
-			compatible = "arm,coresight-dynamic-funnel\0arm,primecell";
+			compatible = "arm,coresight-dynamic-funnel", "arm,primecell";
 			reg = <0x6045000 0x1000>;
 			status = "disabled";
 			clocks = <0x23 0x08 0x23 0x09>;
-			clock-names = "apb_pclk\0atclk";
+			clock-names = "apb_pclk", "atclk";
 			phandle = <0xcb>;
 
 			out-ports {
@@ -1701,11 +1701,11 @@
 		};
 
 		replicator@6046000 {
-			compatible = "arm,coresight-dynamic-replicator\0arm,primecell";
+			compatible = "arm,coresight-dynamic-replicator", "arm,primecell";
 			reg = <0x6046000 0x1000>;
 			status = "disabled";
 			clocks = <0x23 0x08 0x23 0x09>;
-			clock-names = "apb_pclk\0atclk";
+			clock-names = "apb_pclk", "atclk";
 			phandle = <0xcc>;
 
 			out-ports {
@@ -1732,11 +1732,11 @@
 		};
 
 		etf@6047000 {
-			compatible = "arm,coresight-tmc\0arm,primecell";
+			compatible = "arm,coresight-tmc", "arm,primecell";
 			reg = <0x6047000 0x1000>;
 			status = "disabled";
 			clocks = <0x23 0x08 0x23 0x09>;
-			clock-names = "apb_pclk\0atclk";
+			clock-names = "apb_pclk", "atclk";
 			phandle = <0xcd>;
 
 			out-ports {
@@ -1763,11 +1763,11 @@
 		};
 
 		etr@6048000 {
-			compatible = "arm,coresight-tmc\0arm,primecell";
+			compatible = "arm,coresight-tmc", "arm,primecell";
 			reg = <0x6048000 0x1000>;
 			status = "disabled";
 			clocks = <0x23 0x08 0x23 0x09>;
-			clock-names = "apb_pclk\0atclk";
+			clock-names = "apb_pclk", "atclk";
 			arm,scatter-gather;
 			phandle = <0xce>;
 
@@ -1784,11 +1784,11 @@
 		};
 
 		etm@7840000 {
-			compatible = "arm,coresight-etm4x\0arm,primecell";
+			compatible = "arm,coresight-etm4x", "arm,primecell";
 			reg = <0x7840000 0x1000>;
 			status = "disabled";
 			clocks = <0x23 0x08 0x23 0x09>;
-			clock-names = "apb_pclk\0atclk";
+			clock-names = "apb_pclk", "atclk";
 			cpu = <0x06>;
 			phandle = <0xcf>;
 
@@ -1805,11 +1805,11 @@
 		};
 
 		etm@7940000 {
-			compatible = "arm,coresight-etm4x\0arm,primecell";
+			compatible = "arm,coresight-etm4x", "arm,primecell";
 			reg = <0x7940000 0x1000>;
 			status = "disabled";
 			clocks = <0x23 0x08 0x23 0x09>;
-			clock-names = "apb_pclk\0atclk";
+			clock-names = "apb_pclk", "atclk";
 			cpu = <0x07>;
 			phandle = <0xd0>;
 
@@ -1826,11 +1826,11 @@
 		};
 
 		etm@7a40000 {
-			compatible = "arm,coresight-etm4x\0arm,primecell";
+			compatible = "arm,coresight-etm4x", "arm,primecell";
 			reg = <0x7a40000 0x1000>;
 			status = "disabled";
 			clocks = <0x23 0x08 0x23 0x09>;
-			clock-names = "apb_pclk\0atclk";
+			clock-names = "apb_pclk", "atclk";
 			cpu = <0x08>;
 			phandle = <0xd1>;
 
@@ -1847,11 +1847,11 @@
 		};
 
 		etm@7b40000 {
-			compatible = "arm,coresight-etm4x\0arm,primecell";
+			compatible = "arm,coresight-etm4x", "arm,primecell";
 			reg = <0x7b40000 0x1000>;
 			status = "disabled";
 			clocks = <0x23 0x08 0x23 0x09>;
-			clock-names = "apb_pclk\0atclk";
+			clock-names = "apb_pclk", "atclk";
 			cpu = <0x09>;
 			phandle = <0xd2>;
 
@@ -1868,11 +1868,11 @@
 		};
 
 		funnel@7b60000 {
-			compatible = "arm,coresight-etm4x\0arm,primecell";
+			compatible = "arm,coresight-etm4x", "arm,primecell";
 			reg = <0x7b60000 0x1000>;
 			status = "disabled";
 			clocks = <0x23 0x08 0x23 0x09>;
-			clock-names = "apb_pclk\0atclk";
+			clock-names = "apb_pclk", "atclk";
 			phandle = <0xd3>;
 
 			out-ports {
@@ -1965,11 +1965,11 @@
 		};
 
 		funnel@7b70000 {
-			compatible = "arm,coresight-dynamic-funnel\0arm,primecell";
+			compatible = "arm,coresight-dynamic-funnel", "arm,primecell";
 			reg = <0x7b70000 0x1000>;
 			status = "disabled";
 			clocks = <0x23 0x08 0x23 0x09>;
-			clock-names = "apb_pclk\0atclk";
+			clock-names = "apb_pclk", "atclk";
 			phandle = <0xd4>;
 
 			out-ports {
@@ -1996,11 +1996,11 @@
 		};
 
 		etm@7c40000 {
-			compatible = "arm,coresight-etm4x\0arm,primecell";
+			compatible = "arm,coresight-etm4x", "arm,primecell";
 			reg = <0x7c40000 0x1000>;
 			status = "disabled";
 			clocks = <0x23 0x08 0x23 0x09>;
-			clock-names = "apb_pclk\0atclk";
+			clock-names = "apb_pclk", "atclk";
 			cpu = <0x0a>;
 			phandle = <0xd5>;
 
@@ -2014,11 +2014,11 @@
 		};
 
 		etm@7d40000 {
-			compatible = "arm,coresight-etm4x\0arm,primecell";
+			compatible = "arm,coresight-etm4x", "arm,primecell";
 			reg = <0x7d40000 0x1000>;
 			status = "disabled";
 			clocks = <0x23 0x08 0x23 0x09>;
-			clock-names = "apb_pclk\0atclk";
+			clock-names = "apb_pclk", "atclk";
 			cpu = <0x0b>;
 			phandle = <0xd6>;
 
@@ -2032,11 +2032,11 @@
 		};
 
 		etm@7e40000 {
-			compatible = "arm,coresight-etm4x\0arm,primecell";
+			compatible = "arm,coresight-etm4x", "arm,primecell";
 			reg = <0x7e40000 0x1000>;
 			status = "disabled";
 			clocks = <0x23 0x08 0x23 0x09>;
-			clock-names = "apb_pclk\0atclk";
+			clock-names = "apb_pclk", "atclk";
 			cpu = <0x0c>;
 			phandle = <0xd7>;
 
@@ -2050,11 +2050,11 @@
 		};
 
 		etm@7f40000 {
-			compatible = "arm,coresight-etm4x\0arm,primecell";
+			compatible = "arm,coresight-etm4x", "arm,primecell";
 			reg = <0x7f40000 0x1000>;
 			status = "disabled";
 			clocks = <0x23 0x08 0x23 0x09>;
-			clock-names = "apb_pclk\0atclk";
+			clock-names = "apb_pclk", "atclk";
 			cpu = <0x0d>;
 			phandle = <0xd8>;
 
@@ -2070,7 +2070,7 @@
 		spmi@800f000 {
 			compatible = "qcom,spmi-pmic-arb";
 			reg = <0x800f000 0x1000 0x8400000 0x1000000 0x9400000 0x1000000 0xa400000 0x220000 0x800a000 0x3000>;
-			reg-names = "core\0chnls\0obsrvr\0intr\0cnfg";
+			reg-names = "core", "chnls", "obsrvr", "intr", "cnfg";
 			interrupt-names = "periph_irq";
 			interrupts = <0x00 0x146 0x04>;
 			qcom,ee = <0x00>;
@@ -2083,7 +2083,7 @@
 			phandle = <0xd9>;
 
 			pmic@0 {
-				compatible = "qcom,pm8998\0qcom,spmi-pmic";
+				compatible = "qcom,pm8998", "qcom,spmi-pmic";
 				reg = <0x00 0x00>;
 				#address-cells = <0x01>;
 				#size-cells = <0x00>;
@@ -2141,12 +2141,12 @@
 				rtc@6000 {
 					compatible = "qcom,pm8941-rtc";
 					reg = <0x6000 0x6100>;
-					reg-names = "rtc\0alarm";
+					reg-names = "rtc", "alarm";
 					interrupts = <0x00 0x61 0x01 0x01>;
 				};
 
 				gpios@c000 {
-					compatible = "qcom,pm8998-gpio\0qcom,spmi-gpio";
+					compatible = "qcom,pm8998-gpio", "qcom,spmi-gpio";
 					reg = <0xc000>;
 					gpio-controller;
 					gpio-ranges = <0x4f 0x00 0x00 0x1a>;
@@ -2158,7 +2158,7 @@
 			};
 
 			pmic@1 {
-				compatible = "qcom,pm8998\0qcom,spmi-pmic";
+				compatible = "qcom,pm8998", "qcom,spmi-pmic";
 				reg = <0x01 0x00>;
 				#address-cells = <0x01>;
 				#size-cells = <0x00>;
@@ -2166,14 +2166,14 @@
 			};
 
 			pmic@4 {
-				compatible = "qcom,pm8005\0qcom,spmi-pmic";
+				compatible = "qcom,pm8005", "qcom,spmi-pmic";
 				reg = <0x04 0x00>;
 				#address-cells = <0x01>;
 				#size-cells = <0x00>;
 				phandle = <0xdf>;
 
 				gpios@c000 {
-					compatible = "qcom,pm8005-gpio\0qcom,spmi-gpio";
+					compatible = "qcom,pm8005-gpio", "qcom,spmi-gpio";
 					reg = <0xc000>;
 					gpio-controller;
 					gpio-ranges = <0x50 0x00 0x00 0x04>;
@@ -2185,7 +2185,7 @@
 			};
 
 			pmic@5 {
-				compatible = "qcom,pm8005\0qcom,spmi-pmic";
+				compatible = "qcom,pm8005", "qcom,spmi-pmic";
 				reg = <0x05 0x00>;
 				#address-cells = <0x01>;
 				#size-cells = <0x00>;
@@ -2207,18 +2207,18 @@
 		};
 
 		usb@a8f8800 {
-			compatible = "qcom,msm8998-dwc3\0qcom,dwc3";
+			compatible = "qcom,msm8998-dwc3", "qcom,dwc3";
 			reg = <0xa8f8800 0x400>;
 			status = "okay";
 			#address-cells = <0x01>;
 			#size-cells = <0x01>;
 			ranges;
 			clocks = <0x1d 0x47 0x1d 0x74 0x1d 0x20 0x1d 0x75 0x1d 0x76>;
-			clock-names = "cfg_noc\0core\0iface\0mock_utmi\0sleep";
+			clock-names = "cfg_noc", "core", "iface", "mock_utmi", "sleep";
 			assigned-clocks = <0x1d 0x75 0x1d 0x74>;
 			assigned-clock-rates = <0x124f800 0x7270e00>;
 			interrupts = <0x00 0x15b 0x04 0x00 0xf3 0x04>;
-			interrupt-names = "hs_phy_irq\0ss_phy_irq";
+			interrupt-names = "hs_phy_irq", "ss_phy_irq";
 			power-domains = <0x1d 0x02>;
 			resets = <0x1d 0x12>;
 			phandle = <0xe2>;
@@ -2230,7 +2230,7 @@
 				snps,dis_u2_susphy_quirk;
 				snps,dis_enblslpm_quirk;
 				phys = <0x51 0x52>;
-				phy-names = "usb2-phy\0usb3-phy";
+				phy-names = "usb2-phy", "usb3-phy";
 				snps,has-lpm-erratum;
 				snps,hird-threshold = [10];
 				dr_mode = "host";
@@ -2247,9 +2247,9 @@
 			#size-cells = <0x01>;
 			ranges;
 			clocks = <0x1d 0x77 0x1d 0x79 0x1d 0xa6>;
-			clock-names = "aux\0cfg_ahb\0ref";
+			clock-names = "aux", "cfg_ahb", "ref";
 			resets = <0x1d 0x45 0x1d 0x46>;
-			reset-names = "phy\0common";
+			reset-names = "phy", "common";
 			vdda-phy-supply = <0x20>;
 			vdda-pll-supply = <0x21>;
 			phandle = <0xe4>;
@@ -2270,7 +2270,7 @@
 			status = "okay";
 			#phy-cells = <0x00>;
 			clocks = <0x1d 0x79 0x1d 0xaa>;
-			clock-names = "cfg_ahb\0ref";
+			clock-names = "cfg_ahb", "ref";
 			resets = <0x1d 0x6a>;
 			nvmem-cells = <0x53>;
 			vdda-pll-supply = <0x54>;
@@ -2281,16 +2281,16 @@
 		sdhci@c0a4900 {
 			compatible = "qcom,sdhci-msm-v4";
 			reg = <0xc0a4900 0x314 0xc0a4000 0x800>;
-			reg-names = "hc_mem\0core_mem";
+			reg-names = "hc_mem", "core_mem";
 			interrupts = <0x00 0x7d 0x04 0x00 0xdd 0x04>;
-			interrupt-names = "hc_irq\0pwr_irq";
-			clock-names = "iface\0core\0xo";
+			interrupt-names = "hc_irq", "pwr_irq";
+			clock-names = "iface", "core", "xo";
 			clocks = <0x1d 0x65 0x1d 0x66 0x56>;
 			bus-width = <0x04>;
 			status = "okay";
 			vmmc-supply = <0x57>;
 			vqmmc-supply = <0x58>;
-			pinctrl-names = "default\0sleep";
+			pinctrl-names = "default", "sleep";
 			pinctrl-0 = <0x59 0x5a 0x5b 0x5c>;
 			pinctrl-1 = <0x5d 0x5e 0x5f 0x60>;
 			cd-gpios = <0x1f 0x5f 0x01>;
@@ -2312,13 +2312,13 @@
 		};
 
 		serial@c171000 {
-			compatible = "qcom,msm-uartdm-v1.4\0qcom,msm-uartdm";
+			compatible = "qcom,msm-uartdm-v1.4", "qcom,msm-uartdm";
 			reg = <0xc171000 0x1000>;
 			interrupts = <0x00 0x6d 0x04>;
 			clocks = <0x1d 0x35 0x1d 0x25>;
-			clock-names = "core\0iface";
+			clock-names = "core", "iface";
 			dmas = <0x61 0x04 0x61 0x05>;
-			dma-names = "tx\0rx";
+			dma-names = "tx", "rx";
 			pinctrl-names = "default";
 			pinctrl-0 = <0x62>;
 			status = "okay";
@@ -2339,7 +2339,7 @@
 			reg = <0xc175000 0x600>;
 			interrupts = <0x00 0x5f 0x04>;
 			clocks = <0x1d 0x26 0x1d 0x25>;
-			clock-names = "core\0iface";
+			clock-names = "core", "iface";
 			clock-frequency = <0x61a80>;
 			status = "disabled";
 			#address-cells = <0x01>;
@@ -2352,7 +2352,7 @@
 			reg = <0xc176000 0x600>;
 			interrupts = <0x00 0x60 0x04>;
 			clocks = <0x1d 0x28 0x1d 0x25>;
-			clock-names = "core\0iface";
+			clock-names = "core", "iface";
 			clock-frequency = <0x61a80>;
 			status = "disabled";
 			#address-cells = <0x01>;
@@ -2365,7 +2365,7 @@
 			reg = <0xc177000 0x600>;
 			interrupts = <0x00 0x61 0x04>;
 			clocks = <0x1d 0x2a 0x1d 0x25>;
-			clock-names = "core\0iface";
+			clock-names = "core", "iface";
 			clock-frequency = <0x61a80>;
 			status = "disabled";
 			#address-cells = <0x01>;
@@ -2378,7 +2378,7 @@
 			reg = <0xc178000 0x600>;
 			interrupts = <0x00 0x62 0x04>;
 			clocks = <0x1d 0x2c 0x1d 0x25>;
-			clock-names = "core\0iface";
+			clock-names = "core", "iface";
 			clock-frequency = <0x61a80>;
 			status = "disabled";
 			#address-cells = <0x01>;
@@ -2391,7 +2391,7 @@
 			reg = <0xc179000 0x600>;
 			interrupts = <0x00 0x63 0x04>;
 			clocks = <0x1d 0x2e 0x1d 0x25>;
-			clock-names = "core\0iface";
+			clock-names = "core", "iface";
 			clock-frequency = <0x61a80>;
 			status = "disabled";
 			#address-cells = <0x01>;
@@ -2404,7 +2404,7 @@
 			reg = <0xc17a000 0x600>;
 			interrupts = <0x00 0x64 0x04>;
 			clocks = <0x1d 0x30 0x1d 0x25>;
-			clock-names = "core\0iface";
+			clock-names = "core", "iface";
 			clock-frequency = <0x61a80>;
 			status = "okay";
 			#address-cells = <0x01>;
@@ -2423,11 +2423,11 @@
 		};
 
 		serial@c1b0000 {
-			compatible = "qcom,msm-uartdm-v1.4\0qcom,msm-uartdm";
+			compatible = "qcom,msm-uartdm-v1.4", "qcom,msm-uartdm";
 			reg = <0xc1b0000 0x1000>;
 			interrupts = <0x00 0x72 0x04>;
 			clocks = <0x1d 0x45 0x1d 0x36>;
-			clock-names = "core\0iface";
+			clock-names = "core", "iface";
 			status = "disabled";
 			phandle = <0xed>;
 		};
@@ -2437,7 +2437,7 @@
 			reg = <0xc1b5000 0x600>;
 			interrupts = <0x00 0x65 0x04>;
 			clocks = <0x1d 0x37 0x1d 0x36>;
-			clock-names = "core\0iface";
+			clock-names = "core", "iface";
 			clock-frequency = <0x61a80>;
 			status = "disabled";
 			#address-cells = <0x01>;
@@ -2450,7 +2450,7 @@
 			reg = <0xc1b6000 0x600>;
 			interrupts = <0x00 0x66 0x04>;
 			clocks = <0x1d 0x39 0x1d 0x36>;
-			clock-names = "core\0iface";
+			clock-names = "core", "iface";
 			clock-frequency = <0x61a80>;
 			status = "disabled";
 			#address-cells = <0x01>;
@@ -2463,7 +2463,7 @@
 			reg = <0xc1b7000 0x600>;
 			interrupts = <0x00 0x67 0x04>;
 			clocks = <0x1d 0x3b 0x1d 0x36>;
-			clock-names = "core\0iface";
+			clock-names = "core", "iface";
 			clock-frequency = <0x61a80>;
 			status = "disabled";
 			#address-cells = <0x01>;
@@ -2476,7 +2476,7 @@
 			reg = <0xc1b8000 0x600>;
 			interrupts = <0x00 0x68 0x04>;
 			clocks = <0x1d 0x3d 0x1d 0x36>;
-			clock-names = "core\0iface";
+			clock-names = "core", "iface";
 			clock-frequency = <0x61a80>;
 			status = "disabled";
 			#address-cells = <0x01>;
@@ -2489,7 +2489,7 @@
 			reg = <0xc1b9000 0x600>;
 			interrupts = <0x00 0x69 0x04>;
 			clocks = <0x1d 0x3f 0x1d 0x36>;
-			clock-names = "core\0iface";
+			clock-names = "core", "iface";
 			clock-frequency = <0x61a80>;
 			status = "disabled";
 			#address-cells = <0x01>;
@@ -2502,7 +2502,7 @@
 			reg = <0xc1ba000 0x600>;
 			interrupts = <0x00 0x6a 0x04>;
 			clocks = <0x1d 0x41 0x1d 0x36>;
-			clock-names = "core\0iface";
+			clock-names = "core", "iface";
 			clock-frequency = <0x61a80>;
 			status = "disabled";
 			#address-cells = <0x01>;
@@ -2514,7 +2514,7 @@
 			compatible = "qcom,msm8998-adsp-pas";
 			reg = <0x17300000 0x4040>;
 			interrupts-extended = <0x01 0x00 0xa2 0x01 0x67 0x00 0x01 0x67 0x01 0x01 0x67 0x02 0x01 0x67 0x03 0x01>;
-			interrupt-names = "wdog\0fatal\0ready\0handover\0stop-ack";
+			interrupt-names = "wdog", "fatal", "ready", "handover", "stop-ack";
 			clocks = <0x23 0x00>;
 			clock-names = "xo";
 			memory-region = <0x68>;

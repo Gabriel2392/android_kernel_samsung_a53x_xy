@@ -5,7 +5,7 @@
 	#address-cells = <0x02>;
 	#size-cells = <0x02>;
 	model = "Spreadtrum SP9863A-1H10 Board";
-	compatible = "sprd,sp9863a-1h10\0sprd,sc9863a";
+	compatible = "sprd,sp9863a-1h10", "sprd,sc9863a";
 
 	soc {
 		compatible = "simple-bus";
@@ -15,7 +15,7 @@
 		phandle = <0x2e>;
 
 		syscon@20e00000 {
-			compatible = "sprd,sc9863a-glbregs\0syscon\0simple-mfd";
+			compatible = "sprd,sc9863a-glbregs", "syscon", "simple-mfd";
 			reg = <0x00 0x20e00000 0x00 0x4000>;
 			#address-cells = <0x01>;
 			#size-cells = <0x01>;
@@ -31,7 +31,7 @@
 		};
 
 		syscon@402b0000 {
-			compatible = "sprd,sc9863a-glbregs\0syscon\0simple-mfd";
+			compatible = "sprd,sc9863a-glbregs", "syscon", "simple-mfd";
 			reg = <0x00 0x402b0000 0x00 0x4000>;
 			#address-cells = <0x01>;
 			#size-cells = <0x01>;
@@ -49,7 +49,7 @@
 		};
 
 		syscon@402e0000 {
-			compatible = "sprd,sc9863a-glbregs\0syscon\0simple-mfd";
+			compatible = "sprd,sc9863a-glbregs", "syscon", "simple-mfd";
 			reg = <0x00 0x402e0000 0x00 0x4000>;
 			#address-cells = <0x01>;
 			#size-cells = <0x01>;
@@ -65,7 +65,7 @@
 		};
 
 		syscon@40353000 {
-			compatible = "sprd,sc9863a-glbregs\0syscon\0simple-mfd";
+			compatible = "sprd,sc9863a-glbregs", "syscon", "simple-mfd";
 			reg = <0x00 0x40353000 0x00 0x3000>;
 			#address-cells = <0x01>;
 			#size-cells = <0x01>;
@@ -83,7 +83,7 @@
 		};
 
 		syscon@40359000 {
-			compatible = "sprd,sc9863a-glbregs\0syscon\0simple-mfd";
+			compatible = "sprd,sc9863a-glbregs", "syscon", "simple-mfd";
 			reg = <0x00 0x40359000 0x00 0x3000>;
 			#address-cells = <0x01>;
 			#size-cells = <0x01>;
@@ -99,7 +99,7 @@
 		};
 
 		syscon@4035c000 {
-			compatible = "sprd,sc9863a-glbregs\0syscon\0simple-mfd";
+			compatible = "sprd,sc9863a-glbregs", "syscon", "simple-mfd";
 			reg = <0x00 0x4035c000 0x00 0x3000>;
 			#address-cells = <0x01>;
 			#size-cells = <0x01>;
@@ -117,7 +117,7 @@
 		};
 
 		syscon@40363000 {
-			compatible = "sprd,sc9863a-glbregs\0syscon\0simple-mfd";
+			compatible = "sprd,sc9863a-glbregs", "syscon", "simple-mfd";
 			reg = <0x00 0x40363000 0x00 0x3000>;
 			#address-cells = <0x01>;
 			#size-cells = <0x01>;
@@ -133,7 +133,7 @@
 		};
 
 		syscon@60800000 {
-			compatible = "sprd,sc9863a-glbregs\0syscon\0simple-mfd";
+			compatible = "sprd,sc9863a-glbregs", "syscon", "simple-mfd";
 			reg = <0x00 0x60800000 0x00 0x1000>;
 			#address-cells = <0x01>;
 			#size-cells = <0x01>;
@@ -149,7 +149,7 @@
 		};
 
 		syscon@71300000 {
-			compatible = "sprd,sc9863a-glbregs\0syscon\0simple-mfd";
+			compatible = "sprd,sc9863a-glbregs", "syscon", "simple-mfd";
 			reg = <0x00 0x71300000 0x00 0x4000>;
 			#address-cells = <0x01>;
 			#size-cells = <0x01>;
@@ -173,7 +173,7 @@
 			ranges = <0x00 0x00 0x70000000 0x10000000>;
 
 			serial@0 {
-				compatible = "sprd,sc9863a-uart\0sprd,sc9836-uart";
+				compatible = "sprd,sc9863a-uart", "sprd,sc9836-uart";
 				reg = <0x00 0x100>;
 				interrupts = <0x00 0x02 0x04>;
 				clocks = <0x02>;
@@ -182,7 +182,7 @@
 			};
 
 			serial@100000 {
-				compatible = "sprd,sc9863a-uart\0sprd,sc9836-uart";
+				compatible = "sprd,sc9863a-uart", "sprd,sc9836-uart";
 				reg = <0x100000 0x100>;
 				interrupts = <0x00 0x03 0x04>;
 				clocks = <0x02>;
@@ -191,7 +191,7 @@
 			};
 
 			serial@200000 {
-				compatible = "sprd,sc9863a-uart\0sprd,sc9836-uart";
+				compatible = "sprd,sc9863a-uart", "sprd,sc9836-uart";
 				reg = <0x200000 0x100>;
 				interrupts = <0x00 0x04 0x04>;
 				clocks = <0x02>;
@@ -200,7 +200,7 @@
 			};
 
 			serial@300000 {
-				compatible = "sprd,sc9863a-uart\0sprd,sc9836-uart";
+				compatible = "sprd,sc9863a-uart", "sprd,sc9836-uart";
 				reg = <0x300000 0x100>;
 				interrupts = <0x00 0x05 0x04>;
 				clocks = <0x02>;
@@ -209,7 +209,7 @@
 			};
 
 			serial@400000 {
-				compatible = "sprd,sc9863a-uart\0sprd,sc9836-uart";
+				compatible = "sprd,sc9863a-uart", "sprd,sc9836-uart";
 				reg = <0x400000 0x100>;
 				interrupts = <0x00 0x06 0x04>;
 				clocks = <0x02>;
@@ -236,7 +236,7 @@
 			compatible = "sprd,sc9863a-ap-clk";
 			reg = <0x00 0x21500000 0x00 0x1000>;
 			clocks = <0x03 0x02>;
-			clock-names = "ext-32k\0ext-26m";
+			clock-names = "ext-32k", "ext-26m";
 			#clock-cells = <0x01>;
 			phandle = <0x44>;
 		};
@@ -245,7 +245,7 @@
 			compatible = "sprd,sc9863a-aon-clk";
 			reg = <0x00 0x402d0000 0x00 0x1000>;
 			clocks = <0x02 0x04 0x03 0x05>;
-			clock-names = "ext-26m\0rco-100m\0ext-32k\0ext-4m";
+			clock-names = "ext-26m", "rco-100m", "ext-32k", "ext-4m";
 			#clock-cells = <0x01>;
 			phandle = <0x2a>;
 		};
@@ -258,7 +258,7 @@
 		};
 
 		funnel@10001000 {
-			compatible = "arm,coresight-dynamic-funnel\0arm,primecell";
+			compatible = "arm,coresight-dynamic-funnel", "arm,primecell";
 			reg = <0x00 0x10001000 0x00 0x1000>;
 			clocks = <0x02>;
 			clock-names = "apb_pclk";
@@ -287,7 +287,7 @@
 		};
 
 		etb@10003000 {
-			compatible = "arm,coresight-tmc\0arm,primecell";
+			compatible = "arm,coresight-tmc", "arm,primecell";
 			reg = <0x00 0x10003000 0x00 0x1000>;
 			clocks = <0x02>;
 			clock-names = "apb_pclk";
@@ -305,7 +305,7 @@
 		};
 
 		funnel@12001000 {
-			compatible = "arm,coresight-dynamic-funnel\0arm,primecell";
+			compatible = "arm,coresight-dynamic-funnel", "arm,primecell";
 			reg = <0x00 0x12001000 0x00 0x1000>;
 			clocks = <0x02>;
 			clock-names = "apb_pclk";
@@ -364,7 +364,7 @@
 		};
 
 		etf@12002000 {
-			compatible = "arm,coresight-tmc\0arm,primecell";
+			compatible = "arm,coresight-tmc", "arm,primecell";
 			reg = <0x00 0x12002000 0x00 0x1000>;
 			clocks = <0x02>;
 			clock-names = "apb_pclk";
@@ -393,7 +393,7 @@
 		};
 
 		etf@12003000 {
-			compatible = "arm,coresight-tmc\0arm,primecell";
+			compatible = "arm,coresight-tmc", "arm,primecell";
 			reg = <0x00 0x12003000 0x00 0x1000>;
 			clocks = <0x02>;
 			clock-names = "apb_pclk";
@@ -422,7 +422,7 @@
 		};
 
 		funnel@12004000 {
-			compatible = "arm,coresight-dynamic-funnel\0arm,primecell";
+			compatible = "arm,coresight-dynamic-funnel", "arm,primecell";
 			reg = <0x00 0x12004000 0x00 0x1000>;
 			clocks = <0x02>;
 			clock-names = "apb_pclk";
@@ -463,7 +463,7 @@
 		};
 
 		funnel@12005000 {
-			compatible = "arm,coresight-dynamic-funnel\0arm,primecell";
+			compatible = "arm,coresight-dynamic-funnel", "arm,primecell";
 			reg = <0x00 0x12005000 0x00 0x1000>;
 			clocks = <0x02>;
 			clock-names = "apb_pclk";
@@ -522,7 +522,7 @@
 		};
 
 		etm@13040000 {
-			compatible = "arm,coresight-etm4x\0arm,primecell";
+			compatible = "arm,coresight-etm4x", "arm,primecell";
 			reg = <0x00 0x13040000 0x00 0x1000>;
 			cpu = <0x1a>;
 			clocks = <0x02>;
@@ -541,7 +541,7 @@
 		};
 
 		etm@13140000 {
-			compatible = "arm,coresight-etm4x\0arm,primecell";
+			compatible = "arm,coresight-etm4x", "arm,primecell";
 			reg = <0x00 0x13140000 0x00 0x1000>;
 			cpu = <0x1c>;
 			clocks = <0x02>;
@@ -560,7 +560,7 @@
 		};
 
 		etm@13240000 {
-			compatible = "arm,coresight-etm4x\0arm,primecell";
+			compatible = "arm,coresight-etm4x", "arm,primecell";
 			reg = <0x00 0x13240000 0x00 0x1000>;
 			cpu = <0x1e>;
 			clocks = <0x02>;
@@ -579,7 +579,7 @@
 		};
 
 		etm@13340000 {
-			compatible = "arm,coresight-etm4x\0arm,primecell";
+			compatible = "arm,coresight-etm4x", "arm,primecell";
 			reg = <0x00 0x13340000 0x00 0x1000>;
 			cpu = <0x20>;
 			clocks = <0x02>;
@@ -598,7 +598,7 @@
 		};
 
 		etm@13440000 {
-			compatible = "arm,coresight-etm4x\0arm,primecell";
+			compatible = "arm,coresight-etm4x", "arm,primecell";
 			reg = <0x00 0x13440000 0x00 0x1000>;
 			cpu = <0x22>;
 			clocks = <0x02>;
@@ -617,7 +617,7 @@
 		};
 
 		etm@13540000 {
-			compatible = "arm,coresight-etm4x\0arm,primecell";
+			compatible = "arm,coresight-etm4x", "arm,primecell";
 			reg = <0x00 0x13540000 0x00 0x1000>;
 			cpu = <0x24>;
 			clocks = <0x02>;
@@ -636,7 +636,7 @@
 		};
 
 		etm@13640000 {
-			compatible = "arm,coresight-etm4x\0arm,primecell";
+			compatible = "arm,coresight-etm4x", "arm,primecell";
 			reg = <0x00 0x13640000 0x00 0x1000>;
 			cpu = <0x26>;
 			clocks = <0x02>;
@@ -655,7 +655,7 @@
 		};
 
 		etm@13740000 {
-			compatible = "arm,coresight-etm4x\0arm,primecell";
+			compatible = "arm,coresight-etm4x", "arm,primecell";
 			reg = <0x00 0x13740000 0x00 0x1000>;
 			cpu = <0x28>;
 			clocks = <0x02>;
@@ -683,7 +683,7 @@
 				compatible = "sprd,sdhci-r11";
 				reg = <0x00 0x20300000 0x00 0x1000>;
 				interrupts = <0x00 0x39 0x04>;
-				clock-names = "sdio\0enable";
+				clock-names = "sdio", "enable";
 				clocks = <0x2a 0x1e 0x2b 0x04>;
 				assigned-clocks = <0x2a 0x1e>;
 				assigned-clock-parents = <0x2c 0x02>;
@@ -697,7 +697,7 @@
 				compatible = "sprd,sdhci-r11";
 				reg = <0x00 0x20600000 0x00 0x1000>;
 				interrupts = <0x00 0x3c 0x04>;
-				clock-names = "sdio\0enable";
+				clock-names = "sdio", "enable";
 				clocks = <0x2a 0x21 0x2b 0x07>;
 				assigned-clocks = <0x2a 0x21>;
 				assigned-clock-parents = <0x2c 0x02>;
@@ -730,7 +730,7 @@
 	ext-4m {
 		compatible = "fixed-clock";
 		#clock-cells = <0x00>;
-		clock-frequency = "\0=\t";
+		clock-frequency = "", "=\t";
 		clock-output-names = "ext-4m";
 		phandle = <0x05>;
 	};

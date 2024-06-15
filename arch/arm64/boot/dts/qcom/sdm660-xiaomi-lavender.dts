@@ -5,7 +5,7 @@
 	#address-cells = <0x02>;
 	#size-cells = <0x02>;
 	model = "Xiaomi Redmi Note 7";
-	compatible = "xiaomi,lavender\0qcom,sdm660";
+	compatible = "xiaomi,lavender", "qcom,sdm660";
 
 	chosen {
 		stdout-path = "serial0:115200n8";
@@ -289,7 +289,7 @@
 		pinctrl@3100000 {
 			compatible = "qcom,sdm660-pinctrl";
 			reg = <0x3100000 0x400000 0x3500000 0x400000 0x3900000 0x400000>;
-			reg-names = "south\0center\0north";
+			reg-names = "south", "center", "north";
 			interrupts = <0x00 0xd0 0x04>;
 			gpio-controller;
 			gpio-ranges = <0x0c 0x00 0x00 0x72>;
@@ -303,12 +303,12 @@
 				phandle = <0x0e>;
 
 				pinmux {
-					pins = "gpio4\0gpio5";
+					pins = "gpio4", "gpio5";
 					function = "blsp_uart2";
 				};
 
 				pinconf {
-					pins = "gpio4\0gpio5";
+					pins = "gpio4", "gpio5";
 					drive-strength = <0x02>;
 					bias-disable;
 				};
@@ -318,7 +318,7 @@
 		spmi@800f000 {
 			compatible = "qcom,spmi-pmic-arb";
 			reg = <0x800f000 0x1000 0x8400000 0x1000000 0x9400000 0x1000000 0xa400000 0x220000 0x800a000 0x3000>;
-			reg-names = "core\0chnls\0obsrvr\0intr\0cnfg";
+			reg-names = "core", "chnls", "obsrvr", "intr", "cnfg";
 			interrupt-names = "periph_irq";
 			interrupts = <0x00 0x146 0x04>;
 			qcom,ee = <0x00>;
@@ -332,11 +332,11 @@
 		};
 
 		serial@c170000 {
-			compatible = "qcom,msm-uartdm-v1.4\0qcom,msm-uartdm";
+			compatible = "qcom,msm-uartdm-v1.4", "qcom,msm-uartdm";
 			reg = <0xc170000 0x1000>;
 			interrupts = <0x00 0x6c 0x04>;
 			clocks = <0x0d 0x23 0x0d 0x19>;
-			clock-names = "core\0iface";
+			clock-names = "core", "iface";
 			status = "okay";
 			pinctrl-names = "default";
 			pinctrl-0 = <0x0e>;

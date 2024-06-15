@@ -5,7 +5,7 @@
 	#address-cells = <0x02>;
 	#size-cells = <0x02>;
 	model = "Huawei Nexus 6P";
-	compatible = "huawei,angler\0qcom,msm8994";
+	compatible = "huawei,angler", "qcom,msm8994";
 	qcom,msm-id = <0xcf 0x20000>;
 	qcom,pmic-id = <0x10009 0x1000a 0x00 0x00>;
 	qcom,board-id = <0x1f5a 0x00>;
@@ -166,7 +166,7 @@
 	firmware {
 
 		scm {
-			compatible = "qcom,scm-msm8994\0qcom,scm";
+			compatible = "qcom,scm-msm8994", "qcom,scm";
 		};
 	};
 
@@ -244,7 +244,7 @@
 		};
 
 		mailbox@f900d000 {
-			compatible = "qcom,msm8994-apcs-kpss-global\0syscon";
+			compatible = "qcom,msm8994-apcs-kpss-global", "syscon";
 			reg = <0xf900d000 0x2000>;
 			#mbox-cells = <0x01>;
 			phandle = <0x0c>;
@@ -309,12 +309,12 @@
 		sdhci@f9824900 {
 			compatible = "qcom,sdhci-msm-v4";
 			reg = <0xf9824900 0x1a0 0xf9824000 0x800>;
-			reg-names = "hc_mem\0core_mem";
+			reg-names = "hc_mem", "core_mem";
 			interrupts = <0x00 0x7b 0x04 0x00 0x8a 0x04>;
-			interrupt-names = "hc_irq\0pwr_irq";
+			interrupt-names = "hc_irq", "pwr_irq";
 			clocks = <0x10 0x68 0x10 0x76 0x11>;
-			clock-names = "core\0iface\0xo";
-			pinctrl-names = "default\0sleep";
+			clock-names = "core", "iface", "xo";
+			pinctrl-names = "default", "sleep";
 			pinctrl-0 = <0x12 0x13 0x14 0x15>;
 			pinctrl-1 = <0x16 0x17 0x18 0x19>;
 			bus-width = <0x08>;
@@ -338,12 +338,12 @@
 		};
 
 		serial@f991e000 {
-			compatible = "qcom,msm-uartdm-v1.4\0qcom,msm-uartdm";
+			compatible = "qcom,msm-uartdm-v1.4", "qcom,msm-uartdm";
 			reg = <0xf991e000 0x1000>;
 			interrupts = <0x00 0x6c 0x04>;
-			clock-names = "core\0iface";
+			clock-names = "core", "iface";
 			clocks = <0x10 0x48 0x10 0x3a>;
-			pinctrl-names = "default\0sleep";
+			pinctrl-names = "default", "sleep";
 			pinctrl-0 = <0x1a>;
 			pinctrl-1 = <0x1b>;
 			status = "okay";
@@ -355,9 +355,9 @@
 			reg = <0xf9923000 0x500>;
 			interrupts = <0x00 0x5f 0x04>;
 			clocks = <0x10 0x3a 0x10 0x3b>;
-			clock-names = "iface\0core";
+			clock-names = "iface", "core";
 			clock-frequency = <0x61a80>;
-			pinctrl-names = "default\0sleep";
+			pinctrl-names = "default", "sleep";
 			pinctrl-0 = <0x1c>;
 			pinctrl-1 = <0x1d>;
 			#address-cells = <0x01>;
@@ -371,11 +371,11 @@
 			reg = <0xf9923000 0x500>;
 			interrupts = <0x00 0x5f 0x04>;
 			clocks = <0x10 0x3c 0x10 0x3a>;
-			clock-names = "core\0iface";
+			clock-names = "core", "iface";
 			spi-max-frequency = <0x124f800>;
 			dmas = <0x1e 0x0c 0x1e 0x0d>;
-			dma-names = "tx\0rx";
-			pinctrl-names = "default\0sleep";
+			dma-names = "tx", "rx";
+			pinctrl-names = "default", "sleep";
 			pinctrl-0 = <0x1f>;
 			pinctrl-1 = <0x20>;
 			#address-cells = <0x01>;
@@ -389,11 +389,11 @@
 			reg = <0xf9924000 0x500>;
 			interrupts = <0x00 0x60 0x04>;
 			clocks = <0x10 0x3a 0x10 0x3d>;
-			clock-names = "iface\0core";
+			clock-names = "iface", "core";
 			clock-frequency = <0x56ab8>;
 			dmas = <0x1e 0x0e 0x1e 0x0f>;
-			dma-names = "tx\0rx";
-			pinctrl-names = "default\0sleep";
+			dma-names = "tx", "rx";
+			pinctrl-names = "default", "sleep";
 			pinctrl-0 = <0x21>;
 			pinctrl-1 = <0x22>;
 			#address-cells = <0x01>;
@@ -407,9 +407,9 @@
 			reg = <0xf9926000 0x500>;
 			interrupts = <0x00 0x62 0x04>;
 			clocks = <0x10 0x3a 0x10 0x41>;
-			clock-names = "iface\0core";
+			clock-names = "iface", "core";
 			clock-frequency = <0x56ab8>;
-			pinctrl-names = "default\0sleep";
+			pinctrl-names = "default", "sleep";
 			pinctrl-0 = <0x23>;
 			pinctrl-1 = <0x24>;
 			#address-cells = <0x01>;
@@ -437,11 +437,11 @@
 			reg = <0xf9928000 0x500>;
 			interrupts = <0x00 0x64 0x04>;
 			clocks = <0x10 0x3a 0x10 0x45>;
-			clock-names = "iface\0core";
+			clock-names = "iface", "core";
 			clock-frequency = <0x56ab8>;
 			dmas = <0x1e 0x16 0x1e 0x17>;
-			dma-names = "tx\0rx";
-			pinctrl-names = "default\0sleep";
+			dma-names = "tx", "rx";
+			pinctrl-names = "default", "sleep";
 			pinctrl-0 = <0x25>;
 			pinctrl-1 = <0x26>;
 			#address-cells = <0x01>;
@@ -451,14 +451,14 @@
 		};
 
 		serial@f995e000 {
-			compatible = "qcom,msm-uartdm-v1.4\0qcom,msm-uartdm";
+			compatible = "qcom,msm-uartdm-v1.4", "qcom,msm-uartdm";
 			reg = <0xf995e000 0x1000>;
 			interrupts = <0x00 0x92 0x02>;
-			clock-names = "core\0iface";
+			clock-names = "core", "iface";
 			clocks = <0x10 0x5b 0x10 0x4d>;
 			dmas = <0x27 0x02 0x27 0x03>;
-			dma-names = "tx\0rx";
-			pinctrl-names = "default\0sleep";
+			dma-names = "tx", "rx";
+			pinctrl-names = "default", "sleep";
 			pinctrl-0 = <0x28>;
 			pinctrl-1 = <0x29>;
 			status = "disabled";
@@ -470,11 +470,11 @@
 			reg = <0xf9967000 0x500>;
 			interrupts = <0x00 0x69 0x04>;
 			clocks = <0x10 0x4d 0x10 0x56>;
-			clock-names = "iface\0core";
+			clock-names = "iface", "core";
 			clock-frequency = <0x56ab8>;
 			dmas = <0x27 0x14 0x27 0x15>;
-			dma-names = "tx\0rx";
-			pinctrl-names = "default\0sleep";
+			dma-names = "tx", "rx";
+			pinctrl-names = "default", "sleep";
 			pinctrl-0 = <0x2a>;
 			pinctrl-1 = <0x2b>;
 			#address-cells = <0x01>;
@@ -506,7 +506,7 @@
 		spmi@fc4cf000 {
 			compatible = "qcom,spmi-pmic-arb";
 			reg = <0xfc4cf000 0x1000 0xfc4cb000 0x1000 0xfc4ca000 0x1000>;
-			reg-names = "core\0intr\0cnfg";
+			reg-names = "core", "intr", "cnfg";
 			interrupt-names = "periph_irq";
 			interrupts = <0x00 0xbe 0x04>;
 			qcom,ee = <0x00>;
@@ -538,7 +538,7 @@
 
 			blsp1-uart2-default {
 				function = "blsp_uart2";
-				pins = "gpio4\0gpio5";
+				pins = "gpio4", "gpio5";
 				drive-strength = <0x10>;
 				bias-disable;
 				phandle = <0x1a>;
@@ -546,7 +546,7 @@
 
 			blsp1-uart2-sleep {
 				function = "gpio";
-				pins = "gpio4\0gpio5";
+				pins = "gpio4", "gpio5";
 				drive-strength = <0x02>;
 				bias-pull-down;
 				phandle = <0x1b>;
@@ -554,7 +554,7 @@
 
 			blsp2-uart2-default {
 				function = "blsp_uart8";
-				pins = "gpio45\0gpio46";
+				pins = "gpio45", "gpio46";
 				drive-strength = <0x02>;
 				bias-disable;
 				phandle = <0x28>;
@@ -562,7 +562,7 @@
 
 			blsp2-uart2-sleep {
 				function = "gpio";
-				pins = "gpio45\0gpio46";
+				pins = "gpio45", "gpio46";
 				drive-strength = <0x02>;
 				bias-pull-down;
 				phandle = <0x29>;
@@ -570,7 +570,7 @@
 
 			i2c1-default {
 				function = "blsp_i2c1";
-				pins = "gpio2\0gpio3";
+				pins = "gpio2", "gpio3";
 				drive-strength = <0x02>;
 				bias-disable;
 				phandle = <0x1c>;
@@ -578,7 +578,7 @@
 
 			i2c1-sleep {
 				function = "gpio";
-				pins = "gpio2\0gpio3";
+				pins = "gpio2", "gpio3";
 				drive-strength = <0x02>;
 				bias-disable;
 				phandle = <0x1d>;
@@ -586,7 +586,7 @@
 
 			i2c2-default {
 				function = "blsp_i2c2";
-				pins = "gpio6\0gpio7";
+				pins = "gpio6", "gpio7";
 				drive-strength = <0x02>;
 				bias-disable;
 				phandle = <0x21>;
@@ -594,7 +594,7 @@
 
 			i2c2-sleep {
 				function = "gpio";
-				pins = "gpio6\0gpio7";
+				pins = "gpio6", "gpio7";
 				drive-strength = <0x02>;
 				bias-disable;
 				phandle = <0x22>;
@@ -602,7 +602,7 @@
 
 			i2c4-default {
 				function = "blsp_i2c4";
-				pins = "gpio19\0gpio20";
+				pins = "gpio19", "gpio20";
 				drive-strength = <0x02>;
 				bias-disable;
 				phandle = <0x23>;
@@ -610,7 +610,7 @@
 
 			i2c4-sleep {
 				function = "gpio";
-				pins = "gpio19\0gpio20";
+				pins = "gpio19", "gpio20";
 				drive-strength = <0x02>;
 				bias-pull-down;
 				input-enable;
@@ -619,7 +619,7 @@
 
 			i2c5-default {
 				function = "blsp_i2c5";
-				pins = "gpio23\0gpio24";
+				pins = "gpio23", "gpio24";
 				drive-strength = <0x02>;
 				bias-disable;
 				phandle = <0x2a>;
@@ -627,7 +627,7 @@
 
 			i2c5-sleep {
 				function = "gpio";
-				pins = "gpio23\0gpio24";
+				pins = "gpio23", "gpio24";
 				drive-strength = <0x02>;
 				bias-disable;
 				phandle = <0x2b>;
@@ -635,7 +635,7 @@
 
 			i2c6-default {
 				function = "blsp_i2c6";
-				pins = "gpio28\0gpio27";
+				pins = "gpio28", "gpio27";
 				drive-strength = <0x02>;
 				bias-disable;
 				phandle = <0x25>;
@@ -643,7 +643,7 @@
 
 			i2c6-sleep {
 				function = "gpio";
-				pins = "gpio28\0gpio27";
+				pins = "gpio28", "gpio27";
 				drive-strength = <0x02>;
 				bias-disable;
 				phandle = <0x26>;
@@ -654,7 +654,7 @@
 
 				default {
 					function = "blsp_spi1";
-					pins = "gpio0\0gpio1\0gpio3";
+					pins = "gpio0", "gpio1", "gpio3";
 					drive-strength = <0x0a>;
 					bias-pull-down;
 				};
@@ -668,7 +668,7 @@
 			};
 
 			blsp1-spi0-sleep {
-				pins = "gpio0\0gpio1\0gpio3";
+				pins = "gpio0", "gpio1", "gpio3";
 				drive-strength = <0x02>;
 				bias-disable;
 				phandle = <0x20>;

@@ -418,19 +418,19 @@
 		};
 
 		sub_ctrl_c@60000000 {
-			compatible = "hisilicon,peri-subctrl\0syscon";
+			compatible = "hisilicon,peri-subctrl", "syscon";
 			reg = <0x00 0x60000000 0x00 0x10000>;
 			phandle = <0x18>;
 		};
 
 		dsa_subctrl@c0000000 {
-			compatible = "hisilicon,dsa-subctrl\0syscon";
+			compatible = "hisilicon,dsa-subctrl", "syscon";
 			reg = <0x00 0xc0000000 0x00 0x10000>;
 			phandle = <0x1a>;
 		};
 
 		pcie_subctl@a0000000 {
-			compatible = "hisilicon,pcie-sas-subctrl\0syscon";
+			compatible = "hisilicon,pcie-sas-subctrl", "syscon";
 			reg = <0x00 0xa0000000 0x00 0x10000>;
 			phandle = <0x21>;
 		};
@@ -467,7 +467,7 @@
 			compatible = "hisilicon,hns-dsaf-v2";
 			mode = "6port-16rss";
 			reg = <0x00 0xc5000000 0x00 0x890000 0x00 0xc7000000 0x00 0x600000>;
-			reg-names = "ppe-base\0dsaf-base";
+			reg-names = "ppe-base", "dsaf-base";
 			interrupt-parent = <0x19>;
 			subctrl-syscon = <0x1a>;
 			reset-field-offset = <0x00>;

@@ -2,7 +2,7 @@
 
 / {
 	model = "Qualcomm Technologies, Inc. IPQ8074-HK01";
-	compatible = "qcom,ipq8074-hk01\0qcom,ipq8074";
+	compatible = "qcom,ipq8074-hk01", "qcom,ipq8074";
 	#address-cells = <0x02>;
 	#size-cells = <0x02>;
 	interrupt-parent = <0x01>;
@@ -96,9 +96,9 @@
 			#size-cells = <0x01>;
 			ranges;
 			clocks = <0x03 0x82 0x03 0x86 0x04>;
-			clock-names = "aux\0cfg_ahb\0ref";
+			clock-names = "aux", "cfg_ahb", "ref";
 			resets = <0x03 0x2c 0x03 0x2d>;
-			reset-names = "phy\0common";
+			reset-names = "phy", "common";
 			status = "okay";
 			phandle = <0x19>;
 
@@ -117,7 +117,7 @@
 			reg = <0x59000 0x180>;
 			#phy-cells = <0x00>;
 			clocks = <0x03 0x86 0x04>;
-			clock-names = "cfg_ahb\0ref";
+			clock-names = "cfg_ahb", "ref";
 			resets = <0x03 0x30>;
 			status = "okay";
 			phandle = <0x0f>;
@@ -131,9 +131,9 @@
 			#size-cells = <0x01>;
 			ranges;
 			clocks = <0x03 0x7b 0x03 0x7f 0x04>;
-			clock-names = "aux\0cfg_ahb\0ref";
+			clock-names = "aux", "cfg_ahb", "ref";
 			resets = <0x03 0x29 0x03 0x2a>;
-			reset-names = "phy\0common";
+			reset-names = "phy", "common";
 			status = "okay";
 			phandle = <0x1a>;
 
@@ -152,7 +152,7 @@
 			reg = <0x79000 0x180>;
 			#phy-cells = <0x00>;
 			clocks = <0x03 0x7f 0x04>;
-			clock-names = "cfg_ahb\0ref";
+			clock-names = "cfg_ahb", "ref";
 			resets = <0x03 0x2f>;
 			status = "okay";
 			phandle = <0x0d>;
@@ -165,9 +165,9 @@
 			#size-cells = <0x01>;
 			ranges;
 			clocks = <0x03 0x70 0x03 0x6f>;
-			clock-names = "aux\0cfg_ahb";
+			clock-names = "aux", "cfg_ahb";
 			resets = <0x03 0x4e 0x03 0x4f>;
-			reset-names = "phy\0common";
+			reset-names = "phy", "common";
 			status = "okay";
 			phandle = <0x1b>;
 
@@ -189,9 +189,9 @@
 			#size-cells = <0x01>;
 			ranges;
 			clocks = <0x03 0x76 0x03 0x75>;
-			clock-names = "aux\0cfg_ahb";
+			clock-names = "aux", "cfg_ahb";
 			resets = <0x03 0x52 0x03 0x53>;
-			reset-names = "phy\0common";
+			reset-names = "phy", "common";
 			status = "okay";
 			phandle = <0x1c>;
 
@@ -218,7 +218,7 @@
 			phandle = <0x05>;
 
 			serial4-pinmux {
-				pins = "gpio23\0gpio24";
+				pins = "gpio23", "gpio24";
 				function = "blsp4_uart1";
 				drive-strength = <0x08>;
 				bias-disable;
@@ -226,7 +226,7 @@
 			};
 
 			i2c-0-pinmux {
-				pins = "gpio42\0gpio43";
+				pins = "gpio42", "gpio43";
 				function = "blsp1_i2c";
 				drive-strength = <0x08>;
 				bias-disable;
@@ -234,7 +234,7 @@
 			};
 
 			spi-0-pins {
-				pins = "gpio38\0gpio39\0gpio40\0gpio41";
+				pins = "gpio38", "gpio39", "gpio40", "gpio41";
 				function = "blsp0_spi";
 				drive-strength = <0x08>;
 				bias-disable;
@@ -242,7 +242,7 @@
 			};
 
 			hsuart-pins {
-				pins = "gpio46\0gpio47\0gpio48\0gpio49";
+				pins = "gpio46", "gpio47", "gpio48", "gpio49";
 				function = "blsp2_uart";
 				drive-strength = <0x08>;
 				bias-disable;
@@ -250,7 +250,7 @@
 			};
 
 			qpic-pins {
-				pins = "gpio1\0gpio3\0gpio4\0gpio5\0gpio6\0gpio7\0gpio8\0gpio10\0gpio11\0gpio12\0gpio13\0gpio14\0gpio15\0gpio16\0gpio17";
+				pins = "gpio1", "gpio3", "gpio4", "gpio5", "gpio6", "gpio7", "gpio8", "gpio10", "gpio11", "gpio12", "gpio13", "gpio14", "gpio15", "gpio16", "gpio17";
 				function = "qpic";
 				drive-strength = <0x08>;
 				bias-disable;
@@ -269,11 +269,11 @@
 		sdhci@7824900 {
 			compatible = "qcom,sdhci-msm-v4";
 			reg = <0x7824900 0x500 0x7824000 0x800>;
-			reg-names = "hc_mem\0core_mem";
+			reg-names = "hc_mem", "core_mem";
 			interrupts = <0x00 0x7b 0x04 0x00 0x8a 0x04>;
-			interrupt-names = "hc_irq\0pwr_irq";
+			interrupt-names = "hc_irq", "pwr_irq";
 			clocks = <0x04 0x03 0x89 0x03 0x8a>;
-			clock-names = "xo\0iface\0core";
+			clock-names = "xo", "iface", "core";
 			max-frequency = <0x16e36000>;
 			mmc-ddr-1_8v;
 			mmc-hs200-1_8v;
@@ -295,23 +295,23 @@
 		};
 
 		serial@78af000 {
-			compatible = "qcom,msm-uartdm-v1.4\0qcom,msm-uartdm";
+			compatible = "qcom,msm-uartdm-v1.4", "qcom,msm-uartdm";
 			reg = <0x78af000 0x200>;
 			interrupts = <0x00 0x6b 0x04>;
 			clocks = <0x03 0x22 0x03 0x15>;
-			clock-names = "core\0iface";
+			clock-names = "core", "iface";
 			status = "disabled";
 			phandle = <0x1e>;
 		};
 
 		serial@78b1000 {
-			compatible = "qcom,msm-uartdm-v1.4\0qcom,msm-uartdm";
+			compatible = "qcom,msm-uartdm-v1.4", "qcom,msm-uartdm";
 			reg = <0x78b1000 0x200>;
 			interrupts = <0x00 0x132 0x04>;
 			clocks = <0x03 0x24 0x03 0x15>;
-			clock-names = "core\0iface";
+			clock-names = "core", "iface";
 			dmas = <0x06 0x04 0x06 0x05>;
-			dma-names = "tx\0rx";
+			dma-names = "tx", "rx";
 			pinctrl-0 = <0x07>;
 			pinctrl-names = "default";
 			status = "okay";
@@ -319,11 +319,11 @@
 		};
 
 		serial@78b3000 {
-			compatible = "qcom,msm-uartdm-v1.4\0qcom,msm-uartdm";
+			compatible = "qcom,msm-uartdm-v1.4", "qcom,msm-uartdm";
 			reg = <0x78b3000 0x200>;
 			interrupts = <0x00 0x134 0x04>;
 			clocks = <0x03 0x26 0x03 0x15>;
-			clock-names = "core\0iface";
+			clock-names = "core", "iface";
 			pinctrl-0 = <0x08>;
 			pinctrl-names = "default";
 			status = "okay";
@@ -338,9 +338,9 @@
 			interrupts = <0x00 0x5f 0x04>;
 			spi-max-frequency = <0x2faf080>;
 			clocks = <0x03 0x17 0x03 0x15>;
-			clock-names = "core\0iface";
+			clock-names = "core", "iface";
 			dmas = <0x06 0x0c 0x06 0x0d>;
-			dma-names = "tx\0rx";
+			dma-names = "tx", "rx";
 			pinctrl-0 = <0x09>;
 			pinctrl-names = "default";
 			status = "okay";
@@ -362,10 +362,10 @@
 			reg = <0x78b6000 0x600>;
 			interrupts = <0x00 0x60 0x04>;
 			clocks = <0x03 0x15 0x03 0x18>;
-			clock-names = "iface\0core";
+			clock-names = "iface", "core";
 			clock-frequency = <0x61a80>;
 			dmas = <0x06 0x0f 0x06 0x0e>;
-			dma-names = "rx\0tx";
+			dma-names = "rx", "tx";
 			pinctrl-0 = <0x0a>;
 			pinctrl-names = "default";
 			status = "okay";
@@ -379,10 +379,10 @@
 			reg = <0x78b7000 0x600>;
 			interrupts = <0x00 0x61 0x04>;
 			clocks = <0x03 0x15 0x03 0x1a>;
-			clock-names = "iface\0core";
+			clock-names = "iface", "core";
 			clock-frequency = <0x186a0>;
 			dmas = <0x06 0x11 0x06 0x10>;
-			dma-names = "rx\0tx";
+			dma-names = "rx", "tx";
 			status = "disabled";
 			phandle = <0x23>;
 		};
@@ -405,9 +405,9 @@
 			#address-cells = <0x01>;
 			#size-cells = <0x00>;
 			clocks = <0x03 0x2a 0x03 0x29>;
-			clock-names = "core\0aon";
+			clock-names = "core", "aon";
 			dmas = <0x0b 0x00 0x0b 0x01 0x0b 0x02>;
-			dma-names = "tx\0rx\0cmd";
+			dma-names = "tx", "rx", "cmd";
 			pinctrl-0 = <0x0c>;
 			pinctrl-names = "default";
 			status = "okay";
@@ -428,7 +428,7 @@
 			#size-cells = <0x01>;
 			ranges;
 			clocks = <0x03 0x7c 0x03 0x7d 0x03 0x81 0x03 0x7e>;
-			clock-names = "sys_noc_axi\0master\0sleep\0mock_utmi";
+			clock-names = "sys_noc_axi", "master", "sleep", "mock_utmi";
 			assigned-clocks = <0x03 0x7c 0x03 0x7d 0x03 0x7e>;
 			assigned-clock-rates = <0x7f27450 0x7f27450 0x124f800>;
 			resets = <0x03 0x2b>;
@@ -440,7 +440,7 @@
 				reg = <0x8a00000 0xcd00>;
 				interrupts = <0x00 0x8c 0x04>;
 				phys = <0x0d 0x0e>;
-				phy-names = "usb2-phy\0usb3-phy";
+				phy-names = "usb2-phy", "usb3-phy";
 				snps,is-utmi-l1-suspend;
 				snps,hird-threshold = [00];
 				snps,dis_u2_susphy_quirk;
@@ -457,7 +457,7 @@
 			#size-cells = <0x01>;
 			ranges;
 			clocks = <0x03 0x83 0x03 0x84 0x03 0x88 0x03 0x85>;
-			clock-names = "sys_noc_axi\0master\0sleep\0mock_utmi";
+			clock-names = "sys_noc_axi", "master", "sleep", "mock_utmi";
 			assigned-clocks = <0x03 0x83 0x03 0x84 0x03 0x85>;
 			assigned-clock-rates = <0x7f27450 0x7f27450 0x124f800>;
 			resets = <0x03 0x2e>;
@@ -469,7 +469,7 @@
 				reg = <0x8c00000 0xcd00>;
 				interrupts = <0x00 0x63 0x04>;
 				phys = <0x0f 0x10>;
-				phy-names = "usb2-phy\0usb3-phy";
+				phy-names = "usb2-phy", "usb3-phy";
 				snps,is-utmi-l1-suspend;
 				snps,hird-threshold = [00];
 				snps,dis_u2_susphy_quirk;
@@ -561,7 +561,7 @@
 		pci@10000000 {
 			compatible = "qcom,pcie-ipq8074";
 			reg = <0x10000000 0xf1d 0x10000f20 0xa8 0x88000 0x2000 0x10100000 0x1000>;
-			reg-names = "dbi\0elbi\0parf\0config";
+			reg-names = "dbi", "elbi", "parf", "config";
 			device_type = "pci";
 			linux,pci-domain = <0x01>;
 			bus-range = <0x00 0xff>;
@@ -577,9 +577,9 @@
 			interrupt-map-mask = <0x00 0x00 0x00 0x07>;
 			interrupt-map = <0x00 0x00 0x00 0x01 0x01 0x00 0x8e 0x04 0x00 0x00 0x00 0x02 0x01 0x00 0x8f 0x04 0x00 0x00 0x00 0x03 0x01 0x00 0x90 0x04 0x00 0x00 0x00 0x04 0x01 0x00 0x91 0x04>;
 			clocks = <0x03 0x7a 0x03 0x77 0x03 0x78 0x03 0x75 0x03 0x76>;
-			clock-names = "iface\0axi_m\0axi_s\0ahb\0aux";
+			clock-names = "iface", "axi_m", "axi_s", "ahb", "aux";
 			resets = <0x03 0x7c 0x03 0x7d 0x03 0x7e 0x03 0x7f 0x03 0x80 0x03 0x81 0x03 0x82>;
-			reset-names = "pipe\0sleep\0sticky\0axi_m\0axi_s\0ahb\0axi_m_sticky";
+			reset-names = "pipe", "sleep", "sticky", "axi_m", "axi_s", "ahb", "axi_m_sticky";
 			status = "okay";
 			perst-gpio = <0x05 0x3a 0x01>;
 			phandle = <0x2a>;
@@ -588,7 +588,7 @@
 		pci@20000000 {
 			compatible = "qcom,pcie-ipq8074-gen3";
 			reg = <0x20000000 0xf1d 0x20000f20 0xa8 0x20001000 0x1000 0x80000 0x4000 0x20100000 0x1000>;
-			reg-names = "dbi\0elbi\0atu\0parf\0config";
+			reg-names = "dbi", "elbi", "atu", "parf", "config";
 			device_type = "pci";
 			linux,pci-domain = <0x00>;
 			bus-range = <0x00 0xff>;
@@ -605,9 +605,9 @@
 			interrupt-map-mask = <0x00 0x00 0x00 0x07>;
 			interrupt-map = <0x00 0x00 0x00 0x01 0x01 0x00 0x4b 0x04 0x00 0x00 0x00 0x02 0x01 0x00 0x4e 0x04 0x00 0x00 0x00 0x03 0x01 0x00 0x4f 0x04 0x00 0x00 0x00 0x04 0x01 0x00 0x53 0x04>;
 			clocks = <0x03 0x74 0x03 0x71 0x03 0x72 0x03 0xe0 0x03 0xe2>;
-			clock-names = "iface\0axi_m\0axi_s\0axi_bridge\0rchng";
+			clock-names = "iface", "axi_m", "axi_s", "axi_bridge", "rchng";
 			resets = <0x03 0x75 0x03 0x76 0x03 0x77 0x03 0x78 0x03 0x79 0x03 0x7a 0x03 0x7b 0x03 0x83>;
-			reset-names = "pipe\0sleep\0sticky\0axi_m\0axi_s\0ahb\0axi_m_sticky\0axi_s_sticky";
+			reset-names = "pipe", "sleep", "sticky", "axi_m", "axi_s", "ahb", "axi_m_sticky", "axi_s_sticky";
 			status = "okay";
 			perst-gpio = <0x05 0x3d 0x01>;
 			phandle = <0x2b>;
