@@ -1,7 +1,6 @@
 #!/bin/bash
 
 XY_VERSION="R3.1"
-ZFS_VERSION="zfs-2.2.4"
 
 set -e
 
@@ -45,24 +44,6 @@ OUT_DTBIMAGE="$TMPDIR/dtb.img"
 # Kernel-side
 BUILD_ARGS="LOCALVERSION=-XyUnbound-${XY_VERSION} KBUILD_BUILD_USER=Gabriel260BR KBUILD_BUILD_HOST=ExynosUnbound"
 
-bring_zfs() {
-  echo "Adding ZFS Support to ktree..."
-  git clone https://github.com/openzfs/zfs -b "$ZFS_VERSION" --depth=1 || exit
-  CDIR="$(pwd)"
-  cd "$CDIR/zfs"
-  ./autogen.sh
-  PATH="$SIMPLE_PATH" ./configure --host=aarch64-unknown-linux --enable-linux-builtin=yes --with-linux="$CDIR" --with-linux-obj="$CDIR/out" CC=clang --with-config=kernel --without-udevdir --disable-sysvinit --disable-systemd || exit
-  ./copy-builtin "$CDIR" || exit
-  cd "$CDIR"
-  git apply aarch64-zfs.patch || true
-  echo 'MODULE_IMPORT_NS(VFS_internal_I_am_really_a_filesystem_and_am_NOT_a_driver);' >> fs/zfs/os/linux/zfs/zfs_ioctl_os.c
-  echo 'MODULE_IMPORT_NS(VFS_internal_I_am_really_a_filesystem_and_am_NOT_a_driver);' >> fs/zfs/os/linux/spl/spl-generic.c
-  grep -r CDDL include/zfs/|grep -v '\*'|grep -v bsd|cut -d':' -f1|while read FL ; do sed -i 's|ZFS_META_LICENSE = CDDL|ZFS_META_LICENSE = GPL|; s|#define ZFS_META_LICENSE "CDDL"|#define ZFS_META_LICENSE "GPL"|' $FL; done
-  echo "$(grep CONFIG_ZFS arch/arm64/configs/a53x_defconfig)" >> "$CDIR/out/.config" "$CDIR/out/.config.old"
-  echo ' - OK'
-}
-
-
 kfinish() {
     rm -rf "$TMPDIR"
     rm -rf "$OUTDIR"
@@ -79,7 +60,6 @@ export CC="$PARENT_DIR/clang-r416183b/bin/clang"
 
 export PLATFORM_VERSION=12
 export ANDROID_MAJOR_VERSION=s
-export SIMPLE_PATH="$PARENT_DIR/clang-r416183b/bin:$PATH"
 export PATH="$PARENT_DIR/build-tools/path/linux-x86:$PARENT_DIR/clang-r416183b/bin:$PATH"
 export TARGET_SOC=s5e8825
 export LLVM=1 LLVM_IAS=1
@@ -94,10 +74,6 @@ if [ ! -d "$PARENT_DIR/build-tools" ]; then
 fi
 
 make -j$(nproc --all) -C $(pwd) O=out $BUILD_ARGS a53x_defconfig >/dev/null
-make -j$(nproc --all) -C $(pwd) O=out $BUILD_ARGS modules_prepare >/dev/null
-if [ ! -d "$(pwd)/zfs" ]; then
-  bring_zfs
-fi
 make -j$(nproc --all) -C $(pwd) O=out $BUILD_ARGS dtbs >/dev/null
 make -j$(nproc --all) -C $(pwd) O=out $BUILD_ARGS >/dev/null
 make -j$(nproc --all) -C $(pwd) O=out INSTALL_MOD_STRIP="--strip-debug --keep-section=.ARM.attributes" INSTALL_MOD_PATH="$MODULES_OUTDIR" modules_install >/dev/null
