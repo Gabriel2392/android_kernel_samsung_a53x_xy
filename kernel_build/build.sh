@@ -134,7 +134,7 @@ $MKBOOTIMG --header_version 4 \
     --output "$OUT_BOOTIMG" \
     --ramdisk "$PREBUILT_RAMDISK" \
     --os_version 12.0.0 \
-    --os_patch_level 2024-06 || exit 1
+    --os_patch_level 2024-09 || exit 1
 
 echo "Done!"
 echo "Building vendor_boot image..."
@@ -155,7 +155,7 @@ $MKBOOTIMG --header_version 4 \
     --ramdisk_name dlkm \
     --vendor_ramdisk_fragment "$(pwd)/ramdisk_dlkm.lz4" \
     --os_version 12.0.0 \
-    --os_patch_level 2024-06 || exit 1
+    --os_patch_level 2024-09 || exit 1
 
 cd "$DIR"
 
