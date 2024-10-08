@@ -1,6 +1,6 @@
 #!/bin/bash
 
-XY_VERSION="R3.2"
+XY_VERSION="R3.3-UNLOCKED"
 
 set -e
 
