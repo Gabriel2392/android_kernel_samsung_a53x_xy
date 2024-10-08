@@ -391,7 +391,13 @@ static void fvmap_copy_from_sram(void __iomem *map_base, void __iomem *sram_base
 	unsigned int member_addr;
 	unsigned int blk_idx;
 	int size, margin;
-	int i, j;
+	int i, j, k;
+
+	int rates_lv17[] = { 2210000, 2106000, 2002000, 1898000, 1794000, 1690000, 1586000, 1508000, 1352000 };
+	int num_rates_lv17 = sizeof(rates_lv17) / sizeof(rates_lv17[0]);
+
+	int rates_lv16[] = { 2704000, 2600000, 2496000, 2400000, 2288000, 2132000, 2002000, 1872000, 1690000, 1508000, 1352000 };
+	int num_rates_lv16 = sizeof(rates_lv16) / sizeof(rates_lv16[0]);
 
 	fvmap_header = map_base;
 	header = sram_base;
@@ -463,15 +469,34 @@ static void fvmap_copy_from_sram(void __iomem *map_base, void __iomem *sram_base
 				pr_info("  DVFS CMU addr:0x%x\n", member_addr);
 #endif
 		}
-#ifdef CONFIG_EXYNOS_DEBUG_INFO
+
 		for (j = 0; j < fvmap_header[i].num_of_lv; j++) {
 			new->table[j].rate = old->table[j].rate;
+			if (fvmap_header[i].num_of_lv == 17 && fvmap_header[i].num_of_members == 5) {
+				for (k = 0; k < num_rates_lv17; k++) {
+					if (new->table[j].rate == rates_lv17[k]) {
+						old->table[j].volt -= 4;
+						new->table[j].volt = old->table[j].volt; // LITTLE cores are super efficient, undervolt has almost no effect.
+						goto print_info;
+					}
+				}
+			} else if (fvmap_header[i].num_of_lv == 16 && fvmap_header[i].num_of_members == 1) {
+				for (k = 0; k < num_rates_lv16; k++) {
+					if (new->table[j].rate == rates_lv16[k]) {
+						old->table[j].volt -= 8;
+						new->table[j].volt = old->table[j].volt; // Remember, it's multiplied by STEP_UV
+						goto print_info;
+					}
+				}
+			}
+
 			new->table[j].volt = old->table[j].volt;
+
+print_info:
 			pr_info("  lv : [%7d], volt = %d uV (%d %%) \n",
 				new->table[j].rate, new->table[j].volt * STEP_UV,
 				volt_offset_percent);
 		}
-#endif
 	}
 }
 
