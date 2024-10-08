@@ -1743,12 +1743,26 @@ static int init_domain(struct exynos_cpufreq_domain *domain,
 	if (!of_property_read_u32(dn, "min-freq", &val))
 		domain->min_freq = max(domain->min_freq, val);
 
+	if (domain->id == 1) { // BIG
+		if (domain->max_freq == 2288000 || domain->max_freq == 2400000 ||
+			domain->max_freq == 2496000 || domain->max_freq == 2600000) {
+			domain->max_freq = 2704000;
+		}
+	}
+
 	/* Get freq-table from device tree and cut the out of range */
 	raw_table_size = of_property_count_u32_elems(dn, "freq-table");
 	if (of_property_read_u32_array(dn, "freq-table",
 				freq_table, raw_table_size)) {
 		pr_err("%s: freq-table does not exist\n", __func__);
 		return -ENODATA;
+	}
+
+	if (raw_table_size + 3 <= 100) {
+		freq_table[raw_table_size] = 2496000;
+		freq_table[raw_table_size + 1] = 2600000;
+		freq_table[raw_table_size + 2] = 2704000;
+		raw_table_size += 3;
 	}
 
 	/*
