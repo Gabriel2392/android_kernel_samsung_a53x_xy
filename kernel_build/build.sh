@@ -1,6 +1,6 @@
 #!/bin/bash
 
-XY_VERSION="R3.2"
+XY_VERSION="R3.4-SUN"
 
 set -e
 
